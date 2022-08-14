@@ -1,9 +1,9 @@
 {
-  "name": "airbnb_clone",
+  "name": "yourbnb_clone",
   "private": true,
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
-  "main": "webpack.config.js",
+  "main": "./frontend/yourbnb.jsx",
   "directories": {
     "lib": "lib",
     "test": "test"
