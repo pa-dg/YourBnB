@@ -9,6 +9,14 @@ const SessionForm = props => {
     password: '',
   })
 
+  useEffect(() => {
+    // window.alert('my dependency array changed');
+    // console.log('userInfo', userInfo);
+    return () => {
+      props.clearReceiveErrors();
+    };
+  }, []);
+
   const update = field => { 
     return e => setUserInfo({
       ...userInfo, [field]: e.currentTarget.value 
@@ -31,7 +39,7 @@ const SessionForm = props => {
     return (
       <ul>
         {props.errors.map((error, i) => (
-          <li key={`error-${i}`} className="auth-errors">
+          <li key={`error-${i}`} className="session-errors">
             {error}
           </li>
         ))}
@@ -47,8 +55,6 @@ const SessionForm = props => {
     }).then(props.closeModal)
   };
 
-  //useEffect for clearing errors
-  
   // let modalFormButtonText = props.formType === 'signUp' ? 'Sign Up' : 'Log In';
 
   return (
@@ -69,7 +75,7 @@ const SessionForm = props => {
                   <input type="text" 
                     placeholder="First Name"
                     value={userInfo.first_name}
-                    onChange={update('first_name')}
+                    onChange={update('firstName')}
                   />
                 </label>
                 <br />
@@ -77,7 +83,7 @@ const SessionForm = props => {
                   <input type="text" 
                     placeholder="Last Name"
                     value={userInfo.last_name}
-                    onChange={update('first_name')}
+                    onChange={update('lastName')}
                   />
                 </label>  
                 <br />

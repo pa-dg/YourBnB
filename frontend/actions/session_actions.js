@@ -17,16 +17,16 @@ export const logoutCurrentUser = () => ({
 });
 
 export const receiveErrors = (errors) => {
+  // debugger;
   return {
     type: RECEIVE_SESSION_ERRORS,
     errors,
   };
 };
 
-export const clearErrors = (errors) => {
+export const clearReceiveErrors = () => {
   return {
     type: CLEAR_RECEIVE_ERRORS,
-    errors,
   };
 };
 
