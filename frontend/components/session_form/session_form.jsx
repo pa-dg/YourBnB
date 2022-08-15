@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const SessionForm = props => {
 
@@ -47,6 +47,8 @@ const SessionForm = props => {
     }).then(props.closeModal)
   };
 
+  //useEffect for clearing errors
+  
   // let modalFormButtonText = props.formType === 'signUp' ? 'Sign Up' : 'Log In';
 
   return (
