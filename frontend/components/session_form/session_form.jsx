@@ -39,6 +39,14 @@ const SessionForm = props => {
     );
   };
   
+  const demoLogin = (e) => {
+    e.preventDefault();
+    props.login({
+      email: 'demouser@gmail.com',
+      password: '123456',
+    }).then(props.closeModal)
+  };
+
   // let modalFormButtonText = props.formType === 'signUp' ? 'Sign Up' : 'Log In';
 
   return (
@@ -91,9 +99,15 @@ const SessionForm = props => {
           </label>
           <br />
             <input type="submit" 
-                value={props.formType}/>
+                value={props.formType}
+            />
+            <button className="demo-login-button" onClick={demoLogin}>Demo User</button>
         </div>
       </form>
+      <br />
+      <footer className="session-form-footer">
+        {props.otherForm}
+      </footer>
     </div>
   );
 
