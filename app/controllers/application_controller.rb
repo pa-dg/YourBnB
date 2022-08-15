@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  #UNCOMMENT
+  skip_before_action :verify_authenticity_token
   # protect_from_forgery with: :exception   #CSRF attack protection 
 
   helper_method :current_user, :logged_in?
