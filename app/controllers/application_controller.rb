@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   #UNCOMMENT
-  protect_from_forgery with: :exception   #CSRF attack protection 
+  # protect_from_forgery with: :exception   #CSRF attack protection 
 
   helper_method :current_user, :logged_in?
 
