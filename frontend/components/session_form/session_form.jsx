@@ -39,12 +39,12 @@ const SessionForm = props => {
     );
   };
   
-  let modalFormButtonText = props.formType === 'signUp' ? 'Sign Up' : 'Log In';
+  // let modalFormButtonText = props.formType === 'signUp' ? 'Sign Up' : 'Log In';
 
   return (
     <div className="session-form-modal">
       <div className="session-form-header">
-        <div className="exit-modal" onClick={closeModal}>x</div>
+        <div className="exit-modal" onClick={closeModal}>&times;</div>
         <h1>Welcome to YourBnB</h1>
         <h2>Log in or sign up</h2>
       </div>
