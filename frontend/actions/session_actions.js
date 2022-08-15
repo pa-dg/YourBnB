@@ -22,6 +22,12 @@ export const receiveErrors = (errors) => {
   };
 };
 
+export const clearErrors = (errors) => {
+  return {
+    
+  };
+};
+
 export const signup = (user) => (dispatch) => {
   return sessionAPIUtil.signup(user).then(
     (user) => dispatch(receiveCurrentUser(user)),

@@ -9,15 +9,7 @@ const SessionForm = props => {
     password: '',
   })
 
-  const update = field => { // first_name = 'raf'
-    // setUserInfo({ [field]: e.currentTarget.value });
-    // {
-    //   first_name: '',
-    //   last_name: '',
-    //   email: 'raf_gaasf',
-    //   password: '',
-    // }
-    
+  const update = field => { 
     return e => setUserInfo({
       ...userInfo, [field]: e.currentTarget.value 
       });
@@ -53,7 +45,7 @@ const SessionForm = props => {
     <div className="session-form-modal">
       <div className="session-form-header">
         <div className="exit-modal" onClick={closeModal}>x</div>
-        <h1>Welcome to YourBnB!</h1>
+        <h1>Welcome to YourBnB</h1>
         <h2>Log in or sign up</h2>
       </div>
 
@@ -98,10 +90,8 @@ const SessionForm = props => {
             />
           </label>
           <br />
-          <label htmlFor="modal-form-button">{modalFormButtonText}
             <input type="submit" 
-            value={props.formType}/>
-          </label>
+                value={props.formType}/>
         </div>
       </form>
     </div>
