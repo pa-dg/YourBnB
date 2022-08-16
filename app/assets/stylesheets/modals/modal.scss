@@ -1,25 +1,5 @@
-$default-bg-color: transparent;
-$default-button-hover-color: rgb(225, 225, 225);
-$default-color: rgb(34, 34, 34);
-$default-font-wt: 700;
-$default-font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-  "Helvetica Neue", "sans-serif";
-$default-linear-gradient: linear-gradient(
-  to right,
-  rgb(230, 30, 77) 0%,
-  rgb(227, 28, 95) 50%,
-  rgb(215, 4, 102) 100%
-);
-$default-linear-gradient2: linear-gradient(to right, #00a699 0%, #007e8b 100%);
-// $default-radial-gradient: radial-gradient(
-//   circle at center center,
-//   rgb(255, 56, 92) 0%,
-//   rgb(230, 30, 77) 27.5%,
-//   rgb(227, 28, 95) 40%,
-//   rgb(215, 4, 102) 57.5%,
-//   rgb(189, 30, 89) 75%,
-//   rgb(189, 30, 89) 100%
-// ) !important;
+@import "../variables.scss";
+@import "../main.scss";
 
 @mixin button($bg-color, $color) {
   cursor: pointer;
@@ -46,55 +26,6 @@ $default-linear-gradient2: linear-gradient(to right, #00a699 0%, #007e8b 100%);
   flex-direction: $direction;
   padding: 0;
   width: 100%;
-}
-
-body {
-  @include centerer(column);
-  color: #484848;
-  font-size: 16px;
-  line-height: 1.43;
-  -webkit-font-smoothing: antialiased;
-}
-
-h1 {
-  font-size: 34px;
-  font-weight: bold;
-}
-
-h2 {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-h3 {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-h4 {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-a {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-input,
-textarea {
-  font-size: 16px;
-  align-items: center;
-  width: 450px;
-  height: 48px;
-  border-radius: 8px;
-  border: 0.5px solid lightgray;
-  margin: 10px;
-  padding: 12px;
-  color: $default-color;
-  &:focus-within {
-    border: 2px solid black;
-  }
 }
 
 .modal-background {
@@ -169,13 +100,14 @@ textarea {
     padding: 0;
 
     &::placeholder {
-      padding-left: 12px;
+      margin: 1px 0 1px;
     }
   }
 }
 
 .session-errors {
   color: red;
+  padding: 10px;
 }
 
 .session-button {

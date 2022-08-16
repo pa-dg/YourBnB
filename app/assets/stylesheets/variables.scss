@@ -1,0 +1,22 @@
+$default-bg-color: transparent;
+$default-button-hover-color: rgb(225, 225, 225);
+$default-color: rgb(34, 34, 34);
+$default-font-wt: 700;
+$default-font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+  "Helvetica Neue", "sans-serif";
+$default-linear-gradient: linear-gradient(
+  to right,
+  rgb(230, 30, 77) 0%,
+  rgb(227, 28, 95) 50%,
+  rgb(215, 4, 102) 100%
+);
+$default-linear-gradient2: linear-gradient(to right, #00a699 0%, #007e8b 100%);
+// $default-radial-gradient: radial-gradient(
+//   circle at center center,
+//   rgb(255, 56, 92) 0%,
+//   rgb(230, 30, 77) 27.5%,
+//   rgb(227, 28, 95) 40%,
+//   rgb(215, 4, 102) 57.5%,
+//   rgb(189, 30, 89) 75%,
+//   rgb(189, 30, 89) 100%
+// ) !important;

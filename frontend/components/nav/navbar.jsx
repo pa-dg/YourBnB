@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { logout } from '../../actions/session_actions';
+import ModalContainer from '../modal/modal';
 
 const NavBar = (props) => {
   const { currentUser, logout } = props;
@@ -15,7 +16,13 @@ const NavBar = (props) => {
 
   const mainMenuNav = () => {
     return (
-      <div className="nav-main-menu">
+      <div className="nav-dropdown-button">
+        <div className="icon1">
+          <i className="fas fa-grip-lines icon-large"></i>
+        </div>
+        <div className="icon2">
+          <i className="fa-solid fa-circle-user"></i>
+        </div>
         <div className="nav-login" onClick={openModal('login')}>
           Log In
         </div>
