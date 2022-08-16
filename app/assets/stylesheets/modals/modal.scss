@@ -1,20 +1,198 @@
+$default-bg-color: transparent;
+$default-button-hover-color: rgb(225, 225, 225);
+$default-color: rgb(34, 34, 34);
+$default-font-wt: 700;
+$default-font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+  "Helvetica Neue", "sans-serif";
+$default-linear-gradient: linear-gradient(
+  to right,
+  rgb(230, 30, 77) 0%,
+  rgb(227, 28, 95) 50%,
+  rgb(215, 4, 102) 100%
+);
+$default-linear-gradient2: linear-gradient(to right, #00a699 0%, #007e8b 100%);
+// $default-radial-gradient: radial-gradient(
+//   circle at center center,
+//   rgb(255, 56, 92) 0%,
+//   rgb(230, 30, 77) 27.5%,
+//   rgb(227, 28, 95) 40%,
+//   rgb(215, 4, 102) 57.5%,
+//   rgb(189, 30, 89) 75%,
+//   rgb(189, 30, 89) 100%
+// ) !important;
+
+@mixin button($bg-color, $color) {
+  cursor: pointer;
+  font-weight: $default-font-wt;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+  color: $color;
+  background: $bg-color;
+  border-radius: 8px;
+  width: 100%;
+  &:hover {
+    color: $color;
+    background-color: $default-button-hover-color;
+  }
+}
+
+@mixin centerer($direction) {
+  color: $default-color;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  @include centerer(column);
+  color: #484848;
+  font-size: 16px;
+  line-height: 1.43;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+input,
+textarea {
+  font-size: 16px;
+  align-items: center;
+  width: 450px;
+  height: 48px;
+  border-radius: 8px;
+  border: 0.5px solid lightgray;
+  margin: 10px;
+  padding: 12px;
+  color: $default-color;
+  &:focus-within {
+    border: 2px solid black;
+  }
+}
+
 .modal-background {
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(50, 50, 50, 0.5);
   z-index: 10;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
 }
 
 .modal-child {
+  @include centerer(column);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow: hidden;
   background-color: white;
+  border-radius: 12px;
+  width: 70vw;
+  max-width: 568px;
+  min-width: 300px;
+}
+
+.session-form-modal {
+  @include centerer(column);
+  width: 100%;
+}
+
+.session-form-header {
+  @include centerer(row);
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 1 0;
+  padding: 16px 0;
+  border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.exit-modal {
+  @include button(transparent, $default-color);
+  padding: 10px;
+  margin: 0;
+  height: auto;
+  width: 20px;
+}
+
+.login-signup-form {
+  @include centerer(column);
+  width: 100%;
+  padding: 24px;
+  align-items: flex-start;
+
+  &:not(first-child) {
+    align-items: center;
+  }
+
+  h3 {
+    margin: 15px 0;
+  }
+
+  label,
+  button {
+    margin-bottom: 16px;
+  }
+
+  input {
+    // -2px for input borders
+    width: 518px;
+    margin: 0;
+    padding: 0;
+
+    &::placeholder {
+      padding-left: 12px;
+    }
+  }
+}
+
+.session-errors {
+  color: red;
+}
+
+.session-button {
+  @include button($default-linear-gradient, white);
+  border-style: none;
+  width: 520px;
+  height: 48px;
+}
+
+.session-form-footer {
+  @include centerer(row);
+  padding: 24px;
+}
+
+.demo-login-button {
+  @include button($default-linear-gradient2, white);
+  border-style: none;
+  width: 520px;
+  height: 48px;
 }
