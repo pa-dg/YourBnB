@@ -107,7 +107,7 @@
     font-size: 20px;
     align-items: center;
     display: flex;
-    color: #545353;
+    color: $default-color-light-gray;
   }
 
   .dropdown-icon2 {
@@ -117,7 +117,7 @@
     margin-left: 5px;
     align-items: center;
     display: flex;
-    color: #545353;
+    color: $default-color-light-gray;
   }
 }
 
@@ -139,6 +139,8 @@
   flex-direction: column;
   width: 200px;
   height: 130px;
+  right: -16px;
+  top: 25px;
 }
 
 .dropdown-content-id div {

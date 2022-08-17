@@ -1,0 +1,34 @@
+@import "../variables.scss";
+
+@mixin icon-size($filter-icon-size) {
+  width: $filter-icon-size;
+  height: $filter-icon-size;
+  padding: 8px 0 8px;
+}
+
+#splash-container {
+  max-width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgb(235, 235, 235);
+}
+
+.filter-container {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: $default-color-light-gray;
+  padding: 0 200px 0 200px;
+  margin: 25px 0;
+}
+
+#filter-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: $default-font-size-sm;
+  font-weight: $default-font-wt;
+  img {
+    @include icon-size($filter-icon-size);
+  }
+}

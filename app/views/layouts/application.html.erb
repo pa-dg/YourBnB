@@ -6,10 +6,21 @@
     <%= csp_meta_tag %>
 
     <script src="https://kit.fontawesome.com/23a6930115.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      window.lakeIcon = "<%= image_url('lake.png') %>"
+      window.beachIcon = "<%= image_url('beach.png') %>"
+      window.cabinIcon = "<%= image_url('cabin.png') %>"
+      window.campingIcon = "<%= image_url('camping.png') %>"
+      window.islandIcon = "<%= image_url('island.png') %>"
+      window.arcticIcon = "<%= image_url('arctic.png') %>"
+      window.treehouseIcon = "<%= image_url('treehouse.png') %>"
+    </script>
+
+   
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+    
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <link rel="shortcut icon" type="image/png" href="../../assets/images/favicon.png" />
-    <%= favicon_link_tag asset_path('favicon.png') %>
   </head>
 
   <body>

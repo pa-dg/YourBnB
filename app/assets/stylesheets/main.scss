@@ -3,14 +3,14 @@
 #root,
 * {
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    "Helvetica Neue", "sans-serif";
-  position: relative;
-  // overflow: hidden;
-  // height: 100%;
-  // width: 100%;
+    "Helvetica Neue", sans-serif;
+  // position: static;
 }
 
 body {
+  // max-width: 100%;
+  // overflow: hidden;
+  // align-items: center;
   color: #484848;
   font-size: 16px;
   line-height: 1.43;

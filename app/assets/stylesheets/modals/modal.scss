@@ -52,11 +52,6 @@
   min-width: 300px;
 }
 
-.session-form-modal {
-  @include centerer(column);
-  width: 100%;
-}
-
 .session-form-header {
   @include centerer(row);
   align-items: center;
