@@ -20,19 +20,6 @@ const DropDown = (props) => {
     document.getElementById("dropdown-content-id").classList.toggle("show")
   )
 
-//   window.onclick = function(event) {
-//     if (!event.target.matches('.dropbtn')) {
-//     var dropdowns = document.getElementsByClassName("dropdown-content");
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains('show')) {
-//         openDropdown.classList.remove('show');
-//       }
-//     }
-//   }
-// }
-
   const loggedInMenu = () => {
     return (
       <div id="dropdown-content-id" className="dropdown-content">
@@ -66,7 +53,7 @@ const DropDown = (props) => {
   };
 
   return (
-    <div className="nav-dropdown-button" onClick={showDropdown}>
+    <button className="nav-dropdown-button" onClick={showDropdown}>
       <div className="dropdown-icon1">
         <i className="fas fa-bars fa-sm"></i>
       </div>
@@ -77,40 +64,9 @@ const DropDown = (props) => {
         <ModalContainer/>
         {
           props.currentUser ? loggedInMenu() : loggedOutMenu()
-
-          // <div className="dropdown-content">
-          //   <ul className="dropdown">
-          //     <li className="nav-messages">
-          //       Messages
-          //     </li>
-          //     <li className="nav-trips">
-          //       Trips
-          //     </li>
-          //     <li className="nav-wishlists">
-          //       Wishlists
-          //     </li>
-          //     <li className="nav-logout-button" onClick={logout}>
-          //       Logout
-          //     </li>
-          //   </ul>
-          // </div>
-
-          // :
-
-          // <div className="dropdown-content">
-          //   <ul className="dropdown">
-          //     <li className="nav-login-signup" onClick={openModal('login')}>
-          //       Log In
-          //     </li>
-          //     <li className="nav-login-signup" onClick={openModal('signup')}>
-          //       Sign Up
-          //     </li>
-          //   </ul>
-          // </div>
-
         }
       </div>
-    </div>
+    </button>
   );
 }
   
