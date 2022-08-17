@@ -10,17 +10,15 @@ import {
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util'; 
-import NavBarContainer from './nav/navbar';
-import ModalContainer from './modal/modal';
+import Nav from './nav/nav';
 
 const App = () => {
   return (
     <div className="app-container">
       <header>
-        <h1>Welcome to YourBnB!</h1>
-        <NavBarContainer />
-        <ModalContainer />
+        <Nav />
       </header>
+      
       <Switch>
         <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
