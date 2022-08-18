@@ -46,7 +46,9 @@ const FilterForm = () => {
       </div>
       
       <button id="filter-modal-button">
-        Filter Button
+         {/* <i className="fas fa-sliders-h fa-2x"></i> */}
+        <span><img src={window.sliderIcon} alt="slider-icon" /></span>
+        <span>Filters</span>
       </button>
 
     </div>

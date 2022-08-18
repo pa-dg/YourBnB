@@ -1,10 +1,9 @@
 @import "./variables.scss";
 
-#root,
-* {
+#root {
+  position: relative;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
     "Helvetica Neue", sans-serif;
-  // position: static;
 }
 
 body {

@@ -1,33 +1,6 @@
 @import "../variables.scss";
 @import "../main.scss";
 
-@mixin button($bg-color, $color) {
-  cursor: pointer;
-  font-weight: $default-font-wt;
-  padding: 10px;
-  text-align: center;
-  font-size: 16px;
-  color: $color;
-  background: $bg-color;
-  border-radius: 8px;
-  width: 100%;
-  &:hover {
-    color: $color;
-    background-color: $default-button-hover-color;
-  }
-}
-
-@mixin centerer($direction) {
-  color: $default-color;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  flex-direction: $direction;
-  padding: 0;
-  width: 100%;
-}
-
 .modal-background {
   position: fixed;
   top: 0;

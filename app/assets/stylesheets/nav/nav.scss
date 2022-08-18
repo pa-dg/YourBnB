@@ -47,7 +47,6 @@
   border-radius: 40px;
   overflow: hidden;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 2px rgba(0, 0, 0, 0.05);
-
   transition: transform 250ms ease, opacity 100ms ease, visibility 0ms 50ms;
 
   &:hover {
@@ -87,7 +86,7 @@
 }
 
 .nav-dropdown-button {
-  background: transparent;
+  @include button(white, $default-color-lt-gray);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,7 +106,7 @@
     font-size: 20px;
     align-items: center;
     display: flex;
-    color: $default-color-light-gray;
+    color: $default-color-lt-gray;
   }
 
   .dropdown-icon2 {
@@ -117,7 +116,7 @@
     margin-left: 5px;
     align-items: center;
     display: flex;
-    color: $default-color-light-gray;
+    color: $default-color-lt-gray;
   }
 }
 
@@ -131,7 +130,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  z-index: 999;
+  z-index: 10;
   background-color: #f9f9f9;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
   padding: 12px 16px;

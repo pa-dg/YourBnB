@@ -3,7 +3,7 @@
 @mixin icon-size($filter-icon-size) {
   width: $filter-icon-size;
   height: $filter-icon-size;
-  padding: 8px 0 8px;
+  padding: 10px 0 10px;
 }
 
 #splash-container {
@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: $default-color-light-gray;
+  color: $default-color-lt-gray;
   padding: 0 200px 0 200px;
   margin: 25px 0;
 }
@@ -30,5 +30,23 @@
   font-weight: $default-font-wt;
   img {
     @include icon-size($filter-icon-size);
+  }
+}
+
+#filter-modal-button {
+  @include button(white, $default-color-lt-gray);
+  font-size: $default-font-size-sm;
+  width: auto;
+  min-width: 90px;
+  border-radius: 12px;
+  margin: 5px;
+  padding: 7px 0px;
+  justify-content: center;
+
+  img {
+    @include icon-size(20px);
+  }
+  span {
+    font-size: $default-font-size-sm;
   }
 }

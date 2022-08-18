@@ -2,7 +2,8 @@ $airbnb-color: #ff385c;
 $default-font-family: "Nunito", "Roboto", "Helvetica Neue", sans-serif;
 $filter-icon-size: 30px;
 $default-font-size-sm: 12px;
-$default-color-light-gray: #717171;
+$default-color-lt-gray: #717171;
+$button-border-color-lt: #dddddd;
 $default-bg-color: transparent;
 $default-button-hover-color: rgb(225, 225, 225);
 $default-color: rgb(34, 34, 34);
@@ -16,3 +17,33 @@ $default-linear-gradient: linear-gradient(
   rgb(215, 4, 102) 100%
 );
 $default-linear-gradient2: linear-gradient(to right, #00a699 0%, #007e8b 100%);
+
+@mixin button($bg-color, $color) {
+  cursor: pointer;
+  font-weight: $default-font-wt;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+  color: $color;
+  background: $bg-color;
+  border-radius: 8px;
+  border: 2px solid $button-border-color-lt;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 2px rgba(0, 0, 0, 0.05);
+  transition: transform 250ms ease, opacity 100ms ease, visibility 0ms 50ms;
+  width: 100%;
+
+  &:hover {
+    background-color: $default-button-hover-color;
+  }
+}
+
+@mixin centerer($direction) {
+  color: $default-color;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+  padding: 0;
+  width: 100%;
+}
