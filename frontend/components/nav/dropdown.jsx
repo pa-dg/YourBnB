@@ -16,9 +16,10 @@ const DropDown = (props) => {
     };
   };
 
-  const showDropdown = () => (
+  const showDropdown = () => {
+    event.stopPropagation();
     document.getElementById("dropdown-content-id").classList.toggle("show")
-  )
+  };
 
   const loggedInMenu = () => {
     return (
@@ -58,7 +59,7 @@ const DropDown = (props) => {
         <i className="fas fa-bars fa-sm"></i>
       </div>
       <div className="dropdown-icon2">
-        <i className="far fa-user-circle" ></i>
+        <i className="far fa-user-circle"></i>
       </div>
       <div className="dropdown-menu">
         <ModalContainer/>
