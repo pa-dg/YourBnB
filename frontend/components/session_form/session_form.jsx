@@ -50,7 +50,7 @@ const SessionForm = props => {
   const demoLogin = (e) => {
     e.preventDefault();
     props.login({
-      email: 'demouser@gmail.com',
+      email: 'demouser@yourbnb.com',
       password: '123456',
     }).then(props.closeModal)
   };

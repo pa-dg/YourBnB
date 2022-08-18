@@ -63,7 +63,7 @@ const DropDown = (props) => {
       <div className="dropdown-menu">
         <ModalContainer/>
         {
-          props.currentUser ? loggedInMenu() : loggedOutMenu()
+          currentUser ? loggedInMenu() : loggedOutMenu()
         }
       </div>
     </button>
