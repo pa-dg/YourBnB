@@ -65,20 +65,27 @@
   color: white;
 }
 
-.socials-dropdown-menu-container {
+.right-nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   width: 15%;
-  // border: 1px solid orange;
+
+  #divider {
+    font-size: 30px;
+    color: $default-color-lt-gray;
+  }
+}
+
+.socials-links {
+  display: flex;
+  align-items: flex-start;
 }
 
 .social-link {
-  display: inline-block;
-  padding: 0px 12px;
+  padding: 0 12px 0 0;
   justify-content: center;
   color: $airbnb-color;
-  // border: 1px solid green;
 
   &:hover {
     color: rgb(103, 209, 174);

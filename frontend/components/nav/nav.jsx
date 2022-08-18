@@ -25,7 +25,7 @@ const Nav = () => {
             </div>
       </div>
 
-      <div className="socials-dropdown-menu-container">
+      <div className="right-nav">
         <div className="socials-links">
           <a className="social-link" href="https://github.com/pa-dg" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-github fa-2x"></i>
@@ -39,8 +39,8 @@ const Nav = () => {
           <a className="social-link" href="mailto:padgzmn@gmail.com" target="_blank" rel="noopener noreferrer">
             <i className="fas fa-envelope fa-2x"></i>
           </a>
-
         </div>
+          <span id="divider">|</span>
         <div className="dropdown-menu-container">
           <DropDownContainer/>
         </div>

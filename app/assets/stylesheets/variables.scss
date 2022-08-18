@@ -1,13 +1,19 @@
+//darker-text-color: #222222
+
 $airbnb-color: #ff385c;
 $default-font-family: "Nunito", "Roboto", "Helvetica Neue", sans-serif;
 $filter-icon-size: 30px;
 $default-font-size-sm: 12px;
+$default-font-size-md: 14px;
+$default-font-size-lg: 16px;
+$default-font-size-xl: 18px;
+$default-font-wt: 700;
 $default-color-lt-gray: #717171;
+$footer-bg-color: #717171;
 $button-border-color-lt: #dddddd;
 $default-bg-color: transparent;
 $default-button-hover-color: rgb(225, 225, 225);
 $default-color: rgb(34, 34, 34);
-$default-font-wt: 700;
 $default-font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
   "Helvetica Neue", "sans-serif";
 $default-linear-gradient: linear-gradient(
@@ -46,4 +52,10 @@ $default-linear-gradient2: linear-gradient(to right, #00a699 0%, #007e8b 100%);
   flex-direction: $direction;
   padding: 0;
   width: 100%;
+}
+
+@mixin icon-size($filter-icon-size) {
+  width: $filter-icon-size;
+  height: $filter-icon-size;
+  padding: 10px 0 10px;
 }

@@ -13,6 +13,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ModalContainer from './modal/modal';
 import Splash from './splash/splash';
 import Nav from './nav/nav';
+import Footer from './footer/footer';
 
 const App = () => {
   return (
@@ -26,6 +27,9 @@ const App = () => {
         <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
         <Route exact path="/" component={Splash} />
       </Switch>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }
