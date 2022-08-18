@@ -19,11 +19,19 @@ ActiveRecord::Schema.define(version: 2022_08_12_220510) do
     t.integer "host_id", null: false
     t.string "title", null: false
     t.text "description", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.string "street", null: false
     t.string "city", null: false
     t.string "state", null: false
     t.string "country", null: false
     t.integer "zip_code", null: false
     t.float "price", null: false
+    t.string "price_currency", default: "USD", null: false
+    t.string "price_per_night", default: "per night", null: false
+    t.float "additional_fees", default: 0.0, null: false
+    t.string "property_type", null: false
+    t.integer "num_guest", null: false
     t.integer "num_beds", null: false
     t.integer "num_baths", null: false
     t.datetime "created_at", null: false
@@ -32,6 +40,9 @@ ActiveRecord::Schema.define(version: 2022_08_12_220510) do
     t.index ["country"], name: "index_listings_on_country"
     t.index ["host_id"], name: "index_listings_on_host_id"
     t.index ["state"], name: "index_listings_on_state"
+    t.index ["street"], name: "index_listings_on_street"
+    t.index ["title"], name: "index_listings_on_title"
+    t.index ["zip_code"], name: "index_listings_on_zip_code"
   end
 
   create_table "reservations", force: :cascade do |t|
