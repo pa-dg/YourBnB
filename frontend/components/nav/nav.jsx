@@ -39,7 +39,7 @@ const Nav = () => {
             <i className="fas fa-envelope fa-2x"></i>
           </a>
         </div>
-          <span id="divider">|</span>
+          <div id="divider">|</div>
         <div className="dropdown-menu-container">
           <DropDownContainer/>
         </div>

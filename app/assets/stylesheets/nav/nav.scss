@@ -97,13 +97,17 @@
   }
 }
 
+.dropdown-menu-container {
+  padding: 0 0 0 12px;
+}
+
 .nav-dropdown-button {
   @include button(white, $default-color-lt-gray);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 16px;
-  border-radius: 21px;
+  padding: 16px 8px;
+  border-radius: 25px;
   cursor: pointer;
   border: 1px solid #dddddd;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 2px rgba(0, 0, 0, 0.05);

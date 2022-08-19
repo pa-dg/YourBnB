@@ -54,7 +54,7 @@ const DropDown = (props) => {
   };
 
   return (
-    <button className="nav-dropdown-button" onClick={showDropdown}>
+    <div className="nav-dropdown-button" onClick={showDropdown}>
       <div className="dropdown-icon1">
         <i className="fas fa-bars fa-sm"></i>
       </div>
@@ -67,7 +67,7 @@ const DropDown = (props) => {
           currentUser ? loggedInMenu() : loggedOutMenu()
         }
       </div>
-    </button>
+    </div>
   );
 }
   

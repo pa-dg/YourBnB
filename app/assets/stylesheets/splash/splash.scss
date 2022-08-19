@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: space-evenly;
   color: $default-color-lt-gray;
-  padding: 6px 300px 6px 300px;
+  padding: 10px 300px 10px 300px;
 }
 
 button {
@@ -33,19 +33,21 @@ button {
 
 #filter-modal-button {
   @include button(white, $default-color-lt-gray);
+  display: flex;
+  align-items: center;
   font-size: $default-font-size-sm;
+  color: $default-color;
   width: auto;
   min-width: 90px;
-  border-radius: 12px;
-  margin: 5px;
-  padding: 7px 0px;
+  border-radius: 16px;
   justify-content: center;
-
+  padding: 5px 10px 5px;
   img {
     @include icon-size(20px);
   }
-  span {
-    font-size: $default-font-size-sm;
+  #button-text {
+    font-size: $default-font-size-md;
+    padding: 0px 5px;
   }
 }
 
