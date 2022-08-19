@@ -18,10 +18,10 @@ const SessionForm = props => {
   }, []);
 
   const update = field => { 
-    return e => setUserInfo({
-      ...userInfo, [field]: e.currentTarget.value 
-      });
-    };
+  return e => setUserInfo({
+    ...userInfo, [field]: e.currentTarget.value 
+    });
+  };
 
   const closeModal = (e) => {
     e.preventDefault();

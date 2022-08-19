@@ -4,6 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 // TO REMOVE
 import { signup, login, logout } from './actions/session_actions';
+import { fetchListings, fetchListing, createListing } from './util/listing_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -31,6 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.login = login;
   window.logout = logout;
   window.signup = signup;
+  window.fetchListings = fetchListings;
+  window.fetchListing = fetchListing;
+  window.createListing = createListing;
+  
   window.onclick = function(event) {
   if (!event.target.matches('.nav-dropdown-button')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");

@@ -16,6 +16,10 @@ class Api::ListingsController < ApplicationController
     render :index
   end
 
+  def show
+    @listing = Listing.find(params[:id])
+  end
+
   def create
     @listing = Listing.create!(new_listing_params)
     if @listing.save
@@ -23,22 +27,25 @@ class Api::ListingsController < ApplicationController
     end
   end
 
-  def show
-    @listing = Listing.find(params[:id])
-  end
+  #TO BE ADDED
+  # def destroy 
+  # end
 
   private
 
-  def new_listing_params
-    params.require(:listing).permit(:title, :description, :latitude, :longitude, :street, :city, :state, :country, :zip_code, :price, :additional_fees, :property_type, :num_beds, :num_baths)
-  end
-  
   def bounds
     params[:bounds]
   end
-
+  
   def guest
     params[:guest]
+  end
+  
+  def selected_listing
+  end
+  
+  def new_listing_params
+    params.require(:listing).permit(:title, :description, :latitude, :longitude, :street, :city, :state, :country, :zip_code, :price, :additional_fees, :property_type, :num_beds, :num_baths)
   end
 
 end
