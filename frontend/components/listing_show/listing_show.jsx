@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BsFillStarFill } from 'react-icons/bs';
 import { FaRegHeart } from 'react-icons/fa';
 import { FiShare } from 'react-icons/fi';
+import ListingMap from '../listing_map/listing_map';
 
 const ListingShow = props => {
   const [listing, setListing] = useState({ 
@@ -101,8 +102,11 @@ const ListingShow = props => {
         <h1>REVIEWS GO HERE</h1>
       </div>
 
-      <div id="map-container">
+      
+      {/* add: ref="map" */}
+      <div id="map-container">  
         <h1>Where you'll be</h1>
+        <ListingMap/>
       </div>
 
     </div>

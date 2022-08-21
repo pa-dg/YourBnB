@@ -20,6 +20,8 @@ class User < ApplicationRecord
   validates :email, format: {with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/}
   validates :password, length: { minimum: 6 }, allow_nil: true
   
+  has_one_attached :photo
+  
   has_many :listings,
     foreign_key: :host_id,
     class_name: 'User'

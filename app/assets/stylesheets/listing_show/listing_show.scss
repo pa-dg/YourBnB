@@ -1,0 +1,94 @@
+@import "../variables.scss";
+
+.listing-show-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 1120px;
+  padding: 0 80px;
+  margin: auto;
+}
+
+.listing-show-heading {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid blue;
+  width: 100%;
+  padding: 24px 0 24px;
+}
+
+#share {
+  padding-right: 5px;
+}
+
+#heart {
+  padding: 0 5px 0 10px;
+}
+
+.listing-show-title {
+  width: 100%;
+}
+
+.listing-show-subheading {
+  display: flex;
+  justify-content: space-between;
+
+  .listing-show-subheading-left,
+  .listing-show-subheading-right {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.listing-show-images-container {
+  width: 100%;
+  height: 560px;
+  // padding-top: 24px;
+  display: flex;
+  // grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  border-radius: 20px;
+  border: 1px solid green;
+}
+
+.listing-show-img-main {
+  width: 100%;
+  height: 100%;
+}
+
+.listing-show-img-others {
+  width: 100%;
+  height: 100%;
+  // display: flex;
+  // flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+
+  div {
+    display: flex;
+    object-fit: cover;
+  }
+}
+
+.listing-show-info-and-reservation-container {
+  width: 100%;
+  height: 1250px;
+  padding: 48px 0px 24px;
+  border: 1px solid black;
+}
+
+.listing-show-reviews-container {
+  width: 100%;
+  height: 700px;
+  padding: 48px 0 48px 0;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  border: 1px solid red;
+}
+
+#map-container {
+  width: 100%;
+  aspect-ratio: 1/0.5;
+  border: 1px solid green;
+}

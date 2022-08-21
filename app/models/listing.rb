@@ -39,18 +39,20 @@ class Listing < ApplicationRecord
     foreign_key: :host_id,
     class_name: 'User'
 
-  # Active Storage Associaiton (AWS S3)
-  # has_many_attached :photos
-
-  has_many :reservations
-
-  has_many :users,
+    has_many :reservations
+    
+    has_many :users,
     through: :reservations,
     source: :user
+    
+    has_many :reviews
+    
+    # Active Storage Associaiton (AWS S3)
+    has_many_attached :photos, dependent: :destroy
 
-  has_many :reviews
-  
-  
+    has_one :host_photo,
+      through: :host,
+      source: :photo_attachment
 
   def self.in_bounds(bounds)
     self.where("latitude < ?", bounds[:northEast][:latitude])
