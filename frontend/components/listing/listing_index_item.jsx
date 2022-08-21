@@ -1,32 +1,38 @@
 import React from "react";
 import { withRouter, useHistory } from "react-router-dom";
+import { BsFillStarFill } from 'react-icons/bs';
+// import ImageSlider from './image_slider';
 
 const ListingIndexItem = props => {
   
-  const { id, city, state, title, num_beds, price } = props.listing;
-
+  const { id, city, state, title, numBeds, price } = props.listing;
 
   let history = useHistory();
   
   const handleClick = () => {
-    return history.push(`/listings/${id}`);
+    return history.push(`/listing/${id}`); 
   };
   
   return (
+    
     <div className="listing-index-item" onClick={handleClick}>
-      <div className="listing-info">
-        <div id="img-container">
-          <img id="test" src={window.test} alt="test" />
-        </div>
+      <div className="listing-img-container">
+        <img id="test" src={window.test} alt="test" />
+      </div>
         
-        <h3 className="listing-info-location">{city},{state}</h3>
+      <div className="listing-info">
+        <div className="listing-info-location">
+          <h3>{city}, {state}</h3>
           <ul>
-            <li className="listing-info-title">{title}</li>
-            <li className="listing-info-num-beds">{num_beds}</li>
-            <li className="listing-info-price">${`${Math.round(price)}`} night</li>
+            <li id="listing-info-details">{title}</li>
+            <li id="listing-info-details">{numBeds} bed</li>
+            <li id="listing-info-details-price">${`${Math.round(price)}`} <span>night</span></li>
           </ul>
-        <div className="listing-info-reviews">
-            <span id="rating">⭐️ 5.0</span>
+        </div>
+
+        <div className="listing-info-review">
+            <span><BsFillStarFill id="star" /></span>
+            <span id="rating"> 5.0</span>
         </div>
       </div>
     </div>

@@ -1,20 +1,26 @@
-import {  connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { fetchListing } from '../../actions/listing_actions';
 import ListingShow from './listing_show';
 
-const mapStateToProps = (state, { match: { params } }) => {
-  // const listingId = parseInt(params.listingId);
-  debugger;
+
+const mapStateToProps = (state, ownProps) => {
+  const listingId = ownProps.match.params.listingId;
+  const selectedListing = state.entities.listings[parseInt(listingId)];
+
+  // const host = state.entities.users[selectedListing.host_id]
+  // console.log('#', `${state.entities.selectedListing.host_id}`);
+
   return {
-    listingId: (params.listingId),
-    selectedListing: Object.values(state.entities.listings[params.listingId])
+    listingId,
+    selectedListing,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchListing: id => dispatch(fetchListing(id))
+    fetchListing: listingId => dispatch(fetchListing(listingId)),
   };  
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListingShow);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListingShow); //put back in with Router
