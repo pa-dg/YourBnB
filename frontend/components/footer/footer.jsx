@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div id="footer-container">
+    <>
       <div className="footer-content">
         <h2>About Me</h2>
           <ul>
@@ -36,7 +36,7 @@ const Footer = () => {
         <h2>Made with <img src={window.thunderIcon} alt="thunder-icon" /></h2>
         <h2>by Andrea de Guzman</h2>
       </div>
-    </div>
+    </>
 
   );
 };

@@ -6,7 +6,6 @@
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
   max-width: 100%;
   overflow: visible;
   color: #484848;
@@ -54,30 +53,4 @@ textarea {
   &:focus-within {
     border: 2px solid black;
   }
-}
-
-.listing-info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  border: 1px solid black;
-  // position: relative;
-}
-
-.listing-index-item {
-  width: 25%;
-  border: 1px solid red;
-  // width: calc(50% - 12px);
-  min-width: 200px;
-  max-width: 425px;
-}
-
-.listing-info {
-  display: flex;
-  flex-direction: column;
-}
-
-#test {
-  width: 300px;
-  height: 400px;
 }

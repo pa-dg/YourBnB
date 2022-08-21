@@ -2,15 +2,19 @@
 
 #splash-container {
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .filter-container {
-  border-bottom: 1px solid rgb(235, 235, 235);
+  // border-bottom: 1px solid rgb(235, 235, 235);
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   color: $default-color-lt-gray;
-  padding: 10px 300px 10px 300px;
+  padding: 20px 0px 20px 0px;
+  width: 1600px;
 }
 
 button {
@@ -49,9 +53,4 @@ button {
     font-size: $default-font-size-md;
     padding: 0px 5px;
   }
-}
-
-.listing-index-container {
-  height: 1500px;
-  padding: 0 80px;
 }

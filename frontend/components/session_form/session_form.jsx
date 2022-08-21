@@ -10,8 +10,6 @@ const SessionForm = props => {
   })
 
   useEffect(() => {
-    // window.alert('my dependency array changed');
-    // console.log('userInfo', userInfo);
     return () => {
       props.clearReceiveErrors();
     };

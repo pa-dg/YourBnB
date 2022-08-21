@@ -1,7 +1,7 @@
 @import "../variables.scss";
 @import "../modals/modal.scss";
 
-.nav-header-container {
+#nav-header-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -15,8 +15,6 @@
 
 .splash-page-link-container {
   align-items: center;
-  // font-family: $font;
-  // border: 1px solid red;
 
   a,
   h1 {
@@ -32,9 +30,9 @@
   }
 }
 
-.yourbnb-text {
-  font-family: "Montserrat", sans-serif;
+#yourbnb-text {
   letter-spacing: -1px;
+  padding: 0 0 0 5px;
 }
 
 .search-bar-container {
