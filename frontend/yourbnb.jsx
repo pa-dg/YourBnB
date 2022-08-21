@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import configureStore from './store/store';
 import Root from './components/root';
 // TO REMOVE
@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  const root = document.getElementById('root');
-  ReactDOM.render(<Root store={store}/>, root);
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(<Root store={store}/>);
 
   // TO REMOVE, FOR TESTING ONLY
   window.getState = store.getState;

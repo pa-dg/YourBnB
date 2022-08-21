@@ -1,5 +1,4 @@
 import React, { StrictMode } from 'react';
-import GreetingContainer from './greeting/greeting_container';
 import { 
   Route,
   Redirect,
@@ -20,18 +19,18 @@ const App = () => {
   return (
     <>
       <ModalContainer />
-      <header className='nav-header-container'>
+      <header id='nav-header-container'>
         <Nav />
       </header>
       <React.StrictMode>
       <Switch>
         {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
-        <Route exact path="/listing/:id" component={ListingShowContainer} />
+        <Route exact path="/listing/:listingId" component={ListingShowContainer} />
         <Route exact path="/" component={Splash} />
       </Switch>
       </React.StrictMode>
-      <footer>
+      <footer id='footer-container'>
         <Footer />
       </footer>
     </>
