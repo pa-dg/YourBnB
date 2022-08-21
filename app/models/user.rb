@@ -19,6 +19,10 @@ class User < ApplicationRecord
   validates :email, :session_token, uniqueness: true
   validates :email, format: {with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/}
   validates :password, length: { minimum: 6 }, allow_nil: true
+  
+  has_many :listings,
+    foreign_key: :host_id,
+    class_name: 'User'
 
   # SPIRE
   after_initialize :ensure_session_token

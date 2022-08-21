@@ -1,4 +1,1 @@
-json.listing do
-  json.partial! 'listing', listing: @listing
-end
-
+json.partial! 'listing', listing: @listing
