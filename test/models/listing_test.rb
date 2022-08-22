@@ -6,8 +6,8 @@
 #  host_id         :integer          not null
 #  title           :string           not null
 #  description     :text             not null
-#  latitude        :float            not null
-#  longitude       :float            not null
+#  lat             :float            not null
+#  lng             :float            not null
 #  street          :string           not null
 #  city            :string           not null
 #  state           :string           not null

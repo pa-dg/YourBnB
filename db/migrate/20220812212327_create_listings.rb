@@ -4,8 +4,8 @@ class CreateListings < ActiveRecord::Migration[5.2]
       t.integer :host_id, null: false, index: true
       t.string :title, null: false, index: true
       t.text :description, null: false
-      t.float :latitude, null: false
-      t.float :longitude, null: false
+      t.float :lat, null: false
+      t.float :lng, null: false
       t.string :street, null: false, index: true
       t.string :city, null: false, index: true
       t.string :state, null: false, index: true

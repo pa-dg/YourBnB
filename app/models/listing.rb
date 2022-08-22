@@ -6,8 +6,8 @@
 #  host_id         :integer          not null
 #  title           :string           not null
 #  description     :text             not null
-#  latitude        :float            not null
-#  longitude       :float            not null
+#  lat             :float            not null
+#  lng             :float            not null
 #  street          :string           not null
 #  city            :string           not null
 #  state           :string           not null
@@ -25,7 +25,7 @@
 #  updated_at      :datetime         not null
 #
 class Listing < ApplicationRecord
-  validates :host_id, :title, :description, :latitude, :longitude, :street, :city, :state, :country, :zip_code, :price, :additional_fees, :property_type, :num_guest, :num_beds, :num_baths, presence: true
+  validates :host_id, :title, :description, :lat, :lng, :street, :city, :state, :country, :zip_code, :price, :additional_fees, :property_type, :num_guest, :num_beds, :num_baths, presence: true
 
   before_validation :default, :on => :create
   
@@ -56,10 +56,10 @@ class Listing < ApplicationRecord
   end
   
   def self.in_bounds(bounds)
-    self.where("latitude < ?", bounds[:northEast][:latitude])
-      .where("latitude > ?", bounds[:southWest][:latitude])
-      .where("longitude > ?", bounds[:southWest][:longitude])
-      .where("longitude < ?", bounds[:northEast][:longitude])
+    self.where("lat < ?", bounds[:northEast][:lat])
+      .where("lat > ?", bounds[:southWest][:lat])
+      .where("lng > ?", bounds[:southWest][:lng])
+      .where("lng < ?", bounds[:northEast][:lng])
   end
 
   def avg_rating
