@@ -1,6 +1,8 @@
 @import "../variables.scss";
 
 .listing-show-container {
+  font-family: $details-font-family;
+  letter-spacing: 0.5px;
   display: flex;
   flex-direction: column;
   max-width: 100%;
@@ -12,9 +14,9 @@
 .listing-show-heading {
   display: flex;
   flex-direction: column;
-  border: 1px solid blue;
   width: 100%;
   padding: 24px 0 24px;
+  // border: 1px solid blue;
 }
 
 #share {
@@ -27,9 +29,13 @@
 
 .listing-show-title {
   width: 100%;
+  font-size: $default-font-size-xxl;
+  font-weight: $default-font-wt;
+  padding-bottom: 15px;
 }
 
 .listing-show-subheading {
+  font-size: $default-font-size-xl;
   display: flex;
   justify-content: space-between;
 
@@ -43,12 +49,10 @@
 .listing-show-images-container {
   width: 100%;
   height: 560px;
-  // padding-top: 24px;
   display: flex;
-  // grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  border-radius: 20px;
-  border: 1px solid green;
+  border-radius: 25px;
+  overflow: hidden;
 }
 
 .listing-show-img-main {
@@ -58,17 +62,16 @@
 
 .listing-show-img-others {
   width: 100%;
-  height: 100%;
   // display: flex;
   // flex-wrap: wrap;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   gap: 10px;
 
   div {
     display: flex;
-    object-fit: cover;
+    flex-shrink: 3;
+    height: 275px;
   }
 }
 
@@ -76,7 +79,40 @@
   width: 100%;
   height: 1250px;
   padding: 48px 0px 24px;
+  display: flex;
   border: 1px solid black;
+}
+
+.listing-show-info {
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  border: 1px solid blue;
+}
+
+.listing-host {
+  height: 75px;
+  border-bottom: 1px solid rgb(235, 235, 235);
+
+  h1 {
+    font-size: $default-font-size-xxl;
+    font-weight: $default-font-wt;
+    padding-bottom: 12px;
+  }
+  h2 {
+    font-size: $default-font-size-lg;
+  }
+}
+
+.listing-description {
+  width: 100%;
+  font-size: $default-font-size-lg;
+  padding-top: 12px;
+}
+
+.listing-reservation-form {
+  width: 100%;
+  border: 1px solid red;
 }
 
 .listing-show-reviews-container {

@@ -93,9 +93,21 @@ const ListingShow = props => {
       </div>
 
       <div className="listing-show-info-and-reservation-container">
-        <div>
-          <h1>Entire {propertyType} hosted by  </h1>
+        <div className="listing-show-info">
+          <div className="listing-host">
+            <h1>Entire {propertyType} hosted by Andrea</h1>
+            <h2>{numGuest} guest &middot; {numBeds} bed &middot; {numBaths} bath</h2>
+          </div> 
+          
+          <div className="listing-description">
+            <span>{description}</span>
+          </div>
         </div>
+
+        <div className="listing-reservation-form">
+          <h1>RESERVATION FORM</h1>
+        </div>
+        
       </div>
 
       <div className="listing-show-reviews-container">
