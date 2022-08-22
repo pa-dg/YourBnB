@@ -3,3 +3,5 @@
     json.partial! 'listing', listing: listing
   end
 end
+
+

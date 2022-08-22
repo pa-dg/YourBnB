@@ -28,32 +28,33 @@ class Listing < ApplicationRecord
   validates :host_id, :title, :description, :latitude, :longitude, :street, :city, :state, :country, :zip_code, :price, :additional_fees, :property_type, :num_guest, :num_beds, :num_baths, presence: true
 
   before_validation :default, :on => :create
-
-  def default
-    self.price_currency ||= 'USD'
-    self.price_per_night ||= 'per night'
-    self.additional_fees ||= '0'
-  end
-
+  
   belongs_to :host,
     foreign_key: :host_id,
     class_name: 'User'
 
     has_many :reservations
     
-    has_many :users,
+  has_many :users,
     through: :reservations,
     source: :user
     
-    has_many :reviews
+  has_many :reviews
     
-    # Active Storage Associaiton (AWS S3)
-    has_many_attached :photos, dependent: :destroy
+  # Active Storage Associaiton (AWS S3)
+  has_many_attached :photos, dependent: :destroy
 
-    has_one :host_photo,
-      through: :host,
-      source: :photo_attachment
+  has_one :host_photo,
+    through: :host,
+    source: :photo_attachment
 
+
+  def default
+    self.price_currency ||= 'USD'
+    self.price_per_night ||= 'per night'
+    self.additional_fees ||= '0'
+  end
+  
   def self.in_bounds(bounds)
     self.where("latitude < ?", bounds[:northEast][:latitude])
       .where("latitude > ?", bounds[:southWest][:latitude])

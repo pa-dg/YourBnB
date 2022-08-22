@@ -20,11 +20,12 @@ class User < ApplicationRecord
   validates :email, format: {with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/}
   validates :password, length: { minimum: 6 }, allow_nil: true
   
-  has_one_attached :photo
+   # Active Storage Associaiton (AWS S3)
+  has_one_attached :photo, dependent: :destroy
   
   has_many :listings,
     foreign_key: :host_id,
-    class_name: 'User'
+    class_name: 'Listing'
 
   # SPIRE
   after_initialize :ensure_session_token

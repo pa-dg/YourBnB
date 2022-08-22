@@ -8,6 +8,9 @@
 
 require 'open-uri'
 
+# AWS S3
+pathname = 
+
 User.destroy_all
 Listing.destroy_all
 
@@ -152,3 +155,6 @@ listing_five = Listing.create!(
   num_beds: 1,
   num_baths: 1
 )
+
+#AWS S3 Photos
+# listing_one.photos.attach(io: URI.open('https://yourbnb-active-storage-dev.s3.amazonaws.com/test.jpeg'), filename: "test.jpeg")
