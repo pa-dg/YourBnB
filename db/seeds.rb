@@ -9,7 +9,6 @@
 require 'open-uri'
 
 # AWS S3
-pathname = 
 
 User.destroy_all
 Listing.destroy_all
@@ -74,7 +73,7 @@ listing_one = Listing.create!(
 
 listing_two = Listing.create!(
   host_id: andy.id,
-  title: "UNTITLED at Freeman - Tower Balcony Studio 1401",
+  title: "Untitled at Freeman - Tower Balcony Studio 1401",
   description: "Charming Studio with a balcony located in the heart of Lower East Side of Manhattan.",
   lat: 40.727517781962,
   lng: -73.98836964777286,
@@ -157,4 +156,15 @@ listing_five = Listing.create!(
 )
 
 #AWS S3 Photos
-# listing_one.photos.attach(io: URI.open('https://yourbnb-active-storage-dev.s3.amazonaws.com/test.jpeg'), filename: "test.jpeg")
+l1_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_001.png')
+l1_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_002.png')
+l1_img03 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_003.jpg')
+l1_img04 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_004.png')
+l1_img05 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_005.png')
+
+listing_one.photos.attach(io: l1_img01, filename: "img_001.png")
+listing_one.photos.attach(io: l1_img02, filename: "img_002.png")
+listing_one.photos.attach(io: l1_img03, filename: "img_003.png")
+listing_one.photos.attach(io: l1_img04, filename: "img_004.png")
+listing_one.photos.attach(io: l1_img05, filename: "img_005.png")
+

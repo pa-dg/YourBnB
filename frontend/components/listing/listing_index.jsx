@@ -10,8 +10,8 @@ const ListingIndex = props => {
   
   return (
     <>
-      {listings.map(listing => (
-        <ListingIndexItem key={listing.id} listing={listing} />
+      {listings.map((listing, index) => (
+        <ListingIndexItem key={index} listing={listing} />
       ))}               
     </>
     
