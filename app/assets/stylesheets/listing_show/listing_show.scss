@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 24px 0 24px;
+  padding: 24px 0 12px;
   // border: 1px solid blue;
 }
 
@@ -31,11 +31,11 @@
   width: 100%;
   font-size: $default-font-size-xxl;
   font-weight: $default-font-wt;
-  padding-bottom: 15px;
+  padding-bottom: 12px;
 }
 
 .listing-show-subheading {
-  font-size: $default-font-size-xl;
+  font-size: $default-font-size-lg;
   display: flex;
   justify-content: space-between;
 
@@ -51,17 +51,25 @@
   height: 560px;
   display: flex;
   gap: 10px;
-  border-radius: 25px;
+  border-radius: 20px;
   overflow: hidden;
 }
 
 .listing-show-img-main {
-  width: 100%;
-  height: 100%;
+  @include cover();
+  // width: 100%;
+  // height: 100%;
+}
+
+#img-main {
+  width: 555px;
+  height: 560px;
 }
 
 .listing-show-img-others {
+  @include cover();
   width: 100%;
+  height: 100%;
   // display: flex;
   // flex-wrap: wrap;
   display: grid;
@@ -75,19 +83,29 @@
   }
 }
 
+#img-listing {
+  width: 100%;
+  height: 100%;
+}
+
+#test {
+  width: 100%;
+  height: 100%;
+}
+
 .listing-show-info-and-reservation-container {
   width: 100%;
-  height: 1250px;
+  height: 500px;
   padding: 48px 0px 24px;
   display: flex;
-  border: 1px solid black;
+  // border: 1px solid black;
 }
 
 .listing-show-info {
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  border: 1px solid blue;
+  // border: 1px solid blue;
 }
 
 .listing-host {
@@ -111,13 +129,13 @@
 }
 
 .listing-reservation-form {
-  width: 100%;
-  border: 1px solid red;
+  width: 40%;
+  border: 1px solid black;
 }
 
 .listing-show-reviews-container {
   width: 100%;
-  height: 700px;
+  height: 300px;
   padding: 48px 0 48px 0;
   border-bottom: 1px solid rgb(235, 235, 235);
   border: 1px solid red;
@@ -126,5 +144,12 @@
 #map-container {
   width: 100%;
   aspect-ratio: 1/0.5;
-  border: 1px solid green;
+  border: 1px solid blue;
+  margin-bottom: 50px;
+}
+
+.map-header {
+  font-size: $default-font-size-xxl;
+  font-weight: $default-font-wt;
+  padding-bottom: 12px;
 }

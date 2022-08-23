@@ -3,32 +3,35 @@
 #root {
   position: relative;
   font-family: "Montserrat", sans-serif;
+  width: 100%;
 }
 
 body {
   width: 100%;
   color: #484848;
+  align-content: center;
+  justify-content: center;
 }
 
-h1 {
-  font-size: 34px;
-  font-weight: bold;
-}
+// h1 {
+//   font-size: 34px;
+//   font-weight: bold;
+// }
 
-h2 {
-  font-size: 24px;
-  font-weight: bold;
-}
+// h2 {
+//   font-size: 24px;
+//   font-weight: bold;
+// }
 
-h3 {
-  font-size: 20px;
-  font-weight: bold;
-}
+// h3 {
+//   font-size: 20px;
+//   font-weight: bold;
+// }
 
-h4 {
-  font-size: 16px;
-  font-weight: bold;
-}
+// h4 {
+//   font-size: 16px;
+//   font-weight: bold;
+// }
 
 a {
   cursor: pointer;

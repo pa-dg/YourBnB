@@ -2,14 +2,25 @@
 @import "../modals/modal.scss";
 
 #nav-header-container {
-  display: flex;
-  justify-content: space-evenly;
+  // align-content: center;
   align-items: center;
+  justify-content: center;
+  display: flex;
   position: sticky;
   top: 0;
   border-bottom: 1px solid rgb(235, 235, 235);
   background-color: white;
   z-index: 10;
+  width: 100%;
+  // padding-left: 100px;
+
+  #nav-header {
+    width: 1600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid orange;
+  }
   // font-family: $font;
 }
 
@@ -72,7 +83,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 15%;
+  position: relative;
 
   #divider {
     font-size: 30px;

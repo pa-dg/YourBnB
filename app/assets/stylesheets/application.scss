@@ -14,5 +14,45 @@
  *= require_self
  */
 
- 
- 
+@import "./nouislider-react/node_modules/nouislider/distribute/nouislider.css";
+
+$default-lighter-color: rgb(113, 113, 113);
+
+.noUi-horizontal {
+  height: 5px;
+}
+.noUi-connects {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 5px;
+  background-color: lightgray;
+}
+
+.noUi-connect {
+  background: $default-lighter-color;
+  height: 5px;
+  width: 100%;
+}
+
+.noUi-handle {
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 50% !important;
+  top: -8px !important;
+  &::before {
+    left: 7px;
+    top: -1px;
+    height: 20px;
+  }
+  &::after {
+    left: 10px;
+    top: -1px;
+    height: 20px;
+  }
+}
+
+.noUi-origin {
+  height: 10%;
+  width: calc(10% + 1px);
+}

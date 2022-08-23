@@ -1,11 +1,11 @@
 import React from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import { BsFillStarFill } from 'react-icons/bs';
-// import ImageSlider from './image_slider';
+import ImageSlider from "./image_slider";
 
 const ListingIndexItem = props => {
   
-  const { id, city, state, title, numBeds, price } = props.listing;
+  const { id, city, state, title, numBeds, price, photoUrls } = props.listing;
 
   let history = useHistory();
   
@@ -15,12 +15,12 @@ const ListingIndexItem = props => {
   
   return (
     
-    <div className="listing-index-item" onClick={handleClick}>
+    <div className="listing-index-item">
       <div className="listing-img-container">
-        <img id="test" src={window.test} alt="test" />
+         <ImageSlider photoUrls={photoUrls} />
       </div>
         
-      <div className="listing-info">
+      <div className="listing-info" onClick={handleClick}>
         <div className="listing-info-location">
           <h3>{city}, {state}</h3>
           <ul>

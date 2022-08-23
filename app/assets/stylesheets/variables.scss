@@ -8,7 +8,7 @@ $default-font-size-sm: 12px;
 $default-font-size-md: 14px;
 $default-font-size-lg: 16px;
 $default-font-size-xl: 18px;
-$default-font-size-xxl: 24px;
+$default-font-size-xxl: 20px;
 $default-font-wt: 700;
 $default-color-lt-gray: #717171;
 $footer-bg-color: #717171;
@@ -61,4 +61,9 @@ $default-linear-gradient2: linear-gradient(to right, #00a699 0%, #007e8b 100%);
   width: $filter-icon-size;
   height: $filter-icon-size;
   padding: 10px 0 10px;
+}
+
+@mixin cover() {
+  object-fit: fill;
+  object-position: 50% 50%;
 }
