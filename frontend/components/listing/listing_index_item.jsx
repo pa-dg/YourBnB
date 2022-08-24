@@ -1,12 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import { BsFillStarFill } from 'react-icons/bs';
 import ImageSlider from "./image_slider";
 
-const ListingIndexItem = props => {
-  
-  const { id, city, state, title, numBeds, price, photoUrls } = props.listing;
-
+const ListingIndexItem = ({ listing: { id, city, state, title, numBeds, price, photoUrls } }) => {
   let history = useHistory();
   
   const handleClick = () => {
@@ -14,10 +11,9 @@ const ListingIndexItem = props => {
   };
   
   return (
-    
     <div className="listing-index-item">
       <div className="listing-img-container">
-         <ImageSlider photoUrls={photoUrls} />
+         <ImageSlider handleClick={handleClick} photoUrls={photoUrls} />
       </div>
         
       <div className="listing-info" onClick={handleClick}>

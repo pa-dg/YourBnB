@@ -13,19 +13,18 @@ class Api::ListingsController < ApplicationController
     end
 
     @listings = listings.includes(:reviews)
-    render :index
   end
 
   def show
     @listing = Listing.find(params[:id])
   end
 
-  def create
-    @listing = Listing.create!(new_listing_params)
-    if @listing.save
-      render :show
-    end
-  end
+  # def create
+  #   @listing = Listing.create!(new_listing_params)
+  #   if @listing.save
+  #     render :show
+  #   end
+  # end
 
   #TO BE ADDED
   # def destroy 
@@ -39,9 +38,6 @@ class Api::ListingsController < ApplicationController
   
   def guest
     params[:guest]
-  end
-  
-  def selected_listing
   end
   
   def new_listing_params

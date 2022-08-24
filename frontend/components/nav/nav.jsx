@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DropDownContainer from './dropdown';
-import ModalContainer from '../modal/modal';
+// import ModalContainer from '../modal/modal';
 
 const Nav = () => {
   return (
-    <>
+    <div id="nav-header">
+
       <div className="splash-page-link-container">
         <Link to="/">
           <div id="airbnb-logo">
@@ -41,8 +42,9 @@ const Nav = () => {
         <div className="dropdown-menu-container">
           <DropDownContainer/>
         </div>
+      </div>
+
     </div>
-      </>
     )
 };
 

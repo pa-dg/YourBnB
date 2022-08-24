@@ -1,2 +1,52 @@
 class Api::ReservationsController < ApplicationController
+  
+  def index
+    # @reservations = Reservation.all
+    @reservations = guest ? Booking.all.where(user_id: guest) : Reservation.all
+  end
+  
+  def show
+    @reservation = Reservation.find(params[:id])
+  end
+  
+  def create
+    @reservation = Reservation.new(new_reservation_params)
+
+    if @reservation.save
+      render :show
+    else
+      render json: @reservations.errors_full_messages
+    end
+  end
+
+  def update
+    @reservation = Reservation.find(params[:id])
+
+    if @reservation.update(new_reservation_params)
+      render :show
+    else
+      render json: @reservation.errors_full_messages
+    end
+  end
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+
+    if @reservation
+      @reservation.destroy
+    else
+      render json: { message: "Listing cannot be located, please try again."}, status: 404
+    end
+  end
+
+  private
+
+  def guest
+    params[:guest]
+  end
+
+  def new_reservation_params
+    params.require(:reservation).permit(:user_id, :listing_id, :check_in_date, :check_out_date, :num_guests, :price, :adults, :children)
+  end
+  
 end

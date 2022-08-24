@@ -3,15 +3,7 @@ import Slider from "react-slick";
 // import '../../../app/assets/stylesheets/splash/_slick.scss' 
 // import '../../../app/assets/stylesheets/splash/_slickTheme.scss' 
 
-const ImageSlider = props => {
-  
-  {/* {photoUrls.map((photoUrl, index) =>
-          index !== 0 ? <img id="img-listing" key={index} src={photoUrl} alt="listing-image" /> : null
-      )} */}
-  const { photoUrls } = props;
-  
-  
-  const settings = { 
+const sliderSettings = { 
     dots: true,
     infinite: true,
     speed: 250,
@@ -20,35 +12,33 @@ const ImageSlider = props => {
     arrows: true,
     className: 'slides',
   };
-  
+
+const ImageSlider = ({ handleClick, photoUrls }) => {
   return (
-    <Slider {...settings}>
+    <Slider {...sliderSettings}>
+      {photoUrls && (
+        photoUrls.map((photoUrl, index) =>
+          <div key={index} className="listing-img-container" onClick={handleClick}>
+            <img id="img-listing" key={index} src={photoUrl} alt="listing-image" />
+          </div>
+        )
+      )}
       
       {/* <div id="test-container">
-        {photoUrls.map((photoUrl, index) =>
-          <img id="img-listing" key={index} src={photoUrl} alt="listing-image" />
-        )}
-      </div> */}
-
-      <div id="test-container">
         <img id="test-idx" src={window.test} alt="test" />
-        {/* <h1>1</h1> */}
       </div>
       <div id="test-container">
         <img id="test-idx" src={window.test} alt="test" />
-        {/* <h1>2</h1> */}
       </div>
       <div id="test-container">
         <img id="test-idx" src={window.test} alt="test" />
-        {/* <h1>3</h1> */}
       </div>
       <div id="test-container">
         <img id="test-idx" src={window.test} alt="test" />
-        {/* <h1>4</h1> */}
       </div>
        <div id="test-container">
         <img id="test-idx" src={window.test} alt="test" />
-      </div>
+      </div> */}
 
     </Slider>
   );

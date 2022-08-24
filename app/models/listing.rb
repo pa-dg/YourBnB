@@ -33,7 +33,9 @@ class Listing < ApplicationRecord
     foreign_key: :host_id,
     class_name: 'User'
 
-    has_many :reservations
+  has_many :reservations,
+    foreign_key: :listing_id,
+    class_name: 'Listing'
     
   has_many :users,
     through: :reservations,

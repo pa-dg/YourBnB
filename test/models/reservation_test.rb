@@ -8,6 +8,7 @@
 #  check_in_date  :datetime         not null
 #  check_out_date :datetime         not null
 #  num_guests     :integer          not null
+#  payment        :float            not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #

@@ -27,6 +27,14 @@ class User < ApplicationRecord
     foreign_key: :host_id,
     class_name: 'Listing'
 
+  has_many :reservations,
+    foreign_key: :user_id,
+    class_name: 'Reservation'
+
+  has_many :hosted_reservations,
+    through: :listings,
+    source: :reservations
+
   # SPIRE
   after_initialize :ensure_session_token
 

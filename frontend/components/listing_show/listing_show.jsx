@@ -3,8 +3,10 @@ import { BsFillStarFill } from 'react-icons/bs';
 import { FaRegHeart } from 'react-icons/fa';
 import { FiShare } from 'react-icons/fi';
 import ListingMap from '../listing_map/listing_map';
+import ReservationForm from '../reservation/reservation_form';
 
 const ListingShow = props => {
+
   const [listing, setListing] = useState({ 
     title: '', 
     description: '',
@@ -18,9 +20,13 @@ const ListingShow = props => {
     numGuest: '',
     numBeds: '',
     numBaths: '',
+    hostName: '',
+    photoUrls: '',
   });
 
-  const { listingId, selectedListing, fetchListing } = props;
+  const { listingId, selectedListing, listings, fetchListing, createReservation, currentUser } = props;
+
+  // debugger
 
   useEffect(() => {
     if (!selectedListing) {
@@ -51,9 +57,9 @@ const ListingShow = props => {
     numGuest,
     numBeds,
     numBaths,
+    hostName,
+    photoUrls
   } = listing
-  
-  // console.log(`${host}`)
 
   return (
     <div className="listing-show-container">
@@ -64,7 +70,7 @@ const ListingShow = props => {
 
         <div className="listing-show-subheading">
           <div className="listing-show-subheading-left">
-            <h3><BsFillStarFill id="star" /> 5.0 {city}, {state}, {country}</h3>
+            <h3><BsFillStarFill id="star" /> 5.0 &middot; 5 reviews &middot; {city}, {state}, {country}</h3>
           </div>
           <div className="listing-show-subheading-right">
             <h3><FiShare id="share" /> Share <FaRegHeart id="heart" /> Save</h3>
@@ -73,29 +79,29 @@ const ListingShow = props => {
       </div>
 
       <div className="listing-show-images-container">
+
         <div className="listing-show-img-main">
-          <img id="test" src={window.test} alt="test" />
+          {/* <img id="test" src={window.test} alt="test" /> */}
+          <div><img id="img-main" src={photoUrls[0]} alt="listing-image" /></div>
         </div>
+          
         <div className="listing-show-img-others">
-          <div>
-            <img id="test" src={window.test} alt="test" />
-          </div>
-          <div>
-            <img id="test" src={window.test} alt="test" />
-          </div>
-          <div>
-            <img id="test" src={window.test} alt="test" />
-          </div>
-          <div>
-            <img id="test" src={window.test} alt="test" />
-          </div>
+          {photoUrls && (photoUrls.filter((photoUrl, index) => index !== 0).map((photoUrl, index) =>
+            <div>
+              {
+                <img id="listing-show-img" key={index} src={photoUrl} alt="listing-image" /> 
+              }
+            </div>
+            )
+          )}
         </div>
+
       </div>
 
       <div className="listing-show-info-and-reservation-container">
         <div className="listing-show-info">
           <div className="listing-host">
-            <h1>Entire {propertyType} hosted by Andrea</h1>
+            <h1>Entire {propertyType} hosted by {hostName}</h1>
             <h2>{numGuest} guest &middot; {numBeds} bed &middot; {numBaths} bath</h2>
           </div> 
           
@@ -106,6 +112,7 @@ const ListingShow = props => {
 
         <div className="listing-reservation-form">
           <h1>RESERVATION FORM</h1>
+          <ReservationForm listingId={listingId} listing={listing} createReservation={createReservation} currentUser={currentUser} />
         </div>
         
       </div>
@@ -113,13 +120,12 @@ const ListingShow = props => {
       <div className="listing-show-reviews-container">
         <h1>REVIEWS GO HERE</h1>
       </div>
-
       
       {/* add: ref="map" */}
-      <div id="map-container">  
-        <h1>Where you'll be</h1>
-        <ListingMap/>
-      </div>
+      <>  
+        <div className="map-header">Where you'll be</div>
+        <ListingMap selectedListing={selectedListing}/>
+      </>
 
     </div>
   );

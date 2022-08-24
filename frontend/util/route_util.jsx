@@ -26,9 +26,6 @@ const mapStateToProps = state => {
   return { loggedIn: Boolean(state.session.id) };
 };
 
-export const AuthRoute = withRouter(
-  connect(
-    mapStateToProps,
-    null
-  )(Auth)
-);
+export const AuthRoute = withRouter(connect(mapStateToProps,null)(Auth));
+
+export const ProtectedRoute = withRouter(connect(mapStateToProps,null)(Protected));

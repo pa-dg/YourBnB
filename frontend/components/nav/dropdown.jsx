@@ -1,4 +1,4 @@
-//TO REMOVE: dropdown menu
+//TO REMOVE: refactor dropdown button
 
 import React from "react";
 import { connect } from "react-redux";

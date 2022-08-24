@@ -8,10 +8,11 @@
 
 require 'open-uri'
 
-# AWS S3
-
 User.destroy_all
 Listing.destroy_all
+Reservation.destroy_all
+
+# Users
 
 demo = User.create!(
   first_name: 'Demo',
@@ -48,9 +49,9 @@ michael = User.create!(
   password: '123456'
 )
 
-#Location: New York City
+# Listings: location: New York City
 
-listing_one = Listing.create!(
+l1 = Listing.create!(
   host_id: andrea.id,
   title: "SoHo Apt. in Historic Townhouse - Private Entrance",
   description: "Historic townhouse building, stylishly decorated 1 BR in chic Soho. Views of the park, steps away from fabulous restaurants, ideally located away from the fray but close to amazing shopping, dining & exploring NYC.",
@@ -71,7 +72,7 @@ listing_one = Listing.create!(
   num_baths: 1
 )
 
-listing_two = Listing.create!(
+l2 = Listing.create!(
   host_id: andy.id,
   title: "Untitled at Freeman - Tower Balcony Studio 1401",
   description: "Charming Studio with a balcony located in the heart of Lower East Side of Manhattan.",
@@ -92,7 +93,7 @@ listing_two = Listing.create!(
   num_baths: 2
 )
 
-listing_three = Listing.create!(
+l3 = Listing.create!(
   host_id: anthony.id,
   title: "Sonder Battery Park - Studio Apartment",
   description: "From the moment you see the waterfront from the roof, you\’ll know you made the right choice. Your Sonder comes with its own kitchenette and dining nook. There\’s also a (seasonal) rooftop pool to go along with that waterfront view we mentioned, a fitness center, a golf simulator, and a co-working space.",
@@ -113,7 +114,7 @@ listing_three = Listing.create!(
   num_baths: 1
 )
 
-listing_four = Listing.create!(
+l4 = Listing.create!(
   host_id: michael.id,
   title: "Beautiful view overlooking Central Park - Apartment",
   description: "Two bedroom apartment overlooking Central Park. Right in the heart of NYC, minutes from Times Square. This loft is located right near Central Park, Carnegie Hall and most major tourist attraction. It''s the perfect place to enjoy your vacation luxury style.",
@@ -134,7 +135,7 @@ listing_four = Listing.create!(
   num_baths: 2
 )
 
-listing_five = Listing.create!(
+l5 = Listing.create!(
   host_id: andrea.id,
   title: "Beautiful view overlooking Central Park - Apartment",
   description: "Good-sized studio apartment in near Union Square, Irving Plaza, and Gramercy Park. The apartment has a private entrance and maintained well",
@@ -155,16 +156,43 @@ listing_five = Listing.create!(
   num_baths: 1
 )
 
-#AWS S3 Photos
+# AWS S3 Photos
 l1_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_001.png')
 l1_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_002.png')
 l1_img03 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_003.jpg')
 l1_img04 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_004.png')
 l1_img05 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_005.png')
 
-listing_one.photos.attach(io: l1_img01, filename: "img_001.png")
-listing_one.photos.attach(io: l1_img02, filename: "img_002.png")
-listing_one.photos.attach(io: l1_img03, filename: "img_003.png")
-listing_one.photos.attach(io: l1_img04, filename: "img_004.png")
-listing_one.photos.attach(io: l1_img05, filename: "img_005.png")
+l1.photos.attach(io: l1_img01, filename: "img_001.png")
+l1.photos.attach(io: l1_img02, filename: "img_002.png")
+l1.photos.attach(io: l1_img03, filename: "img_003.png")
+l1.photos.attach(io: l1_img04, filename: "img_004.png")
+l1.photos.attach(io: l1_img05, filename: "img_005.png")
+
+l2_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing02/l2_img_001.png')
+l2_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing02/l2_img_002.png')
+l2_img03 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing02/l2_img_003.png')
+l2_img04 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing02/l2_img_004.png')
+l2_img05 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing02/l2_img_005.png')
+
+l2.photos.attach(io: l2_img01, filename: "img_001.png")
+l2.photos.attach(io: l2_img02, filename: "img_002.png")
+l2.photos.attach(io: l2_img03, filename: "img_003.png")
+l2.photos.attach(io: l2_img04, filename: "img_004.png")
+l2.photos.attach(io: l2_img05, filename: "img_005.png")
+
+
+# Reservation
+res1 = Reservation.create!(
+  user_id: andrea.id, 
+  listing_id: l3.id, 
+  check_in_date: DateTime.new(2022,8,27), 
+  check_out_date: DateTime.new(2022,9,2), 
+  num_guests: 2, 
+  # payment: 1890.00, 
+  price: 270.00,
+  adults: 2,
+  children: 0, 
+)
+
 
