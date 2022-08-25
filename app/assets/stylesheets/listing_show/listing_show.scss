@@ -3,7 +3,7 @@
 .listing-show-container {
   font-family: $details-font-family2;
   color: black;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.25px;
   display: flex;
   flex-direction: column;
   max-width: 100%;
@@ -133,10 +133,10 @@
   @include centerer(column);
   gap: 12px;
   width: 35%;
-  border: 1px solid black;
-  padding: 24px;
   margin-left: 80px;
   align-content: flex-start;
+  text-align: left;
+  justify-content: initial;
 }
 
 .listing-show-reviews-container {
