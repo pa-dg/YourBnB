@@ -219,4 +219,16 @@ res1 = Reservation.create!(
   children: 0, 
 )
 
+#Review
+rev1 = Review.create!(
+  reviewer_id: andrea.id,
+  listing_id: l3.id,
+  review: "The apartment was very nice, and we enjoyed our stay very much. Check in was smooth and Anthony communicated with us promptly. The air conditioning worked well, but it was difficult to figure it out without instructions. Finally, the bathroom was spacious and lovely. Will definitely come back to stay here again.",
+  cleanliness: 5,
+  accuracy: 4,
+  communication: 5,
+  check_in: 5,
+  value: 4,
+  location: 4,
+)
 
