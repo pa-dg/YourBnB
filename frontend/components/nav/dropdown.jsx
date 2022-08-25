@@ -4,6 +4,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { openModal } from '../../actions/modal_actions';
 import { logout } from '../../actions/session_actions';
+import { Link } from "react-router-dom";
 import ModalContainer from '../modal/modal';
 
 const DropDown = (props) => {
@@ -28,7 +29,7 @@ const DropDown = (props) => {
             Messages
           </div>
           <div className="nav-trips">
-            Trips
+            <Link to="/reservations">Trips</Link>
           </div>
           <div className="nav-wishlists">
             Wishlists
@@ -53,6 +54,8 @@ const DropDown = (props) => {
     );  
   };
 
+  console.log(currentUser)
+
   return (
     <div className="nav-dropdown-button" onClick={showDropdown}>
       <div className="dropdown-icon1">
@@ -74,7 +77,7 @@ const DropDown = (props) => {
 
 const mapStateToProps = ({ session, entities: { users }}) => {
   return {
-    currentUser: users[session.id]
+    currentUser: users[session.currentUserId]
   };
 };
 

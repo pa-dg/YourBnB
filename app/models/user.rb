@@ -27,9 +27,10 @@ class User < ApplicationRecord
     foreign_key: :host_id,
     class_name: 'Listing'
 
-  has_many :reservations,
+  has_many :reservations, 
     foreign_key: :user_id,
-    class_name: 'Reservation'
+    class_name: 'Reservation',
+    dependent: :destroy
 
   has_many :hosted_reservations,
     through: :listings,

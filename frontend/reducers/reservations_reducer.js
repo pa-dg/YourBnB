@@ -1,7 +1,6 @@
 import {
   RECEIVE_ALL_RESERVATIONS,
   RECEIVE_RESERVATION,
-  REMOVE_LISTING,
   REMOVE_RESERVATION,
 } from "../actions/reservation_actions";
 

@@ -26,8 +26,6 @@ export const receiveListing = (listing) => {
 //   };
 // };
 
-// THUNK ACTION CREATORS
-
 export const fetchListings = () => (dispatch) => {
   return listingAPIUtil
     .fetchListings()

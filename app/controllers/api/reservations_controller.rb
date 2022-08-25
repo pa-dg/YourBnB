@@ -1,10 +1,15 @@
 class Api::ReservationsController < ApplicationController
   
   def index
-    # @reservations = Reservation.all
-    @reservations = guest ? Booking.all.where(user_id: guest) : Reservation.all
+    res_ids = current_user.reservations.pluck(:id)
+    if logged_in?
+      @reservations = Reservation.where(id: res_ids)
+    else
+      render json: { message: "Listing cannot be located, please try again."}, status: 404
+    end
   end
   
+  #TO DO: REMOVE, NOT NEEDED
   def show
     @reservation = Reservation.find(params[:id])
   end
@@ -15,7 +20,7 @@ class Api::ReservationsController < ApplicationController
     if @reservation.save
       render :show
     else
-      render json: @reservations.errors_full_messages
+      render json: @reservation.errors.full_messages, status: 422
     end
   end
 
@@ -25,7 +30,7 @@ class Api::ReservationsController < ApplicationController
     if @reservation.update(new_reservation_params)
       render :show
     else
-      render json: @reservation.errors_full_messages
+      render json: @reservation.errors.full_messages
     end
   end
 
@@ -41,12 +46,14 @@ class Api::ReservationsController < ApplicationController
 
   private
 
-  def guest
-    params[:guest]
-  end
+  # def guest
+  #   params[:guest]
+  # end
 
   def new_reservation_params
+    snake_case_params!(params[:reservation])
+    
     params.require(:reservation).permit(:user_id, :listing_id, :check_in_date, :check_out_date, :num_guests, :price, :adults, :children)
   end
-  
+
 end

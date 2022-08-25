@@ -5,6 +5,7 @@ export const fetchReservations = () => {
   });
 };
 
+// TO DO: REMOVE, NOT NEEDED
 export const fetchReservation = (id) => {
   return $.ajax({
     url: `api/reservations/${id}`,
@@ -12,13 +13,14 @@ export const fetchReservation = (id) => {
   });
 };
 
-export const createReservation = (reservationForm) => {
+export const createReservation = (reservation) => {
   return $.ajax({
-    url: `api/reservations`,
+    url: `/api/reservations`,
     method: "POST",
-    data: reservationForm,
-    contentType: false,
-    processData: false,
+    data: { reservation },
+    // contentType: false,
+    // dataType: "json",
+    // processData: false,
   });
 };
 

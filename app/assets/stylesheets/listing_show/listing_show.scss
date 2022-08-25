@@ -1,7 +1,8 @@
 @import "../variables.scss";
 
 .listing-show-container {
-  font-family: $details-font-family;
+  font-family: $details-font-family2;
+  color: black;
   letter-spacing: 0.5px;
   display: flex;
   flex-direction: column;
@@ -129,8 +130,13 @@
 }
 
 .listing-reservation-form {
-  width: 40%;
+  @include centerer(column);
+  gap: 12px;
+  width: 35%;
   border: 1px solid black;
+  padding: 24px;
+  margin-left: 80px;
+  align-content: flex-start;
 }
 
 .listing-show-reviews-container {

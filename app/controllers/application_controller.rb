@@ -30,4 +30,8 @@ class ApplicationController < ActionController::Base
     @current_user = nil
   end
 
+  def snake_case_params!(params)
+      params.transform_keys!(&:underscore)
+  end
+  
 end

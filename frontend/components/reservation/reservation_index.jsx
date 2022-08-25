@@ -1,17 +1,26 @@
-import React from "react";
-import ReservationIndexItem from './reservation_index_item';
+import React, { useEffect } from "react";
+import { fetchReservations } from "../../actions/reservation_actions";
+import ReservationIndexItem from "./reservation_index_item";
 
-const ReservationIndex= props => {
-  
+const ReservationIndex = ({ reservations }) => {
+
+  useEffect(() => {
+    debugger
+    fetchReservations();
+  }, [])
+
+  console.log(reservations)
   return (
     <div className="reservation-index-container">
-      <div className="heading">
-        <h1>Trips</h1>
+      <div className="reservation-index-heading">
+        <h1>Upcoming Trips</h1>
       </div>
 
-      <>
-        <ReservationIndexItem />
-      </>
+      {/* <>
+        {currentUserReservations.map((reservation, idx) => (
+          <ReservationIndexItem key={`res-${idx}`} reservation={reservation} listings={listings} currentUserId={currentUserId} />
+        ))}
+      </> */}
     </div>
   );  
 };
