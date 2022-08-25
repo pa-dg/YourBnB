@@ -37,7 +37,6 @@ export const fetchReservation = (id) => (dispatch) => {
 };
 
 export const createReservation = (reservationForm) => (dispatch) => {
-  debugger;
   return reservationAPIUtil
     .createReservation(reservationForm)
     .then((createdReservation) =>

@@ -1,0 +1,123 @@
+@import "../variables.scss";
+
+@media screen and (max-width: 700px) {
+  .reservation-index-container {
+    padding: 0 24px 40px 24px;
+  }
+}
+
+.reservation-index-container {
+  max-width: 925px;
+  padding: 0 40px 40px 40px;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+}
+
+.reservation-index-heading {
+  h1 {
+    padding: 36px 0 24px 0;
+    font-size: $default-font-size-xxxl;
+    font-weight: $default-font-wt;
+  }
+
+  h2 {
+    font-size: $default-font-size-xxl;
+    font-weight: $default-font-wt;
+  }
+}
+
+.reservation-index-item-container {
+  display: flex;
+  justify-content: space-between;
+  // align-items: center;
+  // flex-direction: column;
+  // flex-flow: column-reverse;
+  row-gap: 24px;
+  margin-top: 24px;
+  padding: 0;
+  border: 1px solid $button-border-color-lt;
+  border-radius: 16px;
+}
+
+.reservation-item-img {
+  width: 50%;
+  // border: 1px solid blue;
+}
+
+#reservation-img {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  display: block;
+  width: 100%;
+  max-height: 328px;
+  height: auto;
+}
+
+.reservation-details {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 24px;
+  width: 50%;
+  // border: 1px solid yellowgreen;
+}
+
+.reservation-info {
+  height: 50%;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 16px;
+
+  h2 {
+    font-size: $default-font-size-xxl;
+    font-weight: $default-font-wt;
+    padding-bottom: 12px;
+  }
+
+  h3 {
+    font-size: $default-font-size-lg;
+    font-family: $details-font-family;
+    margin-top: 6px;
+    padding-bottom: 12px;
+  }
+}
+
+.reservation-date-and-loc {
+  display: flex;
+  padding: 0;
+  height: 50%;
+  padding-top: 16px;
+  // justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.reservation-dates {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0;
+  width: 50%;
+  margin-right: 24px;
+
+  h2 {
+    font-size: $default-font-size-xl;
+    font-family: $details-font-family-light;
+    padding-bottom: 12px;
+  }
+}
+
+.reservation-loc {
+  flex: 1;
+  border-left: 1px solid lightgray;
+  padding-left: 24px;
+
+  h2 {
+    font-size: $default-font-size-xl;
+    font-family: $details-font-family;
+    padding-bottom: 12px;
+  }
+}

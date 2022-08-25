@@ -9,6 +9,8 @@ $font: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue",
   display: flex;
   justify-content: space-evenly;
   padding: 16px;
+  position: relative;
+  bottom: 0;
 }
 
 .footer-content {

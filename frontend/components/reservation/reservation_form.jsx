@@ -3,7 +3,7 @@ import { BsFillStarFill } from 'react-icons/bs';
 import { withRouter } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
-const ReservationForm = ({ listingId, createReservation, userId, openModal } ) => {
+const ReservationForm = ({ listingId, listing, createReservation, userId, openModal } ) => {
 
   const [reservationInfo, setReservationInfo] = useState({
     checkInDate: '',
@@ -26,7 +26,7 @@ const ReservationForm = ({ listingId, createReservation, userId, openModal } ) =
   //     }
   //   }, []);
     
-  const { price, additionalFees, numGuest } = props.listing;
+  const { price, additionalFees, numGuest } = listing;
   
   const update = (field) => {
     if (field === 'numGuests') {

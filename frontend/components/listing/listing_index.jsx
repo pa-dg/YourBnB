@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import ListingIndexItem from './listing_index_item';
 
-const ListingIndex = ({ listings, fetchListings, fetchReservations }) => {
+const ListingIndex = ({ listings, fetchListings }) => {
 
   useEffect(() => {
     fetchListings();
-    fetchReservations();
   }, []);
 
   return (

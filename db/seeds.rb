@@ -181,6 +181,30 @@ l2.photos.attach(io: l2_img03, filename: "img_003.png")
 l2.photos.attach(io: l2_img04, filename: "img_004.png")
 l2.photos.attach(io: l2_img05, filename: "img_005.png")
 
+l3_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing03/l3_img_001.webp')
+l3_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing03/l3_img_002.webp')
+l3_img03 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing03/l3_img_003.webp')
+l3_img04 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing03/l3_img_004.webp')
+l3_img05 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing03/l3_img_005.webp')
+
+l3.photos.attach(io: l3_img01, filename: "img_001.png")
+l3.photos.attach(io: l3_img02, filename: "img_002.png")
+l3.photos.attach(io: l3_img03, filename: "img_003.png")
+l3.photos.attach(io: l3_img04, filename: "img_004.png")
+l3.photos.attach(io: l3_img05, filename: "img_005.png")
+
+l4_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing04/l4_img_001.webp')
+l4_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing04/l4_img_002.webp')
+l4_img03 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing04/l4_img_003.webp')
+l4_img04 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing04/l4_img_004.webp')
+l4_img05 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing04/l4_img_005.webp')
+
+l4.photos.attach(io: l4_img01, filename: "img_001.png")
+l4.photos.attach(io: l4_img02, filename: "img_002.png")
+l4.photos.attach(io: l4_img03, filename: "img_003.png")
+l4.photos.attach(io: l4_img04, filename: "img_004.png")
+l4.photos.attach(io: l4_img05, filename: "img_005.png")
+
 
 # Reservation
 res1 = Reservation.create!(

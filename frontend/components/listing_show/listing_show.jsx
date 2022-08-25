@@ -87,7 +87,7 @@ const ListingShow = ({ listingId, selectedListing, fetchListing, createReservati
             </div>
 
             <div className="listing-reservation-form">
-              <ReservationForm key={`${Math.random()}`} listingId={listingId} createReservation={createReservation} userId={userId} openModal={openModal} />
+              <ReservationForm key={`${Math.random()}`} listing={listing} listingId={listingId} createReservation={createReservation} userId={userId} openModal={openModal} />
             </div>
             
           </div>
