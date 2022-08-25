@@ -30,7 +30,7 @@ class Api::ReservationsController < ApplicationController
     if @reservation.update(new_reservation_params)
       render :show
     else
-      render json: @reservation.errors.full_messages
+      render json: @reservation.errors.full_messages, status: 422
     end
   end
 

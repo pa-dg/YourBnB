@@ -5,10 +5,12 @@
 #  id             :bigint           not null, primary key
 #  user_id        :integer          not null
 #  listing_id     :integer          not null
-#  check_in_date  :datetime         not null
-#  check_out_date :datetime         not null
+#  check_in_date  :string           not null
+#  check_out_date :string           not null
 #  num_guests     :integer          not null
-#  payment        :float            not null
+#  price          :float            not null
+#  adults         :integer          not null
+#  children       :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
@@ -17,11 +19,11 @@ class Reservation < ApplicationRecord
   
   belongs_to :guest,
     foreign_key: :user_id,
-    class_name: 'User'
+    class_name: :User
 
   belongs_to :listing,
     foreign_key: :listing_id,
-    class_name: 'Listing'
+    class_name: :Listing
 
   has_one :host,
     through: :listing,

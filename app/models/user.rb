@@ -25,16 +25,21 @@ class User < ApplicationRecord
   
   has_many :listings,
     foreign_key: :host_id,
-    class_name: 'Listing'
+    class_name: :Listing
 
   has_many :reservations, 
     foreign_key: :user_id,
-    class_name: 'Reservation',
+    class_name: :Reservation,
     dependent: :destroy
 
   has_many :hosted_reservations,
     through: :listings,
     source: :reservations
+
+  has_many :reviews,
+    foreign_key: :reviewer_id,
+    class_name: :Review,
+    dependent: :destroy
 
   # SPIRE
   after_initialize :ensure_session_token

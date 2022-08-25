@@ -31,18 +31,18 @@ class Listing < ApplicationRecord
   
   belongs_to :host,
     foreign_key: :host_id,
-    class_name: 'User'
+    class_name: :User
 
   has_many :reservations,
     foreign_key: :listing_id,
-    class_name: 'Listing'
+    class_name: :Listing
     
   has_many :users,
     through: :reservations,
     source: :user
     
   has_many :reviews
-    
+
   # Active Storage Associaiton (AWS S3)
   has_many_attached :photos, dependent: :destroy
 
