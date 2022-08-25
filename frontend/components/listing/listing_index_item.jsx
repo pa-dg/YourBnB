@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import { BsFillStarFill } from 'react-icons/bs';
 import ImageSlider from "./image_slider";

@@ -65,7 +65,7 @@ const SessionForm = props => {
       </div>
 
       <form onSubmit={handleSubmit} className="login-signup-form">
-        <h3>Welcome to YourBnB</h3>
+        <h3>Welcome to yourbnb</h3>
         <div className="session-errors">{renderErrors()}</div>
           {
             props.formType === 'Sign Up' && (
