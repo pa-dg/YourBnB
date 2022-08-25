@@ -1,14 +1,20 @@
 // houses the filter button
+import { connect } from "react-redux";
+import FilterForm from "./filter_form";
 
-// import React from "react";
-// import FilterForm from './filter_form';
-// import { connect } from 'react-redux'
+const mapStateToProps = (state) => {
+  return {
+    listings: Object.values(state.entities.listings),
+    minPrice: state.ui.filters.minPrice,
+    maxPrice: state.ui.filters.maxPrice
+  };
+};
 
-// const mapStateToProps = (state, ownProps) => ({
-//   listings: Object.values(state.entities.listings),
-//   // minPrice: 
-// });
+const mapDispatchToProps = dispatch => {
+  return {
+    udpateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
+    clearFilter: () => dispatch(clearFilter(filter, value)),
+  }
+};
 
-// const mapDispatchToProps = dispatch => ({});
-
-// export default connect(mapStateToProps, mapDispatchToProps)(FilterForm);
+export default connect(mapStateToProps, mapDispatchToProps)(FilterForm);

@@ -1,56 +1,65 @@
 import React, { useState } from "react";
-import FilterFormContainer from './filter_form_container';
+import Nouislider from "nouislider-react";
+import { closeModal } from "../../actions/modal_actions";
 
-const FilterForm = () => {
+
+const FilterForm = ({ listings, minPrice, maxPrice, updateFilter, clearFilter }) => {
+  const [filter, setFilter] = useState({
+    minPrice: minPrice || 0,
+    maxPrice: maxPrice || 0,
+  });
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateFilter('maxPrice', setFilter('maxPrice'))
+      .then(() => updateFilter)
+  };
+
+  const update = (field, data) => {
+    if (field === 'priceRange') {
+      return (data) => setFilter({
+        minPrice: parseInt(data[0]),
+        maxPrice: parseInt(data[1])
+      });
+    }
+    return (e) => setFilter({ [field]: e.currentTarget.value })
+  };
+
   return (
-    <div className="filter-container">
+    <div className="filter-form">
+      <header className="filter-form-header">
+        <button onClick={() => closeModal()}></button>
+        <h1>Filters</h1>
+      </header>
       
-      <button id="filter-icons"><img src={window.lakeIcon} alt="lake-icon" />
-        <span>Lakefront</span>
-      </button>
-      <button id="filter-icons"><img src={window.beachIcon} alt="beach-icon" />
-        <span>Beach</span>
-      </button>
-      <button id="filter-icons"><img src={window.cabinIcon} alt="cabin-icon" />
-        <span>Cabin</span>
-      </button>
-      <button id="filter-icons"><img src={window.campingIcon} alt="camping-icon" />
-        <span>Camping</span>
-      </button>
-      <button id="filter-icons"><img src={window.islandIcon} alt="island-icon" />
-        <span>Island</span>
-      </button>
-      <button id="filter-icons"><img src={window.arcticIcon} alt="arctic-icon" />
-        <span>Arctic</span>
-      </button>
-      <button id="filter-icons"><img src={window.treehouseIcon} alt="treehouse-icon" />
-        <span>Treehouse</span>
-      </button>
-      <button id="filter-icons"><img src={window.surfboardIcon} alt="surfboard-icon" />
-        <span>Surf Board</span>
-      </button>
-      <button id="filter-icons"><img src={window.nationalparkIcon} alt="nationalpark-icon" />
-        <span>National Park</span>
-      </button>
-      <button id="filter-icons"><img src={window.swimmingpoolIcon} alt="swimmingpool-icon" />
-        <span>Swimming Pool</span>
-      </button>
-      <button id="filter-icons"><img src={window.iconiccityIcon} alt="iconiccity-icon" />
-        <span>Iconic City</span>
-      </button>
-      <button id="filter-icons"><img src={window.barnIcon} alt="barn-icon" />
-        <span>Barn</span>
-      </button>
-      <button id="filter-icons"><img src={window.caveIcon} alt="cave-icon" />
-        <span>Cave</span>
-      </button>
-      
-      <button id="filter-modal-button">
-         {/* <i className="fas fa-sliders-h fa-2x"></i> */}
-        <span><img src={window.sliderIcon} alt="slider-icon" /></span>
-        <div id="button-text">Filters</div>
-      </button>
+      <form onSubmit={handleSubmit}>
+        <div className="filter-form-content">
+          <div><h1>Price Range</h1></div>
 
+          <div className="filter-form-slider">
+            <Nouislider id="price-range-slider" range={{ min: 0, max: 600 }} start={[filter.minPrice, filter.maxPrice]} onSet={update('priceRange')}  connect />
+          </div>  
+
+          <div className="price-range-input">
+            <div className="min-price-input">
+              <label htmlFor="min-price">
+                <input type="number" value={filter.minPrice} onChange={update('minPrice')} min="0" max="600" />
+              </label>
+
+              <label htmlFor="max-price-input">
+                <input type="number" value={filter.maxPrice} onChange={update('maxPrice')} min="0" max="600" />
+              </label>
+            </div>
+          </div>
+
+        </div>
+        
+        <footer className="filter-form-footer">
+          <button className="filter-form-reset" onCliCk={() => clearFilter()}>Clear all</button>
+          <button className="filter-form-apply">Apply</button>
+      </footer>
+
+      </form>
     </div>
   );
 };

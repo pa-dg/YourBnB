@@ -1,12 +1,12 @@
 import React from "react";
 import Nav from "../nav/nav";
-import FilterForm from '../filter/filter_form';
+import Filter from '../filter/filter';
 import ListingIndexContainer from "../listing/listing_index_container";
 
 const Splash = () => {
   return (
     <div id="splash-container">
-      <FilterForm />
+      <Filter />
 
       <div className="listing-index-container">
           <ListingIndexContainer />
