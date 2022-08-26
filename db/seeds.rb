@@ -61,7 +61,7 @@ l1 = Listing.create!(
   city: "New York",
   state: "NY",
   country: "United States",
-  zip_code: "10012",
+  zip_code: 10012,
   price: 340.00,
   price_currency: "USD" ,
   property_type: "Townhouse",
@@ -82,7 +82,7 @@ l2 = Listing.create!(
   city: "New York",
   state: "NY",
   country: "United States",
-  zip_code: "10003",
+  zip_code: 10003,
   price: 270.00,
   price_currency: "USD" ,
   property_type: "Condominium",
@@ -103,7 +103,7 @@ l3 = Listing.create!(
   city: "New York",
   state: "NY",
   country: "United States",
-  zip_code: "10003",
+  zip_code: 10003,
   price: 270.00,
   price_currency: "USD" ,
   property_type: "Studio",
@@ -124,7 +124,7 @@ l4 = Listing.create!(
   city: "New York",
   state: "NY",
   country: "United States",
-  zip_code: "10003",
+  zip_code: 10003,
   price: 300.00,
   price_currency: "USD" ,
   property_type: "Apartment",
@@ -145,7 +145,7 @@ l5 = Listing.create!(
   city: "New York",
   state: "NY",
   country: "United States",
-  zip_code: "10003",
+  zip_code: 10003,
   price: 300.00,
   price_currency: "USD" ,
   property_type: "Studio",
@@ -155,6 +155,133 @@ l5 = Listing.create!(
   num_beds: 1,
   num_baths: 1
 )
+
+l6 = Listing.create!(
+  host_id: andy.id,
+  title: "Amazing view near Empire State Building - Apartment",
+  description: "Good-sized big modern apartment near Empire State Building and Madison Square Garden area. The apartment is always well maintained and cleaned.",
+  lat: 40.74648489082465,
+  lng: -73.98490519606982,  
+  street: "11 E 31st St",
+  city: "New York",
+  state: "NY",
+  country: "United States",
+  zip_code: 10016,
+  price: 345.00,
+  price_currency: "USD" ,
+  property_type: "Apartment",
+  price_per_night: "per night",
+  additional_fees: 0,
+  num_guest: 4,
+  num_beds: 2,
+  num_baths: 2
+)
+
+l7 = Listing.create!(
+  host_id: michael.id,
+  title: "Walking distance near Madison Square Garden - Apartment",
+  description: "Good-sized big modern apartment near Empire State Building and Madison Square Garden area. The apartment is always well maintained and cleaned.",
+  lat: 40.741624,
+  lng: -73.985098,  
+  street: "345 Park Ave S", 
+  city: "New York",
+  state: "NY",
+  country: "United States",
+  zip_code: 10010,
+  price: 285.00,
+  price_currency: "USD" ,
+  property_type: "Apartment",
+  price_per_night: "per night",
+  additional_fees: 0,
+  num_guest: 3,
+  num_beds: 2,
+  num_baths: 2
+)
+
+l7 = Listing.create!(
+  host_id: anthony.id,
+  title: "In the heart of KoreaTown and walking distance near Madison Square Garden - Apartment",
+  description: "Great and amazing interior modern apartment near Empire State Building and Madison Square Garden area. The apartment is always well maintained and cleaned.",
+  lat: 40.74726749079826, 
+  lng: -73.98515809845861,  
+  street: "319 5th Ave",   
+  city: "New York",
+  state: "NY",
+  country: "United States",
+  zip_code: 10016,
+  price: 189.00,
+  price_currency: "USD" ,
+  property_type: "Apartment",
+  price_per_night: "per night",
+  additional_fees: 0,
+  num_guest: 2,
+  num_beds: 1,
+  num_baths: 1
+)
+
+l8 = Listing.create!(
+  host_id: andrea.id,
+  title: "Located in KoreaTown and walking distance near Madison Square Garden - Studio",
+  description: "Great and amazing interior modern apartment near Empire State Building and Madison Square Garden area. The apartment is always well maintained and cleaned.",
+  lat: 40.74922527343285,
+  lng: -73.98458720628709,  
+  street: "366 5th Ave",   
+  city: "New York",
+  state: "NY",
+  country: "United States",
+  zip_code: 10001,
+  price: 160.00,
+  price_currency: "USD" ,
+  property_type: "Studio",
+  price_per_night: "per night",
+  additional_fees: 0,
+  num_guest: 2,
+  num_beds: 1,
+  num_baths: 1
+)
+
+l9 = Listing.create!(
+  host_id: andy.id,
+  title: "Located in KoreaTown and walking distance near Madison Square Garden - Studio",
+  description: "Great and amazing interior modern apartment near Empire State Building and Madison Square Garden area. The apartment is always well maintained and cleaned.",
+  lat: 40.746734, 
+  lng: 73.986132,  
+  street: "28 W 33rd St",   
+  city: "New York",
+  state: "NY",
+  country: "United States",
+  zip_code: 10001,
+  price: 160.00,
+  price_currency: "USD" ,
+  property_type: "Studio",
+  price_per_night: "per night",
+  additional_fees: 0,
+  num_guest: 2,
+  num_beds: 1,
+  num_baths: 1
+)
+
+l10 = Listing.create!(
+  host_id: michael.id,
+  title: "Located in Midtown and in front of Bryant Park - Apartment",
+  description: "Love being in the city? This listing is the perfect fit for you, located in front of Bryant Park and  near Empire State Building and Madison Square Garden area. The apartment is always well maintained and cleaned.",
+  lat: 40.746734, 
+  lng: 73.986132,  
+  street: "25 W 39th St", 
+  city: "New York",
+  state: "NY",
+  country: "United States",
+  zip_code: 10018,
+  price: 350.00,
+  price_currency: "USD" ,
+  property_type: "Apartment",
+  price_per_night: "per night",
+  additional_fees: 0,
+  num_guest: 4,
+  num_beds: 3,
+  num_baths: 2
+)
+
 
 # AWS S3 Photos
 l1_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_001.png')
@@ -206,7 +333,34 @@ l4.photos.attach(io: l4_img04, filename: "img_004.png")
 l4.photos.attach(io: l4_img05, filename: "img_005.png")
 
 
-# Reservation
+l5_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l5_img01.jpg')
+l5_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l5_img02.jpg')
+l5_img03 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l5_img03.jpg')
+l5_img04 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l5_img04.jpg')
+l5_img05 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l5_img05.jpg')
+
+l5.photos.attach(io: l5_img01, filename: "l5_img01.jpg")
+l5.photos.attach(io: l5_img02, filename: "l5_img02.jpg")
+l5.photos.attach(io: l5_img03, filename: "l5_img03.jpgg")
+l5.photos.attach(io: l5_img04, filename: "l5_img04.jpg")
+l5.photos.attach(io: l5_img05, filename: "l5_img05.jpg")
+
+
+
+l6_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l6_img01.jpg')
+l6_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l6_img02.jpg')
+l6_img03 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l6_img03.jpg')
+l6_img04 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l6_img04.jpg')
+l6_img05 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l6_img05.jpg')
+
+l6.photos.attach(io: l6_img01, filename: "l6_img01.jpg")
+l6.photos.attach(io: l6_img02, filename: "l6_img02.jpg")
+l6.photos.attach(io: l6_img03, filename: "l6_img03.jpgg")
+l6.photos.attach(io: l6_img04, filename: "l6_img04.jpg")
+l6.photos.attach(io: l6_img05, filename: "l6_img05.jpg")
+
+
+# Reservations
 res1 = Reservation.create!(
   user_id: andrea.id, 
   listing_id: l3.id, 
@@ -219,7 +373,32 @@ res1 = Reservation.create!(
   children: 0, 
 )
 
-#Review
+res2 = Reservation.create!(
+  user_id: andy.id, 
+  listing_id: l5.id, 
+  check_in_date: DateTime.new(2022,8,29), 
+  check_out_date: DateTime.new(2022,9,5), 
+  num_guests: 2, 
+  # payment: 1890.00, 
+  price: 300.00,
+  adults: 2,
+  children: 0, 
+)
+
+res3 = Reservation.create!(
+  user_id: demo.id, 
+  listing_id: l6.id, 
+  check_in_date: DateTime.new(2022,8,29), 
+  check_out_date: DateTime.new(2022,9,3), 
+  num_guests: 2, 
+  # payment: 1890.00, 
+  price: 345.00,
+  adults: 2,
+  children: 0, 
+)
+
+
+#Reviews
 rev1 = Review.create!(
   reviewer_id: andrea.id,
   listing_id: l3.id,
