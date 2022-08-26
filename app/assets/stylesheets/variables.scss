@@ -68,6 +68,6 @@ $default-linear-gradient2: linear-gradient(to right, #00a699 0%, #007e8b 100%);
 }
 
 @mixin cover() {
-  object-fit: fill;
+  object-fit: cover;
   object-position: 50% 50%;
 }

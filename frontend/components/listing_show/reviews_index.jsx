@@ -26,7 +26,7 @@ const ReviewsIndex = ({ listingId, reviews, avgRatings, avgStars, fetchReviews }
       <header className="reviews-index-header">
         <div className="reviews-stars-num-reviews">
           <span className="star"><BsFillStarFill /></span>
-          <span>{avgStars.toFixed(1)} · {reviewsCount} {reviewsCount === 1 ? 'review' : 'reviews'}</span>
+          <span>{avgStars} · {reviewsCount} {reviewsCount === 1 ? 'review' : 'reviews'}</span>
         </div>
 
         <div className="review-new">
@@ -34,23 +34,25 @@ const ReviewsIndex = ({ listingId, reviews, avgRatings, avgStars, fetchReviews }
         </div>
       </header>
 
-      <div className="reviews-statistics">
-        {Object.keys(avgRatings).map((category) => {
-          const width = avgRatings[category]/reviewsCount/5*100;
-          
-          return (
-            <div className="review-category-item">
-              <span className='label'>{mapCategoryToDisplayName(category)}</span>
-              <span className="bar-value">
-                <div className="outer-bar">
-                  <span className="inner-bar" style={{ width: `${width}%` }}></span>
-                </div>
-                <span className="value">{(avgRatings[category]/reviewsCount).toFixed(1)}</span>
-              </span>
-            </div>
-          )
-        })}
-      </div>
+      {!!reviewsCount && (
+        <div className="reviews-statistics">
+          {Object.keys(avgRatings).map((category) => {
+            const width = avgRatings[category]/5*100;
+            
+            return (
+              <div className="review-category-item">
+                <span className='label'>{mapCategoryToDisplayName(category)}</span>
+                <span className="bar-value">
+                  <div className="outer-bar">
+                    <span className="inner-bar" style={{ width: `${width}%` }}></span>
+                  </div>
+                  <span className="value">{avgRatings[category].toFixed(1)}</span>
+                </span>
+              </div>
+            )
+          })}
+        </div>
+      )}
 
       {
         reviews && (
@@ -84,7 +86,13 @@ const mapStateToProps = (state) => {
       avgRatings.value = (review.value += avgRatings.value)
     });
   }
+  
+  const numReviews = Object.values(reviews).length;
 
+  Object.keys(avgRatings).forEach(category => {
+    avgRatings[category] = parseInt((avgRatings[category] / numReviews).toFixed(1));
+  });
+  
   const avgStars = Object.values(avgRatings).reduce((acc, rating) => acc + rating) / Object.values(avgRatings).length;
   
   return {

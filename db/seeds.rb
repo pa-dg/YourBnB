@@ -198,26 +198,26 @@ l7 = Listing.create!(
   num_baths: 2
 )
 
-l7 = Listing.create!(
-  host_id: anthony.id,
-  title: "In the heart of KoreaTown and walking distance near Madison Square Garden - Apartment",
-  description: "Great and amazing interior modern apartment near Empire State Building and Madison Square Garden area. The apartment is always well maintained and cleaned.",
-  lat: 40.74726749079826, 
-  lng: -73.98515809845861,  
-  street: "319 5th Ave",   
-  city: "New York",
-  state: "NY",
-  country: "United States",
-  zip_code: 10016,
-  price: 189.00,
-  price_currency: "USD" ,
-  property_type: "Apartment",
-  price_per_night: "per night",
-  additional_fees: 0,
-  num_guest: 2,
-  num_beds: 1,
-  num_baths: 1
-)
+# l7 = Listing.create!(
+#   host_id: anthony.id,
+#   title: "In the heart of KoreaTown and walking distance near Madison Square Garden - Apartment",
+#   description: "Great and amazing interior modern apartment near Empire State Building and Madison Square Garden area. The apartment is always well maintained and cleaned.",
+#   lat: 40.74726749079826, 
+#   lng: -73.98515809845861,  
+#   street: "319 5th Ave",   
+#   city: "New York",
+#   state: "NY",
+#   country: "United States",
+#   zip_code: 10016,
+#   price: 189.00,
+#   price_currency: "USD" ,
+#   property_type: "Apartment",
+#   price_per_night: "per night",
+#   additional_fees: 0,
+#   num_guest: 2,
+#   num_beds: 1,
+#   num_baths: 1
+# )
 
 l8 = Listing.create!(
   host_id: andrea.id,
@@ -337,27 +337,82 @@ l5_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l5_img01.j
 l5_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l5_img02.jpg')
 l5_img03 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l5_img03.jpg')
 l5_img04 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l5_img04.jpg')
-l5_img05 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l5_img05.jpg')
+l5_img05 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l5_img05.jpeg')
 
 l5.photos.attach(io: l5_img01, filename: "l5_img01.jpg")
-l5.photos.attach(io: l5_img02, filename: "l5_img02.jpg")
-l5.photos.attach(io: l5_img03, filename: "l5_img03.jpgg")
+l5.photos.attach(io: l5_img02, filename: "l5_img02.jpeg")
+l5.photos.attach(io: l5_img03, filename: "l5_img03.jpg")
 l5.photos.attach(io: l5_img04, filename: "l5_img04.jpg")
-l5.photos.attach(io: l5_img05, filename: "l5_img05.jpg")
+l5.photos.attach(io: l5_img05, filename: "l5_img05.jpeg")
 
 
 
-l6_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l6_img01.jpg')
-l6_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l6_img02.jpg')
-l6_img03 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l6_img03.jpg')
-l6_img04 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l6_img04.jpg')
-l6_img05 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing05/l6_img05.jpg')
+l6_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing06/l6_img01.jpg')
+l6_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing06/l6_img02.jpeg')
+l6_img03 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing06/l6_img03.jpg')
+l6_img04 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing06/l6_img04.jpg')
+l6_img05 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing06/l6_img05.jpg')
 
 l6.photos.attach(io: l6_img01, filename: "l6_img01.jpg")
-l6.photos.attach(io: l6_img02, filename: "l6_img02.jpg")
-l6.photos.attach(io: l6_img03, filename: "l6_img03.jpgg")
+l6.photos.attach(io: l6_img02, filename: "l6_img02.jpeg")
+l6.photos.attach(io: l6_img03, filename: "l6_img03.jpg")
 l6.photos.attach(io: l6_img04, filename: "l6_img04.jpg")
 l6.photos.attach(io: l6_img05, filename: "l6_img05.jpg")
+
+
+l7_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing07/l7_img01.jpg')
+l7_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing07/l7_img02.webp')
+l7_img03 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing07/l7_img03.jpg')
+l7_img04 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing07/l7_img04.jpeg')
+l7_img05 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing07/l7_img05.jpg')
+
+l7.photos.attach(io: l7_img01, filename: "l7_img01.jpg")
+l7.photos.attach(io: l7_img02, filename: "l7_img02.webp")
+l7.photos.attach(io: l7_img03, filename: "l7_img03.jpg")
+l7.photos.attach(io: l7_img04, filename: "l7_img04.jpeg")
+l7.photos.attach(io: l7_img05, filename: "l7_img05.jpg")
+
+
+l8_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing08/l8_img01.jpg')
+l8_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing08/l8_img02.jpg')
+l8_img03 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing08/l8_img03.jpeg')
+l8_img04 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing08/l8_img04.jpeg')
+l8_img05 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing08/l8_img05.jpeg')
+
+l8.photos.attach(io: l8_img01, filename: "l8_img01.jpg")
+l8.photos.attach(io: l8_img02, filename: "l8_img02.jpg")
+l8.photos.attach(io: l8_img03, filename: "l8_img03.jpeg")
+l8.photos.attach(io: l8_img04, filename: "l8_img04.jpeg")
+l8.photos.attach(io: l8_img05, filename: "l8_img05.jpeg")
+
+
+l9_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing09/l9_img01.jpg')
+l9_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing09/l9_img02.jpg')
+l9_img03 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing09/l9_img03.jpeg')
+l9_img04 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing09/l9_img04.jpg')
+l9_img05 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing09/l9_img05.jpg')
+
+l9.photos.attach(io: l9_img01, filename: "l9_img01.jpg")
+l9.photos.attach(io: l9_img02, filename: "l9_img02.jpg")
+l9.photos.attach(io: l9_img03, filename: "l9_img03.jpeg")
+l9.photos.attach(io: l9_img04, filename: "l9_img04.jpg")
+l9.photos.attach(io: l9_img05, filename: "l9_img05.jpg")
+
+
+l10_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing10/l10_img01.jpg')
+l10_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing10/l10_img02.webp')
+l10_img03 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing10/l10_img03.jpeg')
+l10_img04 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing10/l10_img04.jpeg')
+l10_img05 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing10/l10_img05.jpg')
+
+l10.photos.attach(io: l10_img01, filename: "l10_img01.jpg")
+l10.photos.attach(io: l10_img02, filename: "l10_img02.webp")
+l10.photos.attach(io: l10_img03, filename: "l10_img03.jpeg")
+l10.photos.attach(io: l10_img04, filename: "l10_img04.jpeg")
+l10.photos.attach(io: l10_img05, filename: "l10_img05.jpg")
+
+
+
 
 
 # Reservations
@@ -397,6 +452,18 @@ res3 = Reservation.create!(
   children: 0, 
 )
 
+res4 = Reservation.create!(
+  user_id: demo.id, 
+  listing_id: l5.id, 
+  check_in_date: DateTime.new(2022,9,5), 
+  check_out_date: DateTime.new(2022,9,10), 
+  num_guests: 2, 
+  # payment: 1890.00, 
+  price: 300.00,
+  adults: 2,
+  children: 0, 
+)
+
 
 #Reviews
 rev1 = Review.create!(
@@ -411,3 +478,50 @@ rev1 = Review.create!(
   location: 4,
 )
 
+rev2 = Review.create!(
+  reviewer_id: andy.id,
+  listing_id: l1.id,
+  review: "The apartment was very nice, and we enjoyed our stay very much. Will definitely come back to stay here again.",
+  cleanliness: 5,
+  accuracy: 3,
+  communication: 5,
+  check_in: 5,
+  value: 3,
+  location: 5,
+)
+
+rev3 = Review.create!(
+  reviewer_id: michael.id,
+  listing_id: l5.id,
+  review: "The apartment was very clean. We enjoyed our stay.",
+  cleanliness: 5,
+  accuracy: 4,
+  communication: 4,
+  check_in: 5,
+  value: 4,
+  location: 5,
+)
+
+rev4 = Review.create!(
+  reviewer_id: anthony.id,
+  listing_id: l5.id,
+  review: "Check in was smooth and the host communicated with us promptly and very accomodating.",
+  cleanliness: 5,
+  accuracy: 4,
+  communication: 5,
+  check_in: 5,
+  value: 4,
+  location: 5,
+)
+
+rev5 = Review.create!(
+  reviewer_id: andy.id,
+  listing_id: l5.id,
+  review: "Amazing location and the place was very clean. We enjoyed our stay. Thank you so much!",
+  cleanliness: 5,
+  accuracy: 4,
+  communication: 4,
+  check_in: 5,
+  value: 4,
+  location: 5,
+)
