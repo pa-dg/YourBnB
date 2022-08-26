@@ -29,7 +29,7 @@ const ListingShow = ({ listingId, selectedListing, fetchListing, createReservati
 
   // TO DO: remove
   useEffect(() => {
-    const intervalId = setTimeout(() => setIsLoading(true), 1);
+    const intervalId = setTimeout(() => setIsLoading(true), 2000);
 
     return () => {
       clearTimeout(intervalId);
@@ -101,7 +101,7 @@ const ListingShow = ({ listingId, selectedListing, fetchListing, createReservati
           </>
         </>
       ) : (
-        <div style={{ border: '1px solid black', alignItems: 'center' }}>
+        <div style={{ textAlign: 'center', alignContent: 'center', padding: 40 }}>
           <CircularProgress />
         </div>
       )}

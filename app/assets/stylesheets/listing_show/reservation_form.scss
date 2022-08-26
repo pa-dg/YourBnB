@@ -183,8 +183,9 @@ label {
 input {
   border: none;
   padding: 0 0;
-  width: 50%;
+  width: 100%;
   outline: none;
+  z-index: 9;
 }
 
 .guest-input {
@@ -204,6 +205,7 @@ input {
     top: 50%;
     right: 0;
     transform: translatex(-12px) translatey(-50%);
+    display: none;
   }
 }
 

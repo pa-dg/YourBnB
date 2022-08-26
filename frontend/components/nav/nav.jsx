@@ -17,7 +17,7 @@ const Nav = () => {
       </div>
 
       <div className="search-bar-container">
-            <div>Search Bar Input</div>
+            <div>Start your Search</div>
             <div className="search-button">
               <i className="fas fa-search fa-1x"></i>
             </div>

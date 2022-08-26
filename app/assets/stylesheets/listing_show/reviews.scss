@@ -74,8 +74,8 @@
 
 .review-item {
   display: flex;
-  align-items: center;
-  flex-direction: row;
+  align-items: flex-start;
+  flex-direction: column;
   padding: 0;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -97,7 +97,8 @@
 }
 
 .review-message {
-  line-height: 24px;
+  line-height: 3px;
+  padding: 0 0 20px 50px;
 }
 
 // review form
