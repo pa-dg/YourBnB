@@ -1,12 +1,6 @@
 class Api::ReviewsController < ApplicationController
   def index
-    # selected_listing = Listing.find(params[:listing_id])
-
-    # review_ids = selected_listing.reviews.pluck(:id)
-    # @reviews = Review.where(id: review_ids)
-
-    @reviews = Review.all.where(id: params[:listing_id])
-    # @reviews = Review.all
+    @reviews = Review.all.where(listing_id: params[:listing_id])
   end
 
   def create

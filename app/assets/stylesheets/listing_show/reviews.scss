@@ -1,0 +1,124 @@
+.reviews-index-container {
+  border-top: 1px solid rgb(221, 221, 221);
+  padding: 48px 0;
+}
+
+.reviews-index-header {
+  width: 100%;
+  margin-bottom: 32px;
+
+  .reviews-stars-num-reviews {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+
+    .star {
+      margin-top: 2px;
+      margin-right: 10px;
+    }
+  }
+
+  .review-new {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.reviews-statistics {
+  width: 100%;
+  margin-bottom: 24px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  padding: 0;
+  flex-wrap: wrap;
+
+  .review-category-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 35px;
+
+    .label {
+      width: 150px;
+    }
+
+    .bar-value {
+      width: 150px;
+      display: flex;
+      align-items: center;
+    }
+
+    .value {
+      margin-left: 10px;
+    }
+
+    .outer-bar {
+      width: 100%;
+      height: 4px;
+      background: lightgray;
+      border-radius: 2px;
+      position: relative;
+
+      .inner-bar {
+        background: #222222;
+        height: 4px;
+        border-radius: 2px;
+        position: absolute;
+      }
+    }
+  }
+}
+
+.review-item {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.review-item-heading {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.review-name-date {
+  margin-left: 12px;
+
+  .review-date {
+    color: #717171;
+    font-size: 14px;
+  }
+}
+
+.review-message {
+  line-height: 24px;
+}
+
+// review form
+.review-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 40px 40px 40px;
+  width: 100%;
+
+  .review-form-heading {
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ebebeb;
+
+    h1 {
+      font-size: 34px;
+      font-weight: bold;
+    }
+  }
+
+  .review-form {
+    padding: 16px;
+  }
+}

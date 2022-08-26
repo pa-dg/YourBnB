@@ -15,7 +15,7 @@ import Nav from './nav/nav';
 import Footer from './footer/footer';
 import ListingShowContainer from './listing_show/listing_show_container';
 import ReservationIndexContainer from './reservation/reservation_index_container';
-
+import ReviewForm from './listing_show/review_form';
 
 const App = () => {
   return (
@@ -28,6 +28,7 @@ const App = () => {
       <Switch>
         {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
+        <ProtectedRoute exact path="/reviews/new" component={ReviewForm} />
         <ProtectedRoute exact path="/reservations" component={ReservationIndexContainer} />
         <Route exact path="/listing/:listingId" component={ListingShowContainer} />
         <Route exact path="/" component={Splash} />

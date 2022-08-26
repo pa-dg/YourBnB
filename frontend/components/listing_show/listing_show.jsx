@@ -5,6 +5,7 @@ import { FiShare } from 'react-icons/fi';
 import ListingMap from '../listing_map/listing_map';
 import ReservationForm from '../reservation/reservation_form';
 import CircularProgress from '@mui/material/CircularProgress';
+import ReviewsIndex from './reviews_index';
 
 const ListingShow = ({ listingId, selectedListing, fetchListing, createReservation, userId, openModal }) => {
   const [listing, setListing] = useState(selectedListing);
@@ -28,7 +29,7 @@ const ListingShow = ({ listingId, selectedListing, fetchListing, createReservati
 
   // TO DO: remove
   useEffect(() => {
-    const intervalId = setTimeout(() => setIsLoading(true), 2000);
+    const intervalId = setTimeout(() => setIsLoading(true), 1);
 
     return () => {
       clearTimeout(intervalId);
@@ -92,9 +93,7 @@ const ListingShow = ({ listingId, selectedListing, fetchListing, createReservati
             
           </div>
 
-          <div className="listing-show-reviews-container">
-            <h1>REVIEWS GO HERE</h1>
-          </div>
+          <ReviewsIndex listingId={listingId} />
           
           <>  
             <div className="map-header">Where you'll be</div>
