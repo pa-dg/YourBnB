@@ -11,6 +11,7 @@ require 'open-uri'
 User.destroy_all
 Listing.destroy_all
 Reservation.destroy_all
+Review.destroy_all
 
 # Users
 
