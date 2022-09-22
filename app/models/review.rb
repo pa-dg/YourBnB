@@ -28,4 +28,3 @@ class Review < ApplicationRecord
     foreign_key: :listing_id,
     class_name: :Listing
 end
-# heroku

@@ -9,11 +9,6 @@ class Api::ReservationsController < ApplicationController
     end
   end
   
-  #TO DO: REMOVE, NOT NEEDED
-  def show
-    @reservation = Reservation.find(params[:id])
-  end
-  
   def create
     @reservation = Reservation.new(new_reservation_params)
 

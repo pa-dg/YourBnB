@@ -41,7 +41,9 @@ class Listing < ApplicationRecord
     through: :reservations,
     source: :user
     
-  has_many :reviews
+  has_many :reviews,
+    foreign_key: :listing_id,
+    class_name: :Review
 
   # Active Storage Associaiton (AWS S3)
   has_many_attached :photos, dependent: :destroy
