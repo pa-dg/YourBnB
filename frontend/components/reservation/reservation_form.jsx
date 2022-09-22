@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { BsFillStarFill } from 'react-icons/bs';
+import { BsFillStarFill, BsFillFlagFill } from 'react-icons/bs';
 import { withRouter } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { DateRangePicker } from "react-dates";
 
 const ReservationForm = ({ listingId, listing, createReservation, userId, openModal } ) => {
 
@@ -49,11 +50,10 @@ const ReservationForm = ({ listingId, listing, createReservation, userId, openMo
     <div className="reservation-form-container">
         
         <div className="reservation-form-header">
-          <p><span className="cost">
+          <span className="cost">
               <h1>${price}</h1>
               <h3>night</h3>
             </span>
-          </p>
           <p>
             <span className="rating">
               <BsFillStarFill id="star" />5.0 
@@ -90,106 +90,6 @@ const ReservationForm = ({ listingId, listing, createReservation, userId, openMo
               
           </div>
             <div className="btn-container">
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
-              <div className="cell"></div>
               <div className="content">
                 <button className="action-btn">
                   <span>Reserve</span>
@@ -201,7 +101,8 @@ const ReservationForm = ({ listingId, listing, createReservation, userId, openMo
                 <input type="submit" className="reserve-button" value="Reserve"/>
                 </label>
               </div> */}
-        <p className="reservation-footer">Report this listing</p>
+        <p className="reservation-footer">
+          <BsFillFlagFill size={12}/> Report this listing</p>
     </div>
   )
 };

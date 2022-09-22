@@ -58,7 +58,6 @@ const ListingShow = ({ listingId, selectedListing, fetchListing, createReservati
           <div className="listing-show-images-container">
 
             <div className="listing-show-img-main">
-              {/* <img id="test" src={window.test} alt="test" /> */}
               <div><img id="img-main" src={listing.photoUrls[0]} alt="listing-image" /></div>
             </div>
               
@@ -81,6 +80,10 @@ const ListingShow = ({ listingId, selectedListing, fetchListing, createReservati
                 <h1>Entire {listing.propertyType} hosted by {listing.hostName}</h1>
                 <h2>{listing.numGuest} guest &middot; {listing.numBeds} bed &middot; {listing.numBaths} bath</h2>
               </div> 
+
+              <div className="listing-aircover">
+                <img src={window.aircover} alt="aircover-icon" height={26}/>
+              </div>
               
               <div className="listing-description">
                 <span>{listing.description}</span>

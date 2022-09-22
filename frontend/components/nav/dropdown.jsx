@@ -25,18 +25,21 @@ const DropDown = (props) => {
   const loggedInMenu = () => {
     return (
       <div id="dropdown-content-id" className="dropdown-content">
-          <div className="nav-messages">
-            Messages
-          </div>
-          <div className="nav-trips">
-            <Link to="/reservations">Trips</Link>
-          </div>
-          <div className="nav-wishlists">
-            Wishlists
-          </div>
-          <div className="nav-logout-button" onClick={logout}>
-            Logout
-          </div>
+        <div className="greeting">
+          <p>Hi, {currentUser.firstName}!</p>
+        </div>
+        <div className="nav-messages">
+          Messages
+        </div>
+        <div className="nav-trips">
+          <Link to="/reservations">Trips</Link>
+        </div>
+        <div className="nav-wishlists">
+          Wishlists
+        </div>
+        <div className="nav-logout-button" onClick={logout}>
+          Logout
+        </div>
       </div>
     );
   };
@@ -53,8 +56,6 @@ const DropDown = (props) => {
       </div>
     );  
   };
-
-  console.log(currentUser)
 
   return (
     <div className="nav-dropdown-button" onClick={showDropdown}>
