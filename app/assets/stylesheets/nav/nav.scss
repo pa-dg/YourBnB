@@ -120,8 +120,8 @@
 .nav-dropdown-button {
   @include button(white, $default-color-lt-gray);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
   padding: 16px 8px;
   border-radius: 25px;
   cursor: pointer;
