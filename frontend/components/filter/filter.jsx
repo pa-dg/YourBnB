@@ -38,7 +38,7 @@ const Filter = () => {
         <span>Surf Board</span>
       </button>
       <button id="filter-icons"><img src={window.nationalparkIcon} alt="nationalpark-icon" />
-        <span>National Park</span>
+        <span>National Parks</span>
       </button>
       <button id="filter-icons"><img src={window.swimmingpoolIcon} alt="swimmingpool-icon" />
         <span>Swimming Pool</span>
@@ -51,6 +51,21 @@ const Filter = () => {
       </button>
       <button id="filter-icons"><img src={window.caveIcon} alt="cave-icon" />
         <span>Cave</span>
+      </button>
+      <button id="filter-icons"><img src={window.countrysideIcon} alt="countryside-icon" />
+        <span>Countryside</span>
+      </button>
+      <button id="filter-icons"><img src={window.skiingIcon} alt="skiing-icon" />
+        <span>Skiing</span>
+      </button>
+      <button id="filter-icons"><img src={window.golfingIcon} alt="golfing-icon" />
+        <span>Golfing</span>
+      </button>
+      <button id="filter-icons"><img src={window.castleIcon} alt="castle-icon" />
+        <span>Castle</span>
+      </button>
+      <button id="filter-icons"><img src={window.vineyardIcon} alt="vineyard-icon" />
+        <span>Vineyard</span>
       </button>
       
       <button id="filter-modal-button" onClick={openModal('filter')}>
