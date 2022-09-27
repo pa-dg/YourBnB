@@ -1,35 +1,71 @@
 //TO REMOVE: refactor dropdown button
 
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { openModal } from '../../actions/modal_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 import { logout } from '../../actions/session_actions';
 import { Link } from "react-router-dom";
 import ModalContainer from '../modal/modal';
+import { HiOutlineMenu } from 'react-icons/hi';
+import { FaUserCircle } from 'react-icons/fa'
 
-const DropDown = (props) => {
-  const { currentUser, logout } = props;
+const DropDown = ({ openModal, currentUser, logout }) => {
+  const [toggledDropDown, setToggledDropDown] = useState(false);
 
-  const openModal = (formType) => {
-    return e => {
-      e.preventDefault();
-      props.openModal(formType)
-    };
-  };
+  const styles = {
+    size: 26,
+    paddingLeft: 3,
+    paddingRight: 3,
+    color: '#717171',
+  }
 
+  // const openModal = (formType) => {
+  //   return e => {
+  //     e.preventDefault();
+  //     props.openModal(formType)
+  //   };
+  // };
+
+  // const showDropdown = () => {
+  //   event.stopPropagation();
+  //   document.getElementById("dropdown-content-id").classList.toggle("show")
+  // };
+
+  const handleBlur = () => {
+    // event.stopPropagation()
+    console.log('on blur')
+    setToggledDropDown(false)
+  }
+ 
   const showDropdown = () => {
-    event.stopPropagation();
-    document.getElementById("dropdown-content-id").classList.toggle("show")
+    return (
+      <>
+        <ModalContainer/>
+        {
+          currentUser ? loggedInMenu() : loggedOutMenu()
+        }
+      </>
+    )
+  }
+
+  const loggedOutMenu = () => {
+    return (  
+      <div className="dropdown-content">
+          <div className="nav-login-signup" onClick={() => openModal('login')}>
+            Log In
+          </div>
+          <div className="nav-login-signup" onClick={() => openModal('signup')}>
+            Sign Up
+          </div>
+      </div>
+    );  
   };
 
   const loggedInMenu = () => {
     return (
-      <div id="dropdown-content-id" className="dropdown-content">
+      <div className="dropdown-content">
         <div className="greeting">
           <p>Hi, {currentUser.firstName}!</p>
-        </div>
-        <div className="nav-messages">
-          Messages
         </div>
         <div className="nav-trips">
           <Link to="/reservations">Trips</Link>
@@ -44,35 +80,20 @@ const DropDown = (props) => {
     );
   };
     
-  const loggedOutMenu = () => {
-    return (  
-      <div id="dropdown-content-id" className="dropdown-content">
-          <div className="nav-login-signup" onClick={openModal('login')}>
-            Log In
-          </div>
-          <div className="nav-login-signup" onClick={openModal('signup')}>
-            Sign Up
-          </div>
-      </div>
-    );  
-  };
+  
 
   return (
-    <div className="nav-dropdown-button" onClick={showDropdown}>
-      <div className="dropdown-icon1">
-        <i className="fas fa-bars fa-sm"></i>
+    <div className="dropdown-container" onClick={() => setToggledDropDown(!toggledDropDown)} onBlur={handleBlur}>
+      <div className="nav-dropdown-button" >
+          <HiOutlineMenu size={styles.size} style={styles} />
+          <FaUserCircle size={styles.size} style={styles} />
       </div>
-      <div className="dropdown-icon2">
-        <i className="far fa-user-circle"></i>
-      </div>
-      <div className="dropdown-menu">
-        <ModalContainer/>
-        {
-          currentUser ? loggedInMenu() : loggedOutMenu()
-        }
-      </div>
+
+      {
+        toggledDropDown ? showDropdown() : null
+      }
     </div>
-  );
+  )
 }
   
 
