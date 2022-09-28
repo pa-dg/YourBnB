@@ -15,8 +15,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: $default-color-lt-gray;
-  padding: 20px 0px 20px 0px;
+  padding: 20px 0px 15px 0px;
   width: 1600px;
   position: sticky;
   z-index: 9;
@@ -28,22 +27,28 @@ button {
   cursor: pointer;
   background-color: transparent;
   border: none;
-  color: $default-color-lt-gray;
+  color: $default-color-ltgray;
 }
 
 #filter-icons {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: $default-font-size-sm;
-  font-weight: $default-font-wt;
+  font-size: $fs-12;
+  font-family: $fm-Nunito;
+  font-weight: $fw-500;
+
   img {
     @include icon-size($filter-icon-size);
+  }
+
+  span {
+    color: $default-color-darkgray;
   }
 }
 
 #filter-modal-button {
-  @include button(white, $default-color-lt-gray);
+  @include button(white, $default-color-ltgray);
   display: flex;
   align-items: center;
   font-size: $default-font-size-sm;
