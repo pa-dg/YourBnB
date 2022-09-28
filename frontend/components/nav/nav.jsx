@@ -44,7 +44,7 @@ const Nav = () => {
           <a className="social-link" href="https://www.linkedin.com/in/patricia-deguzman/" target="_blank" rel="noopener noreferrer">
             <FaLinkedin size={styles.socials.size} style={styles.socials} />
           </a>
-          <a className="social-link" href="https://angel.co/" target="_blank" rel="noopener noreferrer">
+          <a className="social-link" href="https://angel.co/u/patricia-andrea-de-guzman" target="_blank" rel="noopener noreferrer">
             <FaAngellist size={styles.socials.size} style={styles.socials} />
           </a>
           <a className="social-link" href="mailto:padgzmn@gmail.com" target="_blank" rel="noopener noreferrer">

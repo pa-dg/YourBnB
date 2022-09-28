@@ -11,7 +11,6 @@
   background-color: white;
   z-index: 10;
   width: 100%;
-  // border: 1px solid red;
 }
 
 .nav-header {
@@ -19,8 +18,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: $default-fm;
-  // border: 1px solid green;
+  font-family: $fm-Nunito;
 }
 
 .splash-page-link-container {
@@ -38,7 +36,7 @@
   }
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.075);
     transition: 0.175s ease-out;
   }
 }
@@ -143,12 +141,12 @@
         font-weight: $fw-600;
 
         a {
-          text-decoration: none;
+          text-decoration: none !important;
           color: $default-color-black;
         }
 
         &:hover {
-          background-color: $default-button-hover-color;
+          background-color: $default-color-ltgray;
         }
       }
     }

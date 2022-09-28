@@ -67,9 +67,9 @@ const DropDown = ({ openModal, currentUser, logout }) => {
         <div className="greeting">
           <p>Hi, {currentUser.firstName}!</p>
         </div>
-        <div className="nav-trips">
-          <Link to="/reservations">Trips</Link>
-        </div>
+        <Link to="/reservations">
+          <div className="nav-trips">Trips</div>
+        </Link>
         <div className="nav-wishlists">
           Wishlists
         </div>
