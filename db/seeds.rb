@@ -414,55 +414,45 @@ l10.photos.attach(io: l10_img05, filename: "l10_img05.jpg")
 
 
 
-
-
 # Reservations
 res1 = Reservation.create!(
   user_id: andrea.id, 
   listing_id: l3.id, 
-  check_in_date: DateTime.new(2022,8,27), 
-  check_out_date: DateTime.new(2022,9,2), 
+  check_in_date: Date.new(2022,8,27), 
+  check_out_date: Date.new(2022,9,2), 
   num_guests: 2, 
   # payment: 1890.00, 
-  price: 270.00,
-  adults: 2,
-  children: 0, 
+  price: 270.00
 )
 
 res2 = Reservation.create!(
   user_id: andy.id, 
   listing_id: l5.id, 
-  check_in_date: DateTime.new(2022,8,29), 
-  check_out_date: DateTime.new(2022,9,5), 
+  check_in_date: Date.new(2022,8,29), 
+  check_out_date: Date.new(2022,9,5), 
   num_guests: 2, 
   # payment: 1890.00, 
-  price: 300.00,
-  adults: 2,
-  children: 0, 
+  price: 300.00
 )
 
 res3 = Reservation.create!(
   user_id: demo.id, 
   listing_id: l6.id, 
-  check_in_date: DateTime.new(2022,8,29), 
-  check_out_date: DateTime.new(2022,9,3), 
+  check_in_date: Date.new(2022,8,29), 
+  check_out_date: Date.new(2022,9,3), 
   num_guests: 2, 
   # payment: 1890.00, 
-  price: 345.00,
-  adults: 2,
-  children: 0, 
+  price: 345.00
 )
 
 res4 = Reservation.create!(
   user_id: demo.id, 
   listing_id: l5.id, 
-  check_in_date: DateTime.new(2022,9,5), 
-  check_out_date: DateTime.new(2022,9,10), 
+  check_in_date: Date.new(2022,9,5), 
+  check_out_date: Date.new(2022,9,10), 
   num_guests: 2, 
   # payment: 1890.00, 
-  price: 300.00,
-  adults: 2,
-  children: 0, 
+  price: 300.00
 )
 
 

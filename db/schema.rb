@@ -69,12 +69,10 @@ ActiveRecord::Schema.define(version: 2022_08_21_202904) do
   create_table "reservations", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "listing_id", null: false
-    t.string "check_in_date", null: false
-    t.string "check_out_date", null: false
+    t.date "check_in_date", null: false
+    t.date "check_out_date", null: false
     t.integer "num_guests", null: false
     t.float "price", null: false
-    t.integer "adults", null: false
-    t.integer "children"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_reservations_on_listing_id"

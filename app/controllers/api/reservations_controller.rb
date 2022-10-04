@@ -41,14 +41,10 @@ class Api::ReservationsController < ApplicationController
 
   private
 
-  # def guest
-  #   params[:guest]
-  # end
-
   def new_reservation_params
     snake_case_params!(params[:reservation])
     
-    params.require(:reservation).permit(:user_id, :listing_id, :check_in_date, :check_out_date, :num_guests, :price, :adults, :children)
+    params.require(:reservation).permit(:user_id, :listing_id, :check_in_date, :check_out_date, :num_guests, :price)
   end
 
 end

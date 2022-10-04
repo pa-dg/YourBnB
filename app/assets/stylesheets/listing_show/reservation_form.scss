@@ -37,9 +37,11 @@
 
 .reservation-form-input-container {
   border: 1px solid $default-color-gray;
-  border-radius: 13px;
+  border-radius: 12px;
   margin: 25px 0 15px 0;
 }
+
+// ---
 
 .date-picker-container {
   // display: flex;
@@ -51,133 +53,208 @@
 }
 
 .date-input {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // width: 100%;
   display: flex;
   flex-direction: column;
   gap: 5px;
   padding: 7px 12px;
-  font-size: 0.75rem;
+  font-size: $fs-12;
   &:last-of-type {
-    border-left: 1px solid #00000050;
+    border-left: 1px solid $default-color-gray;
   }
+}
 
-  // label {
-  //   display: flex;
-  //   width: 100%;
-  //   font-size: $default-font-size-md;
-  //   font-family: $default-font-family;
-  // }
+.guest-input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-top: 1px solid $default-color-gray;
+  padding: 7px 12px;
+  color: gray;
+  font-size: 0.75rem;
+
+  .guest-input {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    outline: none;
+
+    p {
+      font-family: $fm-Nunito;
+      font-size: $fs-14;
+      font-weight: 500;
+      color: $default-color-black;
+      align-self: center;
+    }
+  }
+}
+
+.add-guest-dropdown-container {
+  position: relative;
+
+  .add-guest-container {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    padding: 16px;
+    width: 268px;
+    right: -13px;
+    top: 30px;
+    font-weight: 500;
+
+    .guest-text {
+      font-size: $fs-16;
+      color: $default-color-black;
+      align-self: center;
+    }
+
+    .add-guest {
+      span {
+        color: $default-color-black;
+        margin: 0 5px 0 5px;
+        font-size: $fs-14;
+      }
+
+      .num-guest-button {
+        border-radius: 50%;
+        margin: 0 5px 0 5px;
+        border: 1px solid $default-color-gray;
+        color: $default-color-gray;
+        background-color: transparent;
+        height: 32px;
+        width: 32px;
+        font-size: $fs-16;
+
+        &:hover {
+          cursor: pointer;
+          color: $default-color-black;
+          border: 1px solid $default-color-black;
+        }
+      }
+    }
+  }
+}
+
+#disable-button {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+
+  &:hover {
+    color: $default-color-gray;
+    border: 1px solid $default-color-gray;
+  }
 }
 
 label {
-  font-weight: 600;
-  font-size: 0.75em;
-  justify-content: flex-end;
   color: gray;
-  font-weight: $default-font-wt;
 }
 
 input {
-  border: none;
-  padding: 0 0;
-  width: 100%;
-  outline: none;
-  z-index: 9;
-}
-
-.guest-input {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  border-top: 1px solid #00000050;
-  padding: 7px 12px;
-  color: gray;
-  font-size: 0.75rem;
-
-  svg {
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    top: 50%;
-    right: 0;
-    transform: translatex(-12px) translatey(-50%);
-    display: none;
-  }
-}
-
-.btn-container {
-  position: relative;
-  width: 100%;
-  height: 48px;
-  padding: 0 0;
-  margin: 0 0;
   cursor: pointer;
+  outline: none;
   border: none;
-}
-
-.cell {
+  z-index: 9;
+  font-family: $fm-Nunito;
+  font-weight: 500;
   width: 100%;
-  height: 100%;
-  z-index: 1;
-  // border: 1px solid rgba(128, 128, 128, 0.753);
 }
 
-.content {
-  --positionX: 0;
-  --positionY: 5;
-
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+.reserve-button {
+  cursor: pointer;
   border-radius: 8px;
-
-  background-image: radial-gradient(
-    circle at calc((0 + var(--positionX, 0)) * 10%)
-      calc((0 + var(--positionY, 0)) * 5%),
-    rgb(241, 37, 75) 0%,
-    rgb(230, 30, 77) 27.5%,
-    rgb(227, 28, 95) 40%,
-    rgb(215, 4, 102) 57.5%,
-    rgb(189, 30, 89) 75%,
-    rgb(189, 30, 89) 100%
-  );
-}
-
-.action-btn {
-  padding: 0 0;
-  margin: 0 0;
+  padding: 6%;
   width: 100%;
   height: 100%;
-  background-color: transparent;
   border: none;
+  background: linear-gradient(to left, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
+
+  &:hover {
+    background: linear-gradient(
+      to right,
+      #e61e4d 0%,
+      #e31c5f 50%,
+      #d70466 100%
+    );
+  }
 
   span {
     padding: 0 0;
     margin: 0 0;
     color: white;
-    font-size: 16px;
     line-height: 20px;
+    font-family: $fm-Nunito;
+    font-size: $fs-16;
     font-weight: 600;
-    font-family: sans-serif;
+  }
+}
+
+.disable-res-button {
+  cursor: not-allowed !important;
+  opacity: 0.5;
+  border-radius: 8px;
+  padding: 6%;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: $default-color-gray;
+
+  span {
+    padding: 0 0;
+    margin: 0 0;
+    color: rgb(14, 13, 13);
+    line-height: 20px;
+    font-family: $fm-Nunito;
+    font-size: $fs-16;
+    font-weight: 700;
+  }
+}
+
+// ----
+
+.reservation-price {
+  display: flex;
+  flex-direction: column;
+
+  .price-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: $fs-16;
+    font-weight: 300;
+    color: $default-color-black;
+    padding-top: 16px;
+
+    p:not(:last-child) {
+      text-decoration: underline;
+    }
+
+    &:nth-of-type(1) {
+      padding-top: 30px !important;
+    }
+
+    &:nth-of-type(3) {
+      padding-bottom: 30px !important;
+    }
+  }
+
+  .price-info-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: $fs-16;
+    font-weight: 500;
+    color: $default-color-black;
+    padding: 30px 0 10px 0;
+    border-top: 1px solid $default-color-ltgray;
   }
 }
 
 p.reservation-footer {
   color: gray;
-  font-weight: 500;
-  font-size: $default-font-size-md;
-  display: inline-block;
-  width: 100%;
+  font-size: $fs-14;
+  font-weight: 300;
   text-align: center;
-  padding-top: 15px;
+  padding-top: 16px;
 }
