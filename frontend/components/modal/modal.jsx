@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import FilterFormContainer from '../filter/filter_form_container';
+import ImageGridContainer from '../listing_show/ImageGrid';
 
 function Modal({modal, closeModal}) {
   if (!modal) {
     return null;
   }
   let component;
-  switch (modal) {
+  switch (modal.type) {
     case 'login':
       component = <LoginFormContainer />;
       break;
@@ -19,6 +20,9 @@ function Modal({modal, closeModal}) {
       break;
     case 'filter':
       component = <FilterFormContainer />;
+      break;
+    case 'imageGrid':
+      component = <ImageGridContainer photoUrls={modal.photoUrls} />;
       break;
     default:
       return null;

@@ -15,13 +15,15 @@ import Footer from './footer/footer';
 import ListingShowContainer from './listing_show/listing_show_container';
 import ReservationIndexContainer from './reservation/reservation_index_container';
 import ReviewForm from './listing_show/review_form';
-import 'react-dates/lib/css/_datepicker.css';
+import ModalContainer from './modal/modal';
+// import 'react-dates/lib/css/_datepicker.css';
 // import 'react-date-range/dist/styles.css';
 // import 'react-date-range/dist/theme/default.css';
 
 const App = () => {
   return (
     <>
+      <ModalContainer />
       <header className='nav-header-container'>
         <Nav />
       </header>

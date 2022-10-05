@@ -8,109 +8,21 @@
   right: 0;
   left: 0;
   background: rgba(50, 50, 50, 0.5);
-  z-index: 10;
+  z-index: 99;
 }
 
 .modal-child {
-  @include centerer(column);
   position: absolute;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  overflow: hidden;
-  background-color: white;
-  border-radius: 12px;
-  width: 70vw;
-  max-width: 568px;
-  min-width: 300px;
+  // max-width: 900px;
+  // min-width: 300px;
+  // width: 70vw;
+  // border-radius: 12px;
 }
-
-.session-form-header {
-  @include centerer(row);
-  align-items: center;
-  justify-content: space-between;
-  flex: 0 1 0;
-  padding: 16px 0;
-  border-bottom: 1px solid rgb(235, 235, 235);
-}
-
-.exit-modal {
-  @include button(transparent, $default-color);
-  padding: 10px;
-  margin: 0;
-  height: auto;
-  width: 20px;
-}
-
-.login-signup-form {
-  @include centerer(column);
-  width: 100%;
-  padding: 24px;
-  align-items: flex-start;
-
-  &:not(first-child) {
-    align-items: center;
-  }
-
-  h3 {
-    margin: 0 0 20px;
-  }
-
-  label,
-  button {
-    margin-bottom: 16px;
-  }
-
-  input {
-    // -2px for input borders
-    width: 494px;
-    margin: 0;
-    padding: 12px;
-    border-radius: 8px;
-    border: 0.5px solid lightgray;
-    &:focus-within {
-      border: 2px solid black;
-
-      &::placeholder {
-        margin: 1px 0 1px;
-      }
-    }
-  }
-}
-
-.session-errors {
-  color: red;
-  padding: 10px;
-}
-
-.session-button {
-  @include button($default-linear-gradient, white);
-  border-style: none;
-  width: 520px;
-  height: 48px;
-}
-
-.session-form-footer {
-  @include centerer(row);
-  padding: 24px;
-}
-
-.demo-login-button {
-  @include button($default-linear-gradient2, white);
-  border-style: none;
-  width: 520px;
-  height: 48px;
-}
-
-// input,
-// textarea {
-//   font-size: 16px;
-//   align-items: center;
-//   width: 450px;
-//   height: 48px;
-//   margin: 10px;
-//   padding: 12px;
-//   color: $default-color;
-
-//   }
-// }
