@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const SessionForm = props => {
 
@@ -9,6 +9,17 @@ const SessionForm = props => {
     password: '',
   })
 
+  const userInfoRef = useRef({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+
+  useEffect(() => {
+    userInfoRef.current = userInfo;
+  }, [userInfo]);
+  
   useEffect(() => {
     return () => {
       props.clearReceiveErrors();
@@ -47,37 +58,80 @@ const SessionForm = props => {
   
   const demoLogin = (e) => {
     e.preventDefault();
-    props.login({
-      email: 'demouser@yourbnb.com',
-      password: '123456',
-    }).then(props.closeModal)
+    // props.login({
+    //   email: 'demouser@yourbnb.com',
+    //   password: '123456',
+    // }).then(props.closeModal)
+    let email = "demouser@yourbnb.com"
+    let password = "123456";
+    setUserInfo({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    });
+
+    const emailcb = () => {
+      const emailTimeout = setTimeout(() => {
+        if (email.length > 0) {
+          setUserInfo({
+            ...userInfo,
+            email: userInfoRef.current.email + email[0],
+            password: userInfoRef.current.password,
+          });
+          clearTimeout(emailTimeout);
+          email = email.slice(1);
+          emailcb();
+        } else {
+          passwordcb();
+        }
+      }, 75);
+    };
+
+    const passwordcb = () => {
+      const passwordTimeout = setTimeout(() => {
+        if (password.length > 0) {
+          setUserInfo({
+            ...userInfo,
+            email: userInfoRef.current.email,
+            password: userInfoRef.current.password + password[0],
+          });
+          clearTimeout(passwordTimeout);
+          password = password.slice(1);
+          passwordcb();
+        } else {
+          setTimeout(() => {
+            props.processForm(userInfoRef.current).then(props.closeModal());
+          }, 500);
+        }
+      }, 75);
+    };
+    emailcb();
   };
 
-  // let modalFormButtonText = props.formType === 'signUp' ? 'Sign Up' : 'Log In';
   const { formType, otherForm } = props;
 
   return (
-    <>
+    <div className='session-modal-container'>
       <div className="session-form-header">
         <div className="exit-modal" onClick={closeModal}>&times;</div>
-        <h1>{formType}</h1>
-        <div></div>
+        <p>Welcome to yourbnb</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="login-signup-form">
-        <h3>Welcome to yourbnb</h3>
+      <form className="session-form" onSubmit={handleSubmit}>
+        <p>{formType}</p>
         <div className="session-errors">{renderErrors()}</div>
           {
-            props.formType === 'Sign Up' && (
+            formType === 'Sign Up' && (
               <>
-                <label htmlFor="modal-fname">
+                <label htmlFor="first-name">
                   <input type="text"
                     placeholder="First Name"
                     value={userInfo.firstName}
                     onChange={update('firstName')}
                   />
                 </label>
-                <label htmlFor="modal-lname">
+                <label htmlFor="last-name">
                   <input type="text" 
                     placeholder="Last Name"
                     value={userInfo.lastName}
@@ -87,14 +141,14 @@ const SessionForm = props => {
               </>
             )
           }
-          <label htmlFor="modal-email">
+          <label htmlFor="email">
             <input type="email"
               placeholder="Email"
               value={userInfo.email} 
               onChange={update('email')}
             />
           </label>  
-          <label htmlFor="modal-password">
+          <label htmlFor="password">
             <input type="password" 
               placeholder="Password"
               value={userInfo.password}
@@ -102,12 +156,14 @@ const SessionForm = props => {
             />
           </label>
             <button value={formType} className="session-button">{formType}</button>
-            <button value="Demo Login" className="demo-login-button" onClick={demoLogin}>Demo Login</button>
+            {formType === 'Log In' && (
+              <button value="Demo Login" className="demo-login-button" onClick={demoLogin}>Demo Login</button>
+            )}
       </form>
       <footer className="session-form-footer">
         {otherForm}
       </footer>
-    </>
+    </div>
   );
 
 }

@@ -1,0 +1,137 @@
+@import "../variables.scss";
+
+.session-modal-container {
+  @include center-content(column);
+  font-family: $fm-Montserrat;
+  width: 500px;
+  background-color: white;
+  top: 0;
+  left: 50%;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.session-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 0 18px 0;
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+
+  p {
+    font-size: $fs-24;
+    font-weight: 500;
+    color: $airbnb-color;
+  }
+}
+
+.exit-modal {
+  cursor: pointer;
+  font-size: $fs-24;
+  font-weight: 500;
+  padding: 10px;
+  margin: 0;
+  width: 20px;
+  height: auto;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  text-align: center;
+
+  &:hover {
+    background-color: $default-color-ltrgray;
+    border-radius: 8px;
+  }
+}
+
+.session-form {
+  @include center-content(column);
+  padding: 30px 0 30px 0;
+  font-family: $fm-Nunito;
+  width: 500px;
+
+  p {
+    font-size: $fs-20;
+    font-weight: 600;
+  }
+
+  label {
+    margin-bottom: 16px;
+  }
+
+  input {
+    font-size: $fs-14;
+    width: 396px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid lightgray;
+
+    &:focus {
+      outline: none;
+      border: 1px solid $airbnb-color;
+
+      &::placeholder {
+        margin: 1px 0 1px;
+      }
+    }
+  }
+}
+
+.session-errors {
+  color: red;
+  padding: 10px;
+}
+
+.session-button {
+  @include button();
+  width: 420px;
+  height: 48px;
+  padding: 10px;
+  font-family: $fm-Nunito;
+  font-size: $fs-16;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.demo-login-button {
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(to left, #02a092 0%, #008f83 50%, #008b95 100%);
+  width: 420px;
+  height: 48px;
+  padding: 10px;
+  font-family: $fm-Nunito;
+  font-size: $fs-16;
+  font-weight: 500;
+  color: white;
+
+  &:hover {
+    background: linear-gradient(
+      to right,
+      #02a092 0%,
+      #008f83 50%,
+      #008b95 100%
+    );
+  }
+}
+
+.session-form-footer {
+  @include center-content(row);
+  padding: 30px;
+  font-size: $fs-16;
+  font-weight: 300;
+  color: $default-color-black;
+
+  a {
+    font-weight: 500;
+    color: $airbnb-color;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}

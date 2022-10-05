@@ -23,13 +23,6 @@
   background-color: white;
 }
 
-button {
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  color: $default-color-ltgray;
-}
-
 #filter-icons {
   display: flex;
   flex-direction: column;
@@ -37,6 +30,10 @@ button {
   font-size: $fs-12;
   font-family: $fm-Nunito;
   font-weight: $fw-500;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: $default-color-ltgray;
 
   img {
     @include icon-size($filter-icon-size);
@@ -48,7 +45,6 @@ button {
 }
 
 #filter-modal-button {
-  @include button(white, $default-color-ltgray);
   display: flex;
   align-items: center;
   font-size: $default-font-size-sm;
