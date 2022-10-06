@@ -24,7 +24,7 @@ const ListingIndex = ({ listings, fetchListings }) => {
   });
 
   return (
-    <>
+    <div className="listing-index-container">
       {isLoading ? <CircularProgress color="secondary" />
         :  <> {listings.map((listing, index) => (
             <ListingIndexItem 
@@ -34,7 +34,7 @@ const ListingIndex = ({ listings, fetchListings }) => {
           ))}
           </>
       }                
-    </>
+    </div>
     
   );
 };

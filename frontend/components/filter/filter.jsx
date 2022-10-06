@@ -2,17 +2,10 @@ import React, { useState } from "react";
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 
-const Filter = () => {
-  const openModal = (formType) => {
-    return e => {
-      e.preventDefault();
-      openModal(formType)
-    };
-  };
+const Filter = ({ openModal }) => {
 
   return (
     <div className="filter-form-container">
-      
       <button id="filter-icons"><img src={window.lakeIcon} alt="lake-icon" />
         <span>Lakefront</span>
       </button>
@@ -68,22 +61,21 @@ const Filter = () => {
         <span>Vineyard</span>
       </button>
       
-      <button id="filter-modal-button" onClick={openModal('filter')}>
+      <button className="filter-modal-button" onClick={() => openModal({ type: 'filter' })}>
         <span><img src={window.sliderIcon} alt="slider-icon" /></span>
-        <div id="button-text">Filter</div>
+        <span>Filter</span>
       </button>
-
 
     </div>
   );
 };
 
 
-const mapStateToProps = (state) => {
-  return {
+// const mapStateToProps = (state) => {
+//   return {
     // listings: Object.values(state.entities.listings)
-  };
-};
+//   };
+// };
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -91,4 +83,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+export default connect(null, mapDispatchToProps)(Filter);

@@ -3,7 +3,7 @@ import Nouislider from "nouislider-react";
 import { closeModal } from "../../actions/modal_actions";
 
 
-const FilterForm = ({ listings, minPrice, maxPrice, updateFilter, clearFilter }) => {
+const FilterForm = ({ listings, minPrice, maxPrice, updateFilter, clearFilter, closeModal }) => {
   const [filter, setFilter] = useState({
     minPrice: minPrice || 0,
     maxPrice: maxPrice || 0,
@@ -28,13 +28,15 @@ const FilterForm = ({ listings, minPrice, maxPrice, updateFilter, clearFilter })
   return (
     <div className="filter-form">
       <header className="filter-form-header">
-        <button onClick={() => closeModal()}></button>
-        <h1>Filters</h1>
+        <div className="exit-modal" onClick={() => closeModal()}>
+          &times;
+        </div>
+        <p>Filters</p>
       </header>
       
       <form onSubmit={handleSubmit}>
         <div className="filter-form-content">
-          <div><h1>Price Range</h1></div>
+          <p>Price Range</p>
 
           <div className="filter-form-slider">
             <Nouislider id="price-range-slider" range={{ min: 0, max: 600 }} start={[filter.minPrice, filter.maxPrice]} onSet={update('priceRange')}  connect />

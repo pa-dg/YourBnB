@@ -1,0 +1,88 @@
+@import "../variables.scss";
+
+.filter-form-container {
+  // border-bottom: 1px solid rgb(235, 235, 235);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0px 15px 0px;
+  width: 1600px;
+  position: sticky;
+  z-index: 9;
+  top: 75px;
+  background-color: white;
+  border: 1px solid red;
+}
+
+#filter-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: $fs-12;
+  font-family: $fm-Nunito;
+  font-weight: $fw-500;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: $default-color-ltgray;
+
+  img {
+    @include icon-size($filter-icon-size);
+  }
+
+  span {
+    color: $default-color-darkgray;
+  }
+}
+
+.filter-modal-button {
+  font-size: $fs-14;
+  color: $default-color-black;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 90px;
+  padding: 5px 5px 5px 5px;
+  background: transparent;
+  border: 1px solid $default-color-gray;
+  border-radius: 16px;
+
+  &:hover {
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  img {
+    width: 20px;
+    height: auto;
+    padding: 7px 5px 7px 0;
+  }
+
+  span {
+    font-size: $default-font-size-md;
+  }
+}
+
+// Filter Modal
+
+.filter-form {
+  @include center-content(column);
+  background: white;
+  width: 780px;
+  font-family: $fm-Nunito;
+}
+
+.filter-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 0 18px 0;
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+
+  p {
+    font-size: $fs-20;
+    font-weight: 500;
+    color: $default-color-black;
+  }
+}

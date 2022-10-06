@@ -1,6 +1,7 @@
 // houses the filter button
 import { connect } from "react-redux";
 import FilterForm from "./filter_form";
+import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -14,6 +15,7 @@ const mapDispatchToProps = dispatch => {
   return {
     udpateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
     clearFilter: () => dispatch(clearFilter(filter, value)),
+    closeModal: () => dispatch(closeModal()),
   }
 };
 
