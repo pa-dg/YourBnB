@@ -1,10 +1,14 @@
 @import "../variables.scss";
 
 .listing-index-container {
-  padding: 0px 0px 50px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 25px;
+  // padding: 0px 0px 50px;
+  // display: grid;
+  // grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 30px;
+  column-gap: 40px;
   width: 1600px;
 }
 
@@ -12,10 +16,14 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 285px;
-  height: 400px;
+  height: 385px;
+}
+
+.listing-img-container {
+  height: 285px;
+  width: 285px;
 }
 
 .listing-info {
@@ -25,62 +33,61 @@
   font-size: $default-font-size-md;
   padding-top: 10px;
   width: 285px;
+  height: 100%;
 
-  h3,
-  li {
-    margin: 0 0 8px 0;
+  .info-left {
+    max-width: 82%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+
+    p:nth-child(odd) {
+      font-weight: 500;
+      color: $default-color-black;
+    }
+
+    p {
+      font-weight: 300;
+      color: $default-color-darkgray;
+    }
+
+    span {
+      font-weight: 300;
+      color: $default-color-black;
+    }
+  }
+
+  .info-right {
+    display: inline-flex;
+    align-self: flex-start;
   }
 }
 
-.listing-img-container {
-  height: 285px;
-  width: 285px;
-}
+// Image Slider styles
 
-.listing-info-location {
-  max-width: 80%;
-
-  span {
-    font-weight: normal;
-  }
-}
-
-h3,
-#listing-info-details-price,
-#rating {
-  font-weight: $default-font-wt;
-}
-
-#star {
-  // text-align: center !important;
-  align-items: center;
-}
-
-// .listing-info-review {
-//   #rating {
-//     vertical-align: text-top;
-//     // text-align: center;
-//   }
-// }
-
-#test-idx {
+#slider-img {
+  @include img();
   width: 100%;
   height: 100%;
   border-radius: 16px;
 }
 
-#img-listing {
-  width: 100%;
-  height: 100%;
-  border-radius: 16px;
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-
-.slides .slick-prev,
-.slides .slick-next {
+.slick-prev,
+.slick-next {
   position: absolute;
   top: 50%;
+  z-index: 1;
+
+  &:before {
+    font-size: 30px;
+    color: white;
+    opacity: 0.5;
+  }
+
+  &:active {
+    opacity: 1;
+  }
 }
 
 .slides {
@@ -88,16 +95,21 @@ h3,
 }
 
 .slick-prev {
-  left: 3% !important;
-  z-index: 1;
+  left: 5% !important;
 }
 
 .slick-next {
-  right: 3% !important;
-  z-index: 1;
+  right: 5% !important;
 }
 
 .slick-dots {
   bottom: 10px;
   z-index: 1;
+
+  .slick-active {
+    li,
+    button:before {
+      color: white !important;
+    }
+  }
 }

@@ -1,9 +1,15 @@
 import React from "react";
 import { withRouter, useHistory } from "react-router-dom";
-import { BsFillStarFill } from 'react-icons/bs';
+import { HiStar } from 'react-icons/hi';
 import ImageSlider from "./image_slider";
 
 const ListingIndexItem = ({ listing: { id, city, state, title, numBeds, price, photoUrls } }) => {
+
+  const styles = {
+    size: 14,
+    paddingRight: 2,
+  }
+  
   let history = useHistory();
   
   const handleClick = () => {
@@ -17,18 +23,15 @@ const ListingIndexItem = ({ listing: { id, city, state, title, numBeds, price, p
       </div>
         
       <div className="listing-info" onClick={handleClick}>
-        <div className="listing-info-location">
-          <h3>{city}, {state}</h3>
-          <ul>
-            <li id="listing-info-details">{title}</li>
-            <li id="listing-info-details">{numBeds} bed</li>
-            <li id="listing-info-details-price">${`${Math.round(price)}`} <span>night</span></li>
-          </ul>
+        <div className="info-left">
+          <p>{city}, {state}</p>
+          <p>{title}</p>
+          <p>${`${Math.round(price)}`} <span>night</span></p>
         </div>
 
-        <div className="listing-info-review">
-            <span><BsFillStarFill id="star" /></span>
-            <span id="rating"> 5.0</span>
+        <div className="info-right">
+          <HiStar size={styles.size} style={styles} />
+          <span>5.0</span>
         </div>
       </div>
     </div>
