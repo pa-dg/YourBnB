@@ -17,7 +17,7 @@ const ReservationForm = ({ listingId, listing, createReservation, userId, openMo
 
   const [toggledDropDown, setToggledDropDown] = useState(false);
 
-  const { price, additionalFees, numGuest } = listing;
+  const { price, numGuest } = listing;
 
   const styles = {
     star: {
@@ -92,14 +92,13 @@ const ReservationForm = ({ listingId, listing, createReservation, userId, openMo
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!userId) {
-      openModal('login');
+      openModal({type: 'login'});
     }
     const reservation = Object.assign({}, reservationInfo);
     createReservation(reservation)
       .then(() => history.push(`/reservations`));
   };
 
-  console.log(reservationInfo)
   return (
     <div className="reservation-form-container">
         
