@@ -110,13 +110,13 @@
 // Images Modal
 
 .imgs-modal-container {
-  width: 1000px;
-  height: 1200px;
+  width: 50vw;
+  height: 85vh;
   background-color: white;
   border-radius: 16px;
   overflow-y: auto;
-  top: 0;
-  left: 50%;
+  // top: 0;
+  // left: 50%;
   // transform: translate(-25%, -25%);
 
   .listing-imgs {

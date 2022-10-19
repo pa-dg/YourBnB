@@ -9,7 +9,7 @@
   top: 0;
   border-bottom: 1px solid rgb(235, 235, 235);
   background-color: white;
-  z-index: 10;
+  z-index: 90;
   width: 100%;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .search-bar-container {
-  @include centerer(row);
+  @include center-content(row);
   display: flex;
   align-content: center;
   justify-content: space-between;
@@ -64,7 +64,7 @@
 }
 
 .search-button {
-  @include centerer(column);
+  @include center-content(column);
   width: 32px;
   height: 32px;
   margin: 0;
@@ -92,26 +92,24 @@
     }
   }
 
-  .dropdown-container {
-    display: inline-block;
-    position: relative;
-    align-items: center;
-    justify-content: center;
+  .nav-dropdown-button {
+    cursor: pointer;
+    display: flex;
+    border-radius: 25%;
+    padding: 7px 5px 7px 7px;
+    border-radius: 40px;
+    border: 1px solid $default-color-gray;
     margin-left: 30px;
+    background-color: white;
 
-    .nav-dropdown-button {
-      cursor: pointer;
-      display: flex;
-      border-radius: 25%;
-      padding: 7px 5px 7px 7px;
-      border-radius: 40px;
-      border: 2px solid $button-border-color-lt;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 2px rgba(0, 0, 0, 0.05);
-
-      &:hover {
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      }
+    &:hover {
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
     }
+  }
+
+  .dropdown-container {
+    // change styling starting frmo here
+    position: relative;
 
     .dropdown-content {
       position: absolute;
@@ -123,7 +121,7 @@
       width: 180px;
       height: 160px;
       right: 0px;
-      top: 125%;
+      top: 30px;
       font-size: $fs-14;
       color: $default-color-black;
 
@@ -138,7 +136,7 @@
       .nav-login-signup {
         cursor: pointer;
         padding: 10px 0px 10px 10px;
-        font-weight: $fw-600;
+        font-weight: $fw-700;
 
         a {
           text-decoration: none !important;
@@ -146,7 +144,7 @@
         }
 
         &:hover {
-          background-color: $default-color-ltgray;
+          background-color: $default-color-ltrgray;
         }
       }
     }
