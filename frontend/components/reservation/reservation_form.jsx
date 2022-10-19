@@ -33,7 +33,7 @@ const ReservationForm = ({ listingId, listing, createReservation, userId, openMo
     }
   }
   
-  const currentDate = new Date().toJSON().slice(0, 10)
+  const currentDate = new Date()
 
   const update = (field) => {
     if (field === 'checkInDate') {
@@ -198,10 +198,6 @@ const ReservationForm = ({ listingId, listing, createReservation, userId, openMo
           </div>
         )
       }
-              {/* <label htmlFor="reserve-button">
-                <input type="submit" className="reserve-button" value="Reserve"/>
-                </label>
-              </div> */}
         <p className="reservation-footer">
           <BsFillFlagFill size={styles.flag.size} style={styles.flag} /> Report this listing</p>
     </div>

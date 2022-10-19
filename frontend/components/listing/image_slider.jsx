@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import { useLocation } from 'react-router';
 import Slider from "react-slick";
 
 
@@ -13,7 +14,6 @@ const sliderSettings = {
   arrows: true,
   className: 'slides',
 };
-
 
 const ImageSlider = ({ handleClick, photoUrls }) => {
   
@@ -46,13 +46,15 @@ const ImageSlider = ({ handleClick, photoUrls }) => {
   //     )}
   //   </Slider>
   // }
+
+  const location = useLocation();
   
   return (
     <Slider {...sliderSettings}>
       {photoUrls && (
         photoUrls.map((photoUrl, index) =>
           <div key={photoUrl} className="listing-img-container" onClick={handleClick}>
-            <img id="slider-img" 
+            <img className={location.pathname === `/reservations` ? "reservation-img" : "slider-img"}
             key={index} 
             src={photoUrl} 
             alt="listing-image" />

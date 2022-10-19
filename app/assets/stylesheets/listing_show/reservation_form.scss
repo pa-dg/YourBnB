@@ -1,12 +1,31 @@
 @import "../variables.scss";
 
 .reservation-form-container {
+  font-family: $fm-Nunito;
+  position: sticky;
+  top: 120px;
   border: 1px solid rgb(221, 221, 221);
   border-radius: 12px;
   padding: 24px;
   width: 300px;
-  box-shadow: 0 0 4px 4px #00000010;
-  font-family: $fm-Nunito;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+  z-index: 11;
+
+  label {
+    color: $default-color-black;
+    font-size: $fs-12;
+    font-weight: 700;
+  }
+
+  input {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    z-index: 9;
+    font-family: $fm-Nunito;
+    font-weight: 300;
+    width: 100%;
+  }
 }
 
 .reservation-form-header {
@@ -21,7 +40,7 @@
 
   .price {
     font-size: $fs-20;
-    font-weight: $fw-600;
+    font-weight: 700;
   }
 
   span {
@@ -57,7 +76,7 @@
   flex-direction: column;
   gap: 5px;
   padding: 7px 12px;
-  font-size: $fs-12;
+
   &:last-of-type {
     border-left: 1px solid $default-color-gray;
   }
@@ -82,7 +101,7 @@
     p {
       font-family: $fm-Nunito;
       font-size: $fs-14;
-      font-weight: 500;
+      font-weight: 300;
       color: $default-color-black;
       align-self: center;
     }
@@ -98,21 +117,23 @@
     justify-content: space-between;
     z-index: 10;
     background-color: white;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
     border-radius: 4px;
     padding: 16px;
     width: 268px;
     right: -13px;
     top: 30px;
-    font-weight: 500;
 
     .guest-text {
       font-size: $fs-16;
+      font-weight: 500;
       color: $default-color-black;
       align-self: center;
     }
 
     .add-guest {
+      font-weight: 500;
+
       span {
         color: $default-color-black;
         margin: 0 5px 0 5px;
@@ -147,20 +168,6 @@
     color: $default-color-gray;
     border: 1px solid $default-color-gray;
   }
-}
-
-label {
-  color: gray;
-}
-
-input {
-  cursor: pointer;
-  outline: none;
-  border: none;
-  z-index: 9;
-  font-family: $fm-Nunito;
-  font-weight: 500;
-  width: 100%;
 }
 
 .reserve-button {

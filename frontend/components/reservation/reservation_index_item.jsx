@@ -1,54 +1,65 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import dateParser from '../util/dateParser';
+import ImageSlider from '../listing/image_slider';
 
-const ReservationIndexItem = ({
-  reservation: { listingId, checkInDate, checkOutDate },
-  listings,
-  fetchListing
-}) => {
+const ReservationIndexItem = ({ reservation: { id, checkInDate, checkOutDate }, listingId, fetchListing, deleteReservation }) => {
+
+  const [reservedListing, setReservedListing] = useState("");
+  
   useEffect(() => {
-    fetchListing(listingId);
-  }, [])
+    const fetchData = async () => {
+      const response = await fetchListing(listingId);
+      setReservedListing(response.listing);
+    }
+    fetchData();
+  }, [id])
 
   let history = useHistory();
-
+  
   const handleClick = () => {
     return history.push(`/listing/${listingId}`); 
   }
+  
+  const handleCancel = (e) => {
+    e.preventDefault();
+    deleteReservation(id);
+  }
 
-  const listing = listings[listingId];
   return (
-    <div className="reservation-index-item-container" onClick={handleClick}>
-      {listing && (
-        <>
-          <div className="reservation-details">
-            <div className="reservation-info">
-                <h2>{listing.city}</h2>
-                <h3>Entire {listing.propertyType} hosted by {listing.hostName}</h3>
-            </div>
-
-            <div className="reservation-date-and-loc">
-              <div className="reservation-dates">
-                <h2>{checkInDate}  -</h2>
-                <h2>{checkOutDate}</h2>
+    <>
+      <div className="reservation-index-item-container">
+        {reservedListing && (
+          <>
+            <div className="reservation-details" onClick={handleClick}>
+              <div className="reservation-info">
+                  <h2>{reservedListing.city}</h2>
+                  <h3>Entire {reservedListing.propertyType} hosted by {reservedListing.hostName}</h3>
               </div>
 
-              <div className="reservation-loc">
-                <h2>{listing.street}</h2> 
-                <h2>{listing.city}, {listing.state} {listing.zipcode}</h2>
-                <h2>{listing.country}</h2>
+              <div className="reservation-date-and-loc">
+                <div className="reservation-dates">
+                  <h2>{dateParser(checkInDate)} -</h2>
+                  <h2>{dateParser(checkOutDate)}</h2>
+                </div>
+
+                <div className="reservation-loc">
+                  <h2>{reservedListing.street}</h2> 
+                  <h2>{reservedListing.city}, {reservedListing.state} {reservedListing.zipCode}</h2>
+                  <h3>{reservedListing.country}</h3>
+                </div>
               </div>
             </div>
 
+            <div className="reservation-item-img-container">
+              <ImageSlider photoUrls={reservedListing.photoUrls} />
+            </div>
+          </>
+        )}
+      </div> 
 
-          </div>
-
-          <div className="reservation-item-img">
-            <img id="reservation-img" src={listing.photoUrls[0]} alt="listing-image" />
-          </div>
-        </>
-      )}
-    </div>  
+      <button className="cancel-res-button" onClick={handleCancel}>Cancel Reservation</button>
+    </>
   );
 };
 

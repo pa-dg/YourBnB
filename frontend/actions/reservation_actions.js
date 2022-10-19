@@ -18,10 +18,10 @@ export const receiveReservation = (reservation) => {
   };
 };
 
-export const removeReservation = (id) => {
+export const removeReservation = (reservationId) => {
   return {
     type: REMOVE_RESERVATION,
-    id,
+    reservationId,
   };
 };
 
@@ -56,5 +56,5 @@ export const updateReservation = (reservation) => (dispatch) => {
 export const deleteReservation = (reservationId) => (dispatch) => {
   return reservationAPIUtil
     .deleteReservation(reservationId)
-    .then(() => dispatch(removeReservation(id)));
+    .then(() => dispatch(removeReservation(reservationId)));
 };
