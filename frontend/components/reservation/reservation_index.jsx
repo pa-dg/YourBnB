@@ -35,14 +35,13 @@ const ReservationIndex = ({ reservations, fetchReservations, fetchListing, delet
           <ReservationIndexItem 
             key={`res-${idx}`}
             reservation={reservation}
-            listingId={reservation.listingId}
             fetchListing={fetchListing}
             deleteReservation={deleteReservation}
           />
           ))
         )
         :
-       <div className="no-reservation-container">
+        <div className="no-reservation-container">
           <div className="top-content">
             <MdOutlineWavingHand size={40} id="handwave-icon"/>
             <HiOutlineSparkles size={25} id="spark-icon"/>

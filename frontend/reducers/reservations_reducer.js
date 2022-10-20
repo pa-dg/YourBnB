@@ -6,7 +6,6 @@ import {
 
 const reservationsReducer = (state = {}, action) => {
   Object.freeze(state);
-  let nextState = Object.assign({}, state);
 
   switch (action.type) {
     case RECEIVE_ALL_RESERVATIONS:
@@ -16,6 +15,7 @@ const reservationsReducer = (state = {}, action) => {
         [action.reservation.id]: action.reservation,
       });
     case REMOVE_RESERVATION:
+      const nextState = Object.assign({}, state);
       delete nextState[action.reservationId];
       return nextState;
     default:

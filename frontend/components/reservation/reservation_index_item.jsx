@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import dateParser from '../util/dateParser';
 import ImageSlider from '../listing/image_slider';
 
-const ReservationIndexItem = ({ reservation: { id, checkInDate, checkOutDate }, listingId, fetchListing, deleteReservation }) => {
+const ReservationIndexItem = ({ reservation: { id, listingId, checkInDate, checkOutDate }, fetchListing, deleteReservation }) => {
 
   const [reservedListing, setReservedListing] = useState("");
   
@@ -17,7 +17,7 @@ const ReservationIndexItem = ({ reservation: { id, checkInDate, checkOutDate }, 
 
   let history = useHistory();
   
-  const handleClick = () => {
+  const handleBack = () => {
     return history.push(`/listing/${listingId}`); 
   }
   
@@ -31,7 +31,7 @@ const ReservationIndexItem = ({ reservation: { id, checkInDate, checkOutDate }, 
       <div className="reservation-index-item-container">
         {reservedListing && (
           <>
-            <div className="reservation-details" onClick={handleClick}>
+            <div className="reservation-details" onClick={handleBack}>
               <div className="reservation-info">
                   <h2>{reservedListing.city}</h2>
                   <h3>Entire {reservedListing.propertyType} hosted by {reservedListing.hostName}</h3>
