@@ -12,7 +12,7 @@ import ReviewsIndex from './reviews_index';
 
 const ListingShow = ({ listingId, selectedListing, fetchListing, createReservation, userId, openModal }) => {
   const [listing, setListing] = useState(selectedListing);
-  const [showCalendar, setShowCalendar] = useState(false);
+  // const [showCalendar, setShowCalendar] = useState(false);
   // const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -25,8 +25,6 @@ const ListingShow = ({ listingId, selectedListing, fetchListing, createReservati
         setListing(response.listing);
       }
       fetchData();
-      // fetchListing(listingId)
-      //   .then(resp => setListing(resp.listing))
     }
 
     if (selectedListing) {
