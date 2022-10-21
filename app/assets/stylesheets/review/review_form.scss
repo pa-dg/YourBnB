@@ -1,0 +1,116 @@
+@import "../variables.scss";
+
+.review-form-container {
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  min-height: 78vh;
+  max-width: 800px;
+  padding: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: $fm-Nunito;
+
+  .review-form-heading {
+    padding-bottom: 16px;
+    border-bottom: 1px solid $default-color-ltgray;
+
+    h1 {
+      font-size: $fs-24;
+      font-weight: 600;
+      color: $default-color-black;
+    }
+  }
+
+  .ratings-container {
+    .rating {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+
+      #star {
+        color: $airbnb-color;
+        font-size: $fs-30;
+      }
+
+      p {
+        font-size: $fs-18;
+        font-weight: 700;
+        color: $default-color-black;
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  .review-form {
+    padding: 20px;
+
+    .review-text {
+      margin: 40px 0 40px 0;
+
+      label {
+        font-size: $fs-18;
+        font-weight: 600;
+        color: $default-color-black;
+      }
+
+      p {
+        font-size: $fs-16;
+        font-weight: 400;
+        color: $default-color-darkgray;
+        margin: 20px 0 20px 0;
+      }
+    }
+
+    .textarea-container {
+      display: flex;
+
+      textarea {
+        font-family: $fm-Nunito;
+        font-size: $fs-16;
+        font-weight: 300;
+        color: $default-color-darkgray;
+        width: 100%;
+        min-height: 10vh;
+        border-radius: 10px;
+        border: 1px solid $default-color-gray;
+        padding: 12px;
+
+        &:focus {
+          outline: none;
+          border: 2px solid $airbnb-color;
+          color: $default-color-black;
+        }
+      }
+    }
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .submit-button {
+      font-family: $fm-Nunito;
+      font-size: $fs-14;
+      font-weight: 400;
+      color: $default-color-darkgray;
+      width: 125px;
+      cursor: pointer;
+      padding: 10px 0 10px 0;
+      height: 100%;
+      border-radius: 8px;
+      border: 1px solid $default-color-gray;
+      background: transparent;
+
+      &:hover {
+        color: white;
+        border: 1px solid $airbnb-color;
+        background: $airbnb-color;
+      }
+    }
+  }
+}

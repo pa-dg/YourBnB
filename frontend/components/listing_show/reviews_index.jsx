@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useLocation } from 'react-router';
 import { fetchReviews } from '../../actions/review_actions';
 import ReviewItem from './review_item';
-import { BsFillStarFill } from 'react-icons/bs';
+import { HiStar } from 'react-icons/hi';
 
 const mapCategoryToDisplayName = (category) => {
   switch (category) {
@@ -14,28 +15,34 @@ const mapCategoryToDisplayName = (category) => {
   }
 };
 
-const ReviewsIndex = ({ listingId, reviews, avgRatings, avgStars, fetchReviews }) => {
+const ReviewsIndex = ({ listingId, reviews, numReviews, avgRatings, avgStar, fetchReviews }) => {
   useEffect(() => {
     fetchReviews(listingId);
   }, []);
 
-  const reviewsCount = Object.values(reviews).length;
+  const history = useHistory();
+  const location = useLocation();
+  
+  const handleCreateReview = () => {
+    return history.push(`${location.pathname}/reviews/new`);
+  }
+  
+  const renderReviews = () => {
 
-  return (
-    <div className="reviews-index-container">
-      <header className="reviews-index-header">
-        <div className="reviews-stars-num-reviews">
-          <span className="star"><BsFillStarFill /></span>
-          <span>{avgStars} · {reviewsCount} {reviewsCount === 1 ? 'review' : 'reviews'}</span>
-        </div>
+    return (
+      <>
+        <header className="reviews-index-header">
+          <div className="reviews-stars-num-reviews">
+              <span id="star"><HiStar size={25} /></span>
+              <span>{avgStar} · {numReviews} {numReviews === 1 ? 'review' : 'reviews'}</span>
+            </div>
 
-        <div className="review-new">
-          <Link to="/reviews/new">Write a review</Link>
-        </div>
-      </header>
+          <div className="review-new" onClick={handleCreateReview}>
+              Write a review
+          </div>
+        </header>
 
-      {!!reviewsCount && (
-        <div className="reviews-statistics">
+        <section className="reviews-statistics">
           {Object.keys(avgRatings).map((category) => {
             const width = avgRatings[category]/5*100;
             
@@ -51,21 +58,44 @@ const ReviewsIndex = ({ listingId, reviews, avgRatings, avgStars, fetchReviews }
               </div>
             )
           })}
-        </div>
-      )}
+        </section>
 
-      {
-        reviews && (
-          Object.values(reviews).map((review, idx) => (
-            <ReviewItem key={`review-${idx+1}`} review={review} />
-          )))
-      }
+        <main>
+          {reviews.map((review, idx) => (
+            <ReviewItem 
+              key={`review-${idx}`} 
+              review={review} />
+          ))}
+        </main>
+      </>
+    )
+  }
+
+  const noReviews = () => {
+    return (
+      <header className="reviews-index-header">
+        <div className="no-reviews">
+          <p>No Reviews..yet!</p> 
+          <p>Be the first to leave one!</p>
+        </div>
+
+          <div className="review-new" onClick={handleCreateReview}>
+              Write a review
+          </div>
+      </header>
+    )
+  }
+
+  return (
+    <div className="reviews-index-container">
+      {reviews && numReviews > 0 ? renderReviews() : noReviews()}
     </div>
   )
 };
 
 const mapStateToProps = (state) => {
-  const reviews = state.entities.reviews;
+  const reviews = Object.values(state.entities.reviews);
+  const numReviews = reviews.length;
 
   const avgRatings = {
     cleanliness: 0,
@@ -74,34 +104,35 @@ const mapStateToProps = (state) => {
     accuracy: 0,
     location: 0,
     value: 0,
-  };
-
-  if (Object.values(reviews).length > 0) {
-    Object.values(reviews).forEach(review => {
-      avgRatings.accuracy = (review.accuracy += avgRatings.accuracy)
-      avgRatings.checkIn = (review.checkIn += avgRatings.checkIn)
-      avgRatings.cleanliness = (review.cleanliness += avgRatings.cleanliness)
-      avgRatings.communication = (review.communication += avgRatings.communication)
-      avgRatings.location = (review.location += avgRatings.location)
-      avgRatings.value = (review.value += avgRatings.value)
-    });
   }
-  
-  const numReviews = Object.values(reviews).length;
 
-  Object.keys(avgRatings).forEach(category => {
+  if (numReviews > 0) {
+    reviews.forEach(review => {
+        avgRatings.cleanliness = avgRatings.cleanliness += review.cleanliness,
+        avgRatings.communication = avgRatings.communication += review.communication,
+        avgRatings.checkIn = avgRatings.checkIn += review.checkIn,
+        avgRatings.accuracy = avgRatings.accuracy += review.accuracy,
+        avgRatings.location = avgRatings.location += review.location,
+        avgRatings.value = avgRatings.value += review.value
+      })
+  }
+
+  const categories = Object.keys(avgRatings);
+
+  categories.forEach((category) => {
     avgRatings[category] = parseInt((avgRatings[category] / numReviews).toFixed(1));
   });
-  
-  const avgStars = Object.values(avgRatings).reduce((acc, rating) => acc + rating) / Object.values(avgRatings).length;
+
+  const avgStar = (Object.values(avgRatings).reduce((acc, rating) => acc + rating) / categories.length).toFixed(1)
   
   return {
     reviews,
+    numReviews,
     avgRatings,
-    avgStars,
+    avgStar,
   };
 };
-
+  
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchReviews: (listingId) => dispatch(fetchReviews(listingId)),

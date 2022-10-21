@@ -1,3 +1,5 @@
+@import "../variables.scss";
+
 .reviews-index-container {
   border-top: 1px solid rgb(221, 221, 221);
   padding: 48px 0;
@@ -5,16 +7,30 @@
 
 .reviews-index-header {
   width: 100%;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
+
+  .no-reviews {
+    margin-bottom: 20px;
+    font-size: $fs-24;
+    font-weight: 600;
+
+    p {
+      color: $default-color-darkgray;
+      padding-bottom: 20px;
+    }
+  }
 
   .reviews-stars-num-reviews {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
+    font-size: $fs-20;
+    font-weight: 600;
 
-    .star {
-      margin-top: 2px;
+    #star {
       margin-right: 10px;
+      display: flex;
+      align-self: flex-start;
     }
   }
 
@@ -26,7 +42,7 @@
 
 .reviews-statistics {
   width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 40px;
 
   display: flex;
   justify-content: flex-start;
@@ -73,12 +89,13 @@
 }
 
 .review-item {
+  width: 50%;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  padding: 0;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin-bottom: 40px;
 }
 
 .review-item-heading {
@@ -89,37 +106,24 @@
 
 .review-name-date {
   margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-self: stretch;
+
+  .review-name {
+    font-weight: 600;
+  }
 
   .review-date {
-    color: #717171;
-    font-size: 14px;
+    color: $default-color-darkgray;
+    font-weight: 300;
+    font-size: $fs-14;
   }
 }
 
 .review-message {
-  line-height: 3px;
-  padding: 0 0 20px 50px;
-}
-
-// review form
-.review-form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 40px 40px 40px;
-  width: 100%;
-
-  .review-form-heading {
-    padding-bottom: 16px;
-    border-bottom: 1px solid #ebebeb;
-
-    h1 {
-      font-size: 34px;
-      font-weight: bold;
-    }
-  }
-
-  .review-form {
-    padding: 16px;
-  }
+  font-size: $fs-16;
+  line-height: 1.5;
+  text-overflow: ellipsis;
 }

@@ -5,7 +5,7 @@
 #  id            :bigint           not null, primary key
 #  reviewer_id   :integer          not null
 #  listing_id    :integer          not null
-#  review        :text             not null
+#  message       :text             not null
 #  cleanliness   :integer          not null
 #  accuracy      :integer          not null
 #  communication :integer          not null
@@ -16,7 +16,7 @@
 #  updated_at    :datetime         not null
 #
 class Review < ApplicationRecord
-  validates :reviewer_id, :listing_id, :review, presence: true
+  validates :reviewer_id, :listing_id, :message, presence: true
 
   validates :cleanliness, :accuracy, :communication, :check_in, :value, :location, presence: true, inclusion: { in: (1..5) }
 
