@@ -38,7 +38,7 @@ class Api::ReviewsController < ApplicationController
   def new_review_params
     snake_case_params!(params[:review])
 
-    params.require(:review).permit(:user_id, :listing_id, :review, :cleanliness, :accuracy, :communication, :check_in, :value, :location)
+    params.require(:review).permit(:reviewer_id, :listing_id, :message, :cleanliness, :accuracy, :communication, :check_in, :value, :location)
   end
 
 end

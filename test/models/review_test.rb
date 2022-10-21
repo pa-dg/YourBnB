@@ -5,7 +5,7 @@
 #  id            :bigint           not null, primary key
 #  reviewer_id   :integer          not null
 #  listing_id    :integer          not null
-#  review        :text             not null
+#  message       :text             not null
 #  cleanliness   :integer          not null
 #  accuracy      :integer          not null
 #  communication :integer          not null

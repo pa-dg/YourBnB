@@ -1,5 +1,5 @@
 const dateParser = (dateStr) => {
-  let dateObj = new Date(dateStr.concat("T00:00:00"));
+  let dateObj = new Date(dateStr.slice(0, 10).concat("T00:00:00"));
   return dateObj.toLocaleString(
     "en-US",
     {

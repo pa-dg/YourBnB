@@ -4,8 +4,7 @@
   # debugger
   json.set! review.id do
     json.partial! 'review', review: review
-      json.reviewer_first_name reviewer.first_name
-      json.reviewer_last_name reviewer.last_name
+      json.reviewer_name reviewer.first_name
   end
 
 end

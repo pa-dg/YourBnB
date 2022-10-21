@@ -460,7 +460,7 @@ res4 = Reservation.create!(
 rev1 = Review.create!(
   reviewer_id: andrea.id,
   listing_id: l3.id,
-  review: "The apartment was very nice, and we enjoyed our stay very much. Check in was smooth and Anthony communicated with us promptly. The air conditioning worked well, but it was difficult to figure it out without instructions. Finally, the bathroom was spacious and lovely. Will definitely come back to stay here again.",
+  message: "The apartment was very nice, and we enjoyed our stay very much. Check in was smooth and Anthony communicated with us promptly. The air conditioning worked well, but it was difficult to figure it out without instructions. Finally, the bathroom was spacious and lovely. Will definitely come back to stay here again.",
   cleanliness: 5,
   accuracy: 4,
   communication: 5,
@@ -472,7 +472,7 @@ rev1 = Review.create!(
 rev2 = Review.create!(
   reviewer_id: andy.id,
   listing_id: l1.id,
-  review: "The apartment was very nice, and we enjoyed our stay very much. Will definitely come back to stay here again.",
+  message: "The apartment was very nice, and we enjoyed our stay very much. Will definitely come back to stay here again.",
   cleanliness: 5,
   accuracy: 3,
   communication: 5,
@@ -484,7 +484,7 @@ rev2 = Review.create!(
 rev3 = Review.create!(
   reviewer_id: michael.id,
   listing_id: l5.id,
-  review: "The apartment was very clean. We enjoyed our stay.",
+  message: "The apartment was very clean. We enjoyed our stay.",
   cleanliness: 5,
   accuracy: 4,
   communication: 4,
@@ -496,7 +496,7 @@ rev3 = Review.create!(
 rev4 = Review.create!(
   reviewer_id: anthony.id,
   listing_id: l5.id,
-  review: "Check in was smooth and the host communicated with us promptly and very accomodating.",
+  message: "Check in was smooth and the host communicated with us promptly and very accomodating.",
   cleanliness: 5,
   accuracy: 4,
   communication: 5,
@@ -508,7 +508,7 @@ rev4 = Review.create!(
 rev5 = Review.create!(
   reviewer_id: andy.id,
   listing_id: l5.id,
-  review: "Amazing location and the place was very clean. We enjoyed our stay. Thank you so much!",
+  message: "Amazing location and the place was very clean. We enjoyed our stay. Thank you so much!",
   cleanliness: 5,
   accuracy: 4,
   communication: 4,

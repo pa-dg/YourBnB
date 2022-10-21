@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2022_08_21_202904) do
   create_table "reviews", force: :cascade do |t|
     t.integer "reviewer_id", null: false
     t.integer "listing_id", null: false
-    t.text "review", null: false
+    t.text "message", null: false
     t.integer "cleanliness", null: false
     t.integer "accuracy", null: false
     t.integer "communication", null: false
