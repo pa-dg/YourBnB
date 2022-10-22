@@ -5,7 +5,7 @@ import ReservationIndex from './reservation_index';
 
 const mapStateToProps = state => {
   return {
-    reservations: Object.values(state.entities.reservations)
+    reservations: Object.values(state.entities.reservations),
   }
 };
 

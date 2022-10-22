@@ -15,10 +15,7 @@ const ReservationIndex = ({ reservations, fetchReservations, fetchListing, delet
     fetchData();
   }, []);
 
-   window.scrollTo({
-    top: 0,
-    left: 0,
-  });
+   window.scrollTo(0,0,);
 
   return (
     <div className="reservation-index-container">

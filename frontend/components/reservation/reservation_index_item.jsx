@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import dateParser from '../util/dateParser';
+import { dateParser } from '../util/dateParser';
 import ImageSlider from '../listing/image_slider';
 
 const ReservationIndexItem = ({ reservation: { id, listingId, checkInDate, checkOutDate }, fetchListing, deleteReservation }) => {

@@ -4,7 +4,7 @@ import { HiStar, HiChevronDown, HiChevronUp } from 'react-icons/hi';
 import { withRouter } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
-const ReservationForm = ({ listingId, listing, createReservation, userId, openModal } ) => {
+const ReservationForm = ({ listingId, listing, createReservation, currentUserId, numReviews, openModal } ) => {
 
   const [reservationInfo, setReservationInfo] = useState({
     checkInDate: currentDate,
@@ -12,13 +12,15 @@ const ReservationForm = ({ listingId, listing, createReservation, userId, openMo
     numGuests: 1,
     price: listing.price,
     listingId,
-    userId,
+    userId: currentUserId,
   })
-
+  
   const [toggledDropDown, setToggledDropDown] = useState(false);
-
+  
   const { price, numGuest } = listing;
 
+  const currentDate = new Date();
+  
   const styles = {
     star: {
       size: 15,
@@ -32,8 +34,6 @@ const ReservationForm = ({ listingId, listing, createReservation, userId, openMo
       size: 10,
     }
   }
-  
-  const currentDate = new Date()
 
   const update = (field) => {
     if (field === 'checkInDate') {
@@ -91,7 +91,7 @@ const ReservationForm = ({ listingId, listing, createReservation, userId, openMo
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!userId) {
+    if (!currentUserId) {
       openModal({type: 'login'});
     }
     const reservation = Object.assign({}, reservationInfo);
@@ -110,7 +110,7 @@ const ReservationForm = ({ listingId, listing, createReservation, userId, openMo
         <p>
           <span><HiStar size={styles.star.size} style={styles.star}/> 5.0 </span>
           <span>&middot;</span>
-          <span className="reviews-link">5 reviews</span>
+          <span className="reviews-link">{numReviews ? numReviews : 0} {numReviews > 0 ? 'reviews' : 'review'}</span>
         </p>
       </div>
 
