@@ -88,42 +88,121 @@
   }
 }
 
-.review-item {
-  width: 50%;
+.reviews-index {
   display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  flex: 1;
+  overflow: auto;
+  max-height: 500px;
+}
+
+.review-item {
+  width: 45%;
+  display: flex;
+  flex-flow: column wrap;
   justify-content: flex-start;
-  margin-bottom: 40px;
+  margin: 0 30px 40px 0;
 }
 
 .review-item-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading-left {
   margin-bottom: 16px;
   display: flex;
   align-items: center;
+
+  .review-name-date {
+    margin-left: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-self: stretch;
+
+    .review-name {
+      font-weight: 600;
+    }
+
+    .review-date {
+      color: $default-color-darkgray;
+      font-weight: 300;
+      font-size: $fs-14;
+    }
+  }
 }
 
-.review-name-date {
-  margin-left: 12px;
+.heading-right {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-self: stretch;
 
-  .review-name {
-    font-weight: 600;
-  }
-
-  .review-date {
-    color: $default-color-darkgray;
-    font-weight: 300;
-    font-size: $fs-14;
+  #review-update-button,
+  #review-delete-button {
+    &:hover {
+      transform: scale(1.2);
+      transition: 0.2s ease-out;
+    }
   }
 }
 
 .review-message {
   font-size: $fs-16;
+  font-weight: 300;
   line-height: 1.5;
   text-overflow: ellipsis;
+}
+
+// Review Modal
+.delete-review-modal-container {
+  @include center-content(column);
+  max-width: 25vw;
+  background-color: white;
+  border-radius: 16px;
+  overflow-y: auto;
+
+  span {
+    font-size: $fs-20;
+    font-weight: 500;
+    color: $default-color-black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+  }
+
+  .form-content {
+    color: $default-color-darkgray;
+
+    p {
+      margin: 20px 50px 20px 50px;
+      line-height: 1.5;
+    }
+  }
+
+  .button-container {
+    button {
+      cursor: pointer;
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid $default-color-mint;
+      border-radius: 10px;
+      font-size: $fs-16;
+      color: $default-color-mint;
+      background: $default-color-ltrgray;
+
+      &:hover {
+        background-color: $default-color-mint;
+        color: white;
+      }
+    }
+
+    #delete-button {
+      &:hover {
+        background-color: $default-color-red;
+        border: 1px solid $default-color-red;
+        color: white;
+      }
+    }
+  }
 }

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import { createReview } from '../../actions/review_actions';
 import Rating from '@mui/material/Rating';
 import { MdOutlineArrowBackIos } from 'react-icons/md';
-import { style } from '@mui/system';
 
 const ReviewForm = ({ currentUserId, listingId, createReview}) => {
   const defaultReview = {
@@ -16,34 +15,43 @@ const ReviewForm = ({ currentUserId, listingId, createReview}) => {
   location: 0,
   message: undefined,
   reviewerId: currentUserId,
-  reviewerName: undefined,
-  reviewerLastName: undefined,
-  updatedAt: undefined,
   value: 0,
-}
-  
+  }
+
   const [review, setReview] = useState(defaultReview)
-  const [value, setValue] = useState(value);
+  const [value, _] = useState(value);
 
-  console.log('#', review)
-
-  window.scrollTo({
-    top: 0,
-    left: 0,
-  });
-  
   const categories = ['Accuracy', 'Check-in', 'Cleanliness', 'Communication', 'Location', 'Value']
+
+  const history = useHistory();
   
-  const handleStarRating = (e) => {
-    e.preventDefault(),
-    setValue(e.currenTargetValue)
+  window.scrollTo(0,0);
+  
+  const displayNameCategory = category => {
+    switch (category) {
+      case "Check-in":
+        return "checkIn";
+      default:
+        return category.charAt(0).toLowerCase() + category.slice(1);
+    }
+  }
+  
+  const handleRatingChange = (event, value) => {
+    const category = event.target.getAttribute('name');
+    setReview({...review, [displayNameCategory(category)]: value});
+  }
+  
+  const updateMessage = (e) => {
+    setReview({...review, message: e.currentTarget.value})
   }
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('# submitting review', review);
-  } 
-  
+    const reviewData= Object.assign({}, review);
+    createReview(reviewData)
+      .then(() => history.push(`/listing/${listingId}`))
+  }
+
   return (
     <div className="review-form-container">
       <header className="review-form-heading">
@@ -53,14 +61,13 @@ const ReviewForm = ({ currentUserId, listingId, createReview}) => {
       <form className="review-form" onSubmit={handleSubmit}>
         <div className="ratings-container">
           {categories.map((category, idx) => (
-            <div className="rating">
+            <div key={`${category}-${idx}`} className="rating">
               <p>{category}</p>
               <Rating 
                 id="star"
+                name={category}
                 value={value}
-                onChange={(event, newValue) => {
-                  setValue(newValue);
-                }}
+                onChange={handleRatingChange}
               />
             </div>
           ))}
@@ -70,13 +77,13 @@ const ReviewForm = ({ currentUserId, listingId, createReview}) => {
           <label>Describe Your Experience</label>
           <p>Tell next guests what you loved and anything else they should know about this place.</p>
           <div className="textarea-container">
-            <textarea placeholder='Write a public review'></textarea>
+            <textarea placeholder='Write a public review' onChange={updateMessage}></textarea>
           </div>
         </div>
 
         <div className="button-group">
           <div className="back-button">
-            <MdOutlineArrowBackIos size={25} id="back-button" onClick={() => history.back()}/>
+            <MdOutlineArrowBackIos size={25} id="back-button" onClick={() => history.goBack()}/>
           </div>
           <button className='submit-button'>Submit Review</button>
         </div>

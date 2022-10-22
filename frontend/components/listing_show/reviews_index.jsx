@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useLocation } from 'react-router';
 import { fetchReviews } from '../../actions/review_actions';
 import ReviewItem from './review_item';
@@ -15,7 +15,7 @@ const mapCategoryToDisplayName = (category) => {
   }
 };
 
-const ReviewsIndex = ({ listingId, reviews, numReviews, avgRatings, avgStar, fetchReviews }) => {
+const ReviewsIndex = ({ listingId, currentUserId, reviews, numReviews, avgRatings, avgStar, fetchReviews, openModal }) => {
   useEffect(() => {
     fetchReviews(listingId);
   }, []);
@@ -23,78 +23,77 @@ const ReviewsIndex = ({ listingId, reviews, numReviews, avgRatings, avgStar, fet
   const history = useHistory();
   const location = useLocation();
   
-  const handleCreateReview = () => {
-    return history.push(`${location.pathname}/reviews/new`);
+  const createReviewForm = () => {
+    if (!currentUserId) {
+      openModal({type: 'login'});
+    } else {
+      return history.push(`${location.pathname}/reviews/new`);
+    }
   }
   
-  const renderReviews = () => {
-
-    return (
-      <>
-        <header className="reviews-index-header">
-          <div className="reviews-stars-num-reviews">
-              <span id="star"><HiStar size={25} /></span>
-              <span>{avgStar} · {numReviews} {numReviews === 1 ? 'review' : 'reviews'}</span>
-            </div>
-
-          <div className="review-new" onClick={handleCreateReview}>
-              Write a review
-          </div>
-        </header>
-
-        <section className="reviews-statistics">
-          {Object.keys(avgRatings).map((category) => {
-            const width = avgRatings[category]/5*100;
-            
-            return (
-              <div className="review-category-item">
-                <span className='label'>{mapCategoryToDisplayName(category)}</span>
-                <span className="bar-value">
-                  <div className="outer-bar">
-                    <span className="inner-bar" style={{ width: `${width}%` }}></span>
-                  </div>
-                  <span className="value">{avgRatings[category].toFixed(1)}</span>
-                </span>
-              </div>
-            )
-          })}
-        </section>
-
-        <main>
-          {reviews.map((review, idx) => (
-            <ReviewItem 
-              key={`review-${idx}`} 
-              review={review} />
-          ))}
-        </main>
-      </>
-    )
-  }
-
-  const noReviews = () => {
-    return (
-      <header className="reviews-index-header">
-        <div className="no-reviews">
-          <p>No Reviews..yet!</p> 
-          <p>Be the first to leave one!</p>
-        </div>
-
-          <div className="review-new" onClick={handleCreateReview}>
-              Write a review
-          </div>
-      </header>
-    )
-  }
-
   return (
     <div className="reviews-index-container">
-      {reviews && numReviews > 0 ? renderReviews() : noReviews()}
+      {reviews && numReviews > 0
+        ? (
+          <>
+            <header className="reviews-index-header">
+              <div className="reviews-stars-num-reviews">
+                  <span id="star"><HiStar size={25} /></span>
+                  <span>{avgStar} · {numReviews} {numReviews === 1 ? 'review' : 'reviews'}</span>
+                </div>
+
+              <div className="review-new" onClick={createReviewForm}>
+                  Write a review
+              </div>
+            </header>
+
+            <section className="reviews-statistics">
+              {Object.keys(avgRatings).map((category, idx) => {
+                const width = avgRatings[category]/5*100;
+                
+                return (
+                  <div className="review-category-item" key={`${category}-${idx}`}>
+                    <span className='label'>{mapCategoryToDisplayName(category)}</span>
+                    <span className="bar-value">
+                      <div className="outer-bar">
+                        <span className="inner-bar" style={{ width: `${width}%` }}></span>
+                      </div>
+                      <span className="value">{avgRatings[category].toFixed(1)}</span>
+                    </span>
+                  </div>
+                )
+              })}
+            </section>
+
+            <main className='reviews-index'>
+              {reviews.map((review, idx) => (
+                <ReviewItem 
+                  key={`review-${idx}`} 
+                  review={review} 
+                  openModal={openModal}
+                  currentUserId={currentUserId}
+                />
+              ))}
+            </main>
+          </>
+        ) : (
+          <header className="reviews-index-header">
+            <div className="no-reviews">
+              <p>No Reviews..yet!</p> 
+              <p>Be the first to leave one!</p>
+            </div>
+
+              <div className="review-new" onClick={createReviewForm}>
+                  Write a review
+              </div>
+          </header>
+        )}
     </div>
   )
 };
 
 const mapStateToProps = (state) => {
-  const reviews = Object.values(state.entities.reviews);
+  const reviews = Object.values(state.entities.reviews).reverse();
   const numReviews = reviews.length;
 
   const avgRatings = {

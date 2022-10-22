@@ -1,4 +1,4 @@
-const dateParser = (dateStr) => {
+export const dateParser = (dateStr) => {
   let dateObj = new Date(dateStr.slice(0, 10).concat("T00:00:00"));
   return dateObj.toLocaleString(
     "en-US",
@@ -10,5 +10,3 @@ const dateParser = (dateStr) => {
     { timeZone: "America/New_York" }
   );
 };
-
-export default dateParser;
