@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { openModal } from '../../actions/modal_actions';
 import { logout } from '../../actions/session_actions';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { HiOutlineMenu } from 'react-icons/hi';
-import { FaUserCircle, FaRegSmile } from 'react-icons/fa'
+import { FaUserCircle, FaRegSmile } from 'react-icons/fa';
 
 const DropDown = ({ openModal, currentUser, logout }) => {
   const [toggledDropDown, setToggledDropDown] = useState(false);
@@ -32,13 +32,16 @@ const DropDown = ({ openModal, currentUser, logout }) => {
     };
   };
 
-  const sessionLogout = () => {
-      logout();
-      setToggledDropDown(false);
+  const history = useHistory();
+  
+  const sessionLogout = (e) => {
+    logout();
+    setToggledDropDown(false);
+    window.alert('You have been logged out');
+    return history.push(`/`)
   }
 
   const handleClick = (e) => {
-    console.log('on click')
     e.preventDefault();
     e.stopPropagation();
     setToggledDropDown(!toggledDropDown)
