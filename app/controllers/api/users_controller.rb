@@ -16,7 +16,9 @@ class Api::UsersController < ApplicationController
   private
 
   def new_user_params
-    self.params.require(:user).permit(:first_name, :last_name, :email, :password)
+    snake_case_params!(params[:user])
+    
+    params.require(:user).permit(:first_name, :last_name, :email, :password)
   end
 end
 

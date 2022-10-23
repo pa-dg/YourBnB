@@ -32,12 +32,13 @@ const SessionForm = props => {
     });
   };
 
+  console.log('#', userInfo)
+
   const closeModal = (e) => {
     e.preventDefault();
     props.closeModal();
   };  
 
-  
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = Object.assign({}, userInfo);
@@ -58,10 +59,6 @@ const SessionForm = props => {
   
   const demoLogin = (e) => {
     e.preventDefault();
-    // props.login({
-    //   email: 'demouser@yourbnb.com',
-    //   password: '123456',
-    // }).then(props.closeModal)
     let email = "demouser@yourbnb.com"
     let password = "123456";
     setUserInfo({
