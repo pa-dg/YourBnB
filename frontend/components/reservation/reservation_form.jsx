@@ -7,20 +7,22 @@ import { useHistory } from "react-router-dom";
 const ReservationForm = ({ listingId, listing, createReservation, currentUserId, numReviews, openModal } ) => {
 
   const [reservationInfo, setReservationInfo] = useState({
-    checkInDate: currentDate,
-    checkOutDate: currentDate,
+    checkInDate: '',
+    checkOutDate: '',
     numGuests: 1,
     price: listing.price,
     listingId,
     userId: currentUserId,
   })
+
+  console.log('res', reservationInfo)
   
   const [toggledDropDown, setToggledDropDown] = useState(false);
   
   const { price, numGuest } = listing;
-
-  const currentDate = new Date();
   
+  const currentDate = new Date().toLocaleDateString('en-ca');
+
   const styles = {
     star: {
       size: 15,
@@ -121,8 +123,8 @@ const ReservationForm = ({ listingId, listing, createReservation, currentUserId,
                 <label htmlFor="checkin-date">CHECK-IN</label>
                   <input 
                     type="date"
+                    min={`${currentDate}`}
                     value={reservationInfo.checkInDate} 
-                    min={currentDate}
                     onChange={update('checkInDate')} />
               </div>
 
@@ -130,8 +132,8 @@ const ReservationForm = ({ listingId, listing, createReservation, currentUserId,
                 <label htmlFor="checkout-date">CHECKOUT</label>
                   <input 
                     type="date" 
+                    min={reservationInfo.checkInDate}
                     value={reservationInfo.checkOutDate} 
-                    min={currentDate}
                     onChange={update('checkOutDate')} />
               </div>
           </div>
