@@ -1,41 +1,32 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
-import { createReview } from '../../actions/review_actions';
 import Rating from '@mui/material/Rating';
 import { MdOutlineArrowBackIos } from 'react-icons/md';
+import { isReviewDefined } from '../util/isReviewDefined';
 
-const ReviewForm = ({ currentUserId, listingId, createReview}) => {
-  const defaultReview = {
-  accuracy: 0,
-  checkIn: 0,
-  cleanliness: 0,
-  communication: 0,
-  listingId: listingId,
-  location: 0,
-  message: undefined,
-  reviewerId: currentUserId,
-  value: 0,
+const categories = ['Accuracy', 'Check-in', 'Cleanliness', 'Communication', 'Location', 'Value']
+const displayNameCategory = category => {
+  switch (category) {
+    case "Check-in":
+      return "checkIn";
+    default:
+      return category.charAt(0).toLowerCase() + category.slice(1);
   }
+}
 
-  const [review, setReview] = useState(defaultReview)
-  const [value, _] = useState(value);
-
-  const categories = ['Accuracy', 'Check-in', 'Cleanliness', 'Communication', 'Location', 'Value']
-
+const ReviewForm = ({ reviewInfo, formType, createReview, updateReview }) => {
+  const { listingId } = reviewInfo; 
+  const [review, setReview] = useState(reviewInfo)
   const history = useHistory();
   
-  window.scrollTo(0,0);
-  
-  const displayNameCategory = category => {
-    switch (category) {
-      case "Check-in":
-        return "checkIn";
-      default:
-        return category.charAt(0).toLowerCase() + category.slice(1);
+  useEffect(() => {
+    if (isReviewDefined(reviewInfo)) {
+      setReview(reviewInfo);
     }
-  }
+  }, [reviewInfo])
   
+  window.scrollTo(0, 0);
+
   const handleRatingChange = (event, value) => {
     const category = event.target.getAttribute('name');
     setReview({...review, [displayNameCategory(category)]: value});
@@ -48,36 +39,52 @@ const ReviewForm = ({ currentUserId, listingId, createReview}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const reviewData= Object.assign({}, review);
-    createReview(reviewData)
-      .then(() => history.push(`/listing/${listingId}`))
+
+    if (formType === 'Create') {
+      createReview(reviewData)
+        .then(() => history.push(`/listing/${listingId}`))
+    } else if (formType === 'Update' ) {
+      updateReview(reviewData)
+        .then(() => history.push(`/listing/${listingId}`))
+    }
   }
 
   return (
-    <div className="review-form-container">
+    <div id='href' className="review-form-container">
       <header className="review-form-heading">
         <h1>How was your stay at this place?</h1>
       </header>
       
       <form className="review-form" onSubmit={handleSubmit}>
         <div className="ratings-container">
-          {categories.map((category, idx) => (
-            <div key={`${category}-${idx}`} className="rating">
-              <p>{category}</p>
-              <Rating 
-                id="star"
-                name={category}
-                value={value}
-                onChange={handleRatingChange}
-              />
-            </div>
-          ))}
+          {categories.map((category, idx) => {
+            // HACK, find a better solution
+            const rating = review[displayNameCategory(category)] || 0;
+            
+            return (
+              <div key={`${category}-${idx}`} className="rating">
+                <p>{category}</p>
+                <Rating 
+                  id="star"
+                  name={category}
+                  value={rating}
+                  onChange={handleRatingChange}
+                />
+              </div>
+            )
+          }
+          )}
         </div>
 
         <div className="review-text">
           <label>Describe Your Experience</label>
           <p>Tell next guests what you loved and anything else they should know about this place.</p>
           <div className="textarea-container">
-            <textarea placeholder='Write a public review' onChange={updateMessage}></textarea>
+            <textarea 
+              placeholder='Write a public review' 
+              value={review.message}
+              onChange={updateMessage}>
+            </textarea>
           </div>
         </div>
 
@@ -85,24 +92,11 @@ const ReviewForm = ({ currentUserId, listingId, createReview}) => {
           <div className="back-button">
             <MdOutlineArrowBackIos size={25} id="back-button" onClick={() => history.goBack()}/>
           </div>
-          <button className='submit-button'>Submit Review</button>
+          <button className='submit-button'>{formType === 'Create' ? 'Submit Review' : 'Update Review'}</button>
         </div>
       </form>
     </div>
   );
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    currentUserId: state.session.currentUserId,
-    listingId: parseInt(ownProps.match.params.listingId),
-  };
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    createReview: (review) => dispatch(createReview(review)),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ReviewForm);
+export default ReviewForm;

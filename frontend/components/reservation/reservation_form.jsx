@@ -15,8 +15,6 @@ const ReservationForm = ({ listingId, listing, createReservation, currentUserId,
     userId: currentUserId,
   })
 
-  console.log('res', reservationInfo)
-  
   const [toggledDropDown, setToggledDropDown] = useState(false);
   
   const { price, numGuest } = listing;

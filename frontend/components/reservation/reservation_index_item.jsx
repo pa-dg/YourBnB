@@ -6,7 +6,7 @@ import ImageSlider from '../listing/image_slider';
 const ReservationIndexItem = ({ reservation: { id, listingId, checkInDate, checkOutDate }, fetchListing, deleteReservation }) => {
 
   const [reservedListing, setReservedListing] = useState("");
-  
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetchListing(listingId);
