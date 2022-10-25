@@ -31,6 +31,12 @@ export const fetchReviews = (listingId) => (dispatch) => {
     .then((reviews) => dispatch(receiveAllReviews(reviews)));
 };
 
+export const fetchReview = (reviewId) => (dispatch) => {
+  return reviewsAPIUtil
+    .fetchReview(reviewId)
+    .then((review) => dispatch(receiveReview(review)));
+};
+
 export const createReview = (review) => (dispatch) => {
   return reviewsAPIUtil
     .createReview(review)
