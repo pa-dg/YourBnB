@@ -23,11 +23,12 @@ const ReviewsIndex = ({ listingId, currentUserId, reviews, numReviews, avgRating
   const history = useHistory();
   const location = useLocation();
   
-  const createReviewForm = () => {
+  const createReviewForm = (e) => {
+    e.preventDefault();
     if (!currentUserId) {
       openModal({type: 'login'});
     } else {
-      return history.push(`${location.pathname}/reviews/new`);
+      return history.push(`${location.pathname}/review/new`);
     }
   }
   
@@ -38,12 +39,12 @@ const ReviewsIndex = ({ listingId, currentUserId, reviews, numReviews, avgRating
           <>
             <header className="reviews-index-header">
               <div className="reviews-stars-num-reviews">
-                  <span id="star"><HiStar size={25} /></span>
-                  <span>{avgStar} · {numReviews} {numReviews === 1 ? 'review' : 'reviews'}</span>
-                </div>
+                <span id="star"><HiStar size={25} /></span>
+                <span>{avgStar} · {numReviews} {numReviews === 1 ? 'review' : 'reviews'}</span>
+              </div>
 
               <div className="review-new" onClick={createReviewForm}>
-                  Write a review
+                Write a review
               </div>
             </header>
 
@@ -83,9 +84,9 @@ const ReviewsIndex = ({ listingId, currentUserId, reviews, numReviews, avgRating
               <p>Be the first to leave one!</p>
             </div>
 
-              <div className="review-new" onClick={createReviewForm}>
-                  Write a review
-              </div>
+            <div className="review-new" onClick={createReviewForm}>
+              Write a review
+            </div>
           </header>
         )}
     </div>

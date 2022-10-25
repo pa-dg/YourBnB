@@ -4,8 +4,9 @@ import configureStore from './store/store';
 import Root from './components/root';
 // TO REMOVE
 import { signup, login, logout } from './actions/session_actions';
-import { fetchListings, fetchListing, createListing } from './util/listing_api_util';
+import { fetchListing, fetchListings } from './util/listing_api_util';
 import { fetchReservations } from './util/reservation_api_util';
+import { fetchReview } from './util/reviews_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -33,9 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.login = login;
   window.logout = logout;
   window.signup = signup;
+  window.fetchListing = fetchListing;
   window.fetchListings = fetchListings;
   window.fetchReservations = fetchReservations;
-  
-  
+  window.fetchReview = fetchReview;
   
 }, {passive: true});

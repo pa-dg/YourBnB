@@ -82,6 +82,7 @@
         &:focus {
           outline: none;
           border: 2px solid $airbnb-color;
+          font-weight: 400;
           color: $default-color-black;
         }
       }

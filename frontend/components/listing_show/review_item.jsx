@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import { dateParser } from '../util/dateParser';
 import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
+import { useHistory, useLocation } from 'react-router-dom';
 
 const ReviewItem = ({ currentUserId, review, openModal }) => {
   const { id, reviewerId, updatedAt, reviewerName, message } = review;
   
-  const date = dateParser(updatedAt).split(' ');
-  const month = date[0], year = date[2]
+  let month, year;
+  if (updatedAt) {
+    const date = dateParser(updatedAt).split(' ');
+    month = date[0], year = date[2]
+  }
 
   const styles = {
     size: 15,
@@ -15,7 +19,13 @@ const ReviewItem = ({ currentUserId, review, openModal }) => {
     cursor: 'pointer',
   };
 
-  console.log('#', review)
+  const location = useLocation();
+  const history = useHistory();
+  
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    return history.push(`${location.pathname}/review/${id}/edit`);
+  }
   
   const handleDelete = (e) => {
     e.preventDefault();
@@ -42,13 +52,15 @@ const ReviewItem = ({ currentUserId, review, openModal }) => {
           </div>
           <div className="review-name-date">
             <h3 className="review-name">{reviewerName}</h3>
-            <span className="review-date">{month} {year}</span>
+            { month && year && (
+              <span className="review-date">{month} {year}</span>
+            )}
           </div>
         </div>
 
         {currentUserId && currentUserId === reviewerId ? (
           <div className="heading-right">
-            <AiOutlineEdit id="review-update-button" size={styles.size} style={styles} />
+            <AiOutlineEdit id="review-update-button" size={styles.size} style={styles} onClick={handleUpdate} />
             <AiOutlineDelete id="review-delete-button" size={styles.size} style={styles} onClick={handleDelete} />
           </div>
         ) : null }
