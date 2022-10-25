@@ -27,7 +27,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createReview: review => dispatch(createReview(review)),
+    processForm: review => dispatch(createReview(review)),
   };
 }
 

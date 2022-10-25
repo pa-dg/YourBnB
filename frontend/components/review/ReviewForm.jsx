@@ -14,7 +14,7 @@ const displayNameCategory = category => {
   }
 }
 
-const ReviewForm = ({ reviewInfo, formType, createReview, updateReview }) => {
+const ReviewForm = ({ reviewInfo, formType, processForm }) => {
   const { listingId } = reviewInfo; 
   const [review, setReview] = useState(reviewInfo);
   const [messageError, setMessageError] = useState(false);
@@ -76,13 +76,15 @@ const ReviewForm = ({ reviewInfo, formType, createReview, updateReview }) => {
     validateMessage();
     validateCategory();
 
-    if (formType === 'Create') {
-      createReview(reviewData)
-        .then(() => history.push(`/listing/${listingId}`))
-    } else if (formType === 'Update' ) {
-      updateReview(reviewData)
-        .then(() => history.push(`/listing/${listingId}`))
-    }
+    // if (formType === 'Create') {
+    //   createReview(reviewData)
+    //     .then(() => history.push(`/listing/${listingId}`))
+    // } else if (formType === 'Update' ) {
+    //   updateReview(reviewData)
+    //     .then(() => history.push(`/listing/${listingId}`))
+    // }
+    processForm(reviewData)
+      .then(() => history.push(`/listing/${listingId}`));
   };
 
   return (
