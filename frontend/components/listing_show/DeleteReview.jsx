@@ -18,7 +18,7 @@ const DeleteReview = ({ reviewId, deleteReview, closeModal }) => {
       <span>Delete Review</span>
       <div className="form-content">
         <p>
-          Are you sure you want to delete this review? This action cannot be
+          Are you sure you want to delete your review? This action cannot be
           undone.
         </p>
         <div className="button-container">
