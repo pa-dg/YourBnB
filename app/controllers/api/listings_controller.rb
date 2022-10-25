@@ -26,10 +26,6 @@ class Api::ListingsController < ApplicationController
   #   end
   # end
 
-  #TO BE ADDED
-  # def destroy 
-  # end
-
   private
 
   def bounds

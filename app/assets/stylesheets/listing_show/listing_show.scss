@@ -34,17 +34,21 @@
   .subheading-left {
     display: flex;
     justify-content: space-between;
-    width: 340px;
+    // width: 340px;
   }
 
   .subheading-right {
     display: flex;
     justify-content: space-between;
-    width: 130px;
+    // width: 130px;
   }
 
   span {
     display: flex;
+  }
+
+  span:not(:first-child, :nth-child(3)) {
+    padding: 0 8px 0 8px;
   }
 }
 
@@ -143,6 +147,7 @@
 .listing-show-info {
   flex-direction: column;
   width: 100%;
+  line-height: 1.25;
 }
 
 .listing-host {

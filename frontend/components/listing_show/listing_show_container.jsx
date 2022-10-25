@@ -9,13 +9,15 @@ const mapStateToProps = (state, ownProps) => {
   const listingId = parseInt(ownProps.match.params.listingId);
   const selectedListing = state.entities.listings[listingId];
   const listings = state.entities.listings
-  const userId = parseInt(state.session.currentUserId)
+  const currentUserId = parseInt(state.session.currentUserId)
+  const numReviews = Object.values(state.entities.reviews).length
 
   return {
     listingId,
     selectedListing,
     listings,
-    userId,
+    currentUserId,
+    numReviews,
   };
 };
 

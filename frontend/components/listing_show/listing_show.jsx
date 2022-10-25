@@ -10,7 +10,7 @@ import ReservationForm from '../reservation/reservation_form';
 import CircularProgress from '@mui/material/CircularProgress';
 import ReviewsIndex from './reviews_index';
 
-const ListingShow = ({ listingId, selectedListing, fetchListing, createReservation, userId, openModal }) => {
+const ListingShow = ({ listingId, selectedListing, currentUserId, numReviews, fetchListing, createReservation, openModal }) => {
   const [listing, setListing] = useState(selectedListing);
   // const [showCalendar, setShowCalendar] = useState(false);
   // const [isLoading, setIsLoading] = useState(false);
@@ -41,11 +41,6 @@ const ListingShow = ({ listingId, selectedListing, fetchListing, createReservati
   //   }
   // }, []);
 
-  window.scrollTo({
-    top: 0,
-    left: 0,
-  });
-
   const styles = {
     size: 15,
     paddingRight: 5,
@@ -58,7 +53,14 @@ const ListingShow = ({ listingId, selectedListing, fetchListing, createReservati
       photoUrls: listing.photoUrls,
     });
   }
-  
+
+  const handleReviewsLinkClick = (e) => {
+    e.preventDefault();
+    openModal({
+      type: 'reviewsIndex',
+    })
+  }
+
   return (
     <div className="listing-show-container">
       {listing ? (
@@ -70,7 +72,9 @@ const ListingShow = ({ listingId, selectedListing, fetchListing, createReservati
 
             <div className="listing-show-subheading">
               <div className="subheading-left">
-                <span><HiStar size={styles.size} style={styles} /> 5.0 &middot; 5 reviews &middot;</span>
+                <span><HiStar size={styles.size} style={styles} /> 5.0 &middot;</span>
+                <span onClick={handleReviewsLinkClick}>{numReviews ? numReviews : 0} {numReviews > 0 ? 'reviews' : 'review'}</span>
+                <span>&middot; </span>
                 <span>{listing.city}, {listing.state}, {listing.country}</span>
               </div>
               <div className="subheading-right">
@@ -137,13 +141,18 @@ const ListingShow = ({ listingId, selectedListing, fetchListing, createReservati
                 listing={listing} 
                 listingId={listingId} 
                 createReservation={createReservation} 
-                userId={userId} 
+                currentUserId={currentUserId} 
                 openModal={openModal} 
+                numReviews={numReviews}
               />
             </div>
           </div>
 
-          <ReviewsIndex listingId={listingId} />
+          <ReviewsIndex 
+            listingId={listingId} 
+            currentUserId={currentUserId} 
+            openModal={openModal} 
+          />
 
           <>  
             <div className="map-header">Where you'll be</div>
