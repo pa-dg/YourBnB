@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const SessionForm = props => {
-
   const [userInfo, setUserInfo] = useState({
     firstName: '',
     lastName: '',
@@ -22,33 +21,32 @@ const SessionForm = props => {
   
   useEffect(() => {
     return () => {
-      props.clearReceiveErrors();
+      clearReceiveErrors();
     };
   }, []);
-
+  
+  const { errors, formType, processForm, clearReceiveErrors, closeModal, otherForm, } = props;
+  
   const update = field => { 
   return e => setUserInfo({
     ...userInfo, [field]: e.currentTarget.value 
     });
   };
 
-  console.log('#', userInfo)
-
-  const closeModal = (e) => {
-    e.preventDefault();
-    props.closeModal();
-  };  
-
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const user = Object.assign({}, userInfo);
-    props.processForm(user);
+    processForm(user)
+      // .then((response) => {
+      //   if (response !== undefined) return closeModal();
+      // });
   };
 
   const renderErrors = () => {
     return (
       <ul>
-        {props.errors.map((error, i) => (
+        {errors.map((error, i) => (
           <li key={`error-${i}`} className="session-errors">
             {error}
           </li>
@@ -98,7 +96,7 @@ const SessionForm = props => {
           passwordcb();
         } else {
           setTimeout(() => {
-            props.processForm(userInfoRef.current).then(props.closeModal());
+            processForm(userInfoRef.current).then(() => closeModal());
           }, 500);
         }
       }, 75);
@@ -106,12 +104,10 @@ const SessionForm = props => {
     emailcb();
   };
 
-  const { formType, otherForm } = props;
-
   return (
     <div className='session-modal-container'>
       <div className="session-form-header">
-        <div className="exit-modal" onClick={closeModal}>&times;</div>
+        <div className="exit-modal" onClick={() => closeModal()}>&times;</div>
         <p>Welcome to yourbnb</p>
       </div>
 
@@ -162,7 +158,6 @@ const SessionForm = props => {
       </footer>
     </div>
   );
-
 }
 
 export default SessionForm;
