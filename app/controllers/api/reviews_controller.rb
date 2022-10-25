@@ -3,6 +3,10 @@ class Api::ReviewsController < ApplicationController
     @reviews = Review.all.where(listing_id: params[:listing_id])
   end
 
+  def show
+    @review = Review.find(params[:id])
+  end
+  
   def create
     @review = Review.new(new_review_params)
 
