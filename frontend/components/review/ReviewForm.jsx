@@ -16,7 +16,9 @@ const displayNameCategory = category => {
 
 const ReviewForm = ({ reviewInfo, formType, createReview, updateReview }) => {
   const { listingId } = reviewInfo; 
-  const [review, setReview] = useState(reviewInfo)
+  const [review, setReview] = useState(reviewInfo);
+  const [messageError, setMessageError] = useState(false);
+  const [categoryError, setCategoryError] = useState(false);
   const history = useHistory();
   
   useEffect(() => {
@@ -24,7 +26,7 @@ const ReviewForm = ({ reviewInfo, formType, createReview, updateReview }) => {
       setReview(reviewInfo);
     }
   }, [reviewInfo])
-  
+
   window.scrollTo(0, 0);
 
   const handleRatingChange = (event, value) => {
@@ -36,9 +38,43 @@ const ReviewForm = ({ reviewInfo, formType, createReview, updateReview }) => {
     setReview({...review, message: e.currentTarget.value})
   }
   
+  const validateMessage = () => {
+    if (!review.message) {
+      setMessageError(true);
+    } else {
+      setMessageError(false);
+    }
+  }
+
+  const validateCategory = () => {
+    if (!review.accuracy) {
+      setCategoryError(true);
+    }
+    if (!review.checkIn) {
+      setCategoryError(true);
+    }
+    if (!review.cleanliness) {
+      setCategoryError(true);
+    }
+    if (!review.communication) {
+      setCategoryError(true);
+    }
+    if (!review.location) {
+      setCategoryError(true);
+    }
+    if (!review.value) {
+      setCategoryError(true);
+    } else {
+      setCategoryError(false);
+    }
+  } 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const reviewData= Object.assign({}, review);
+
+    validateMessage();
+    validateCategory();
 
     if (formType === 'Create') {
       createReview(reviewData)
@@ -47,7 +83,7 @@ const ReviewForm = ({ reviewInfo, formType, createReview, updateReview }) => {
       updateReview(reviewData)
         .then(() => history.push(`/listing/${listingId}`))
     }
-  }
+  };
 
   return (
     <div id='href' className="review-form-container">
@@ -57,6 +93,10 @@ const ReviewForm = ({ reviewInfo, formType, createReview, updateReview }) => {
       
       <form className="review-form" onSubmit={handleSubmit}>
         <div className="ratings-container">
+          {categoryError && (
+            <p className="review-error">All categories must be rated</p>
+          )}
+
           {categories.map((category, idx) => {
             // HACK, find a better solution
             const rating = review[displayNameCategory(category)] || 0;
@@ -79,13 +119,19 @@ const ReviewForm = ({ reviewInfo, formType, createReview, updateReview }) => {
         <div className="review-text">
           <label>Describe Your Experience</label>
           <p>Tell next guests what you loved and anything else they should know about this place.</p>
+          
           <div className="textarea-container">
             <textarea 
+              id={messageError ? "review-error-box" : null}
               placeholder='Write a public review' 
               value={review.message}
               onChange={updateMessage}>
             </textarea>
           </div>
+
+          {messageError && (
+            <p className="review-error">Review message cannot be empty!</p>
+          )}
         </div>
 
         <div className="button-group">

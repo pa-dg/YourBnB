@@ -57,7 +57,7 @@
         color: $default-color-black;
       }
 
-      p {
+      p:not(:last-child) {
         font-size: $fs-16;
         font-weight: 400;
         color: $default-color-darkgray;
@@ -113,5 +113,16 @@
         background: $airbnb-color;
       }
     }
+  }
+
+  .review-error {
+    color: red;
+    font-size: $fs-18;
+    font-weight: 500;
+    margin: 20px 0 20px 0;
+  }
+
+  #review-error-box {
+    border: 2px solid red;
   }
 }
