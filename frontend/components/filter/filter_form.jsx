@@ -57,7 +57,7 @@ const FilterForm = ({ listings, minPrice, maxPrice, updateFilter, clearFilter, c
         </div>
         
         <footer className="filter-form-footer">
-          <button className="filter-form-reset" onCliCk={() => clearFilter()}>Clear all</button>
+          <button className="filter-form-reset" onClick={() => clearFilter()}>Clear all</button>
           <button className="filter-form-apply">Apply</button>
       </footer>
 
