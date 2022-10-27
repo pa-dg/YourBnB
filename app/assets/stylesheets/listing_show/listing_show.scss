@@ -231,16 +231,21 @@
   // border: 1px solid red;
 }
 
+// Listing Map
+
+.listing-map-container {
+  border-top: 1px solid rgb(221, 221, 221);
+  padding: 48px 0 48px 0;
+}
+
+.map-header {
+  font-size: $fs-22;
+  font-weight: 700;
+  padding-bottom: 40px;
+}
+
 #map-container {
   width: 100%;
   aspect-ratio: 1/0.5;
   border: 1px solid lightgray;
-  margin-bottom: 50px;
-}
-
-.map-header {
-  border-top: 1px solid rgb(221, 221, 221);
-  font-size: $default-font-size-xxl;
-  font-weight: $default-font-wt;
-  padding: 48px 0 48px 0;
 }

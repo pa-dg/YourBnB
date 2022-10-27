@@ -5,7 +5,7 @@ import { FiShare, FiWind } from 'react-icons/fi';
 import { BiTv, BiRestaurant } from 'react-icons/bi';
 import { MdOutlineLocalLaundryService } from 'react-icons/md';
 import { RiAlarmWarningLine, RiCarLine } from 'react-icons/ri';
-import ListingMap from '../listing_map/listing_map';
+import ListingMap from '../map/ListingMap';
 import ReservationForm from '../reservation/reservation_form';
 import CircularProgress from '@mui/material/CircularProgress';
 import ReviewsIndex from './reviews_index';
@@ -154,11 +154,7 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, numReviews, fe
             openModal={openModal} 
           />
 
-          <>  
-            <div className="map-header">Where you'll be</div>
-            <ListingMap key={`${Math.random()}`} selectedListing={selectedListing}/>
-          </>
-
+          <ListingMap key={`${Math.random()}`} listing={selectedListing}/>
 
         </>
       ) : (
