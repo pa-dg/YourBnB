@@ -3,7 +3,7 @@ import { withRouter, useHistory } from "react-router-dom";
 import { HiStar } from 'react-icons/hi';
 import ImageSlider from "./image_slider";
 
-const ListingIndexItem = ({ listing: { id, city, state, title, numBeds, price, photoUrls } }) => {
+const ListingIndexItem = ({ listing: { id, city, state, title, numBeds, price, propertyType, photoUrls } }) => {
 
   const styles = {
     size: 14,
@@ -24,8 +24,9 @@ const ListingIndexItem = ({ listing: { id, city, state, title, numBeds, price, p
         
       <div className="listing-info" onClick={handleClick}>
         <div className="info-left">
-          <p>{city}, {state}</p>
+          <p>{propertyType} in {city}</p>
           <p>{title}</p>
+          <p>{numBeds} {numBeds > 1 ? 'beds' : 'bed'}</p>
           <p>${`${Math.round(price)}`} <span>night</span></p>
         </div>
 
