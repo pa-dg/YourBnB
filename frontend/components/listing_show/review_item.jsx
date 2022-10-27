@@ -34,11 +34,11 @@ const ReviewItem = ({ currentUserId, review, openModal }) => {
       reviewId: id,
     });
   };
-
-  $(window).on('unload', function() {
-   $(window).scrollTop(0);
-  });
   
+  $(window).on('unload', function() {
+    $(window).scrollTop(0);
+  });
+ 
   return (
     <div className="review-item">
       <div className="review-item-heading">

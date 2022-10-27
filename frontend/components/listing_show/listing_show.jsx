@@ -41,6 +41,8 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, numReviews, fe
   //   }
   // }, []);
 
+  // window.scrollTo(0,0)
+  
   const styles = {
     size: 15,
     paddingRight: 5,
@@ -73,7 +75,7 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, numReviews, fe
             <div className="listing-show-subheading">
               <div className="subheading-left">
                 <span><HiStar size={styles.size} style={styles} /> 5.0 &middot;</span>
-                <span onClick={handleReviewsLinkClick}>{numReviews ? numReviews : 0} {numReviews > 0 ? 'reviews' : 'review'}</span>
+                <span onClick={handleReviewsLinkClick}>{numReviews ? numReviews : 0} {numReviews > 1 ? 'reviews' : 'review'}</span>
                 <span>&middot; </span>
                 <span>{listing.city}, {listing.state}, {listing.country}</span>
               </div>
@@ -105,6 +107,8 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, numReviews, fe
                 <p>
                   <span>{listing.numGuest} {listing.numGuest > 1 ? "guests" : "guest"}</span> 
                   &middot; 
+                  <span>{listing.numBeds > 1 ? '2 bedrooms' : '1 bedroom'}</span>
+                  &middot;
                   <span>{listing.numBeds} {listing.numBeds > 1 ? "beds" : "bed"}</span>
                   &middot; 
                   <span>{listing.numBaths} {listing.numBaths > 1 ? "baths" : "bath"}</span>

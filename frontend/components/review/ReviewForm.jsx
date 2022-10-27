@@ -75,17 +75,9 @@ const ReviewForm = ({ reviewInfo, formType, processForm }) => {
 
     validateMessage();
     validateCategory();
-
-    // if (formType === 'Create') {
-    //   createReview(reviewData)
-    //     .then(() => history.push(`/listing/${listingId}`))
-    // } else if (formType === 'Update' ) {
-    //   updateReview(reviewData)
-    //     .then(() => history.push(`/listing/${listingId}`))
-    // }
-    debugger
+    
     processForm(reviewData)
-      .then(() => history.push(`/listing/${listingId}`));
+      .then(() => history.goBack());
   };
 
   return (
