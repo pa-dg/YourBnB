@@ -64,7 +64,7 @@ class ListingMap extends React.Component {
         lat: lat,
         lng: lng
       },
-      radius: 600,
+      radius: 300,
       fillColor: '#E31C5F',
       fillOpacity: 0.25,
       strokeColor: '#FF385C',
