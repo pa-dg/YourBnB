@@ -83,6 +83,7 @@ const ReviewForm = ({ reviewInfo, formType, processForm }) => {
     //   updateReview(reviewData)
     //     .then(() => history.push(`/listing/${listingId}`))
     // }
+    debugger
     processForm(reviewData)
       .then(() => history.push(`/listing/${listingId}`));
   };

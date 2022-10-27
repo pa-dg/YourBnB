@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchReview, updateReview } from '../../actions/review_actions';
 import { withRouter } from 'react-router-dom';
 
-const UpdateReviewForm = ({ reviewId, formType, updateReview, fetchReview }) => {
+const UpdateReviewForm = ({ reviewId, formType, processForm, fetchReview }) => {
    useEffect(() => {
     const fetchData = async () => {
       const response = await fetchReview(reviewId);
@@ -19,6 +19,7 @@ const UpdateReviewForm = ({ reviewId, formType, updateReview, fetchReview }) => 
     <ReviewForm 
       formType={formType}
       reviewInfo={reviewInfo}
+      processForm={processForm}
       updateReview={updateReview}
     />
   )
