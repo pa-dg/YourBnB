@@ -6,18 +6,18 @@ import { useHistory } from "react-router-dom";
 
 const ReservationForm = ({ listingId, listing, createReservation, currentUserId, numReviews, openModal } ) => {
 
+  const { price, numGuest, additionalFees } = listing;
+  
   const [reservationInfo, setReservationInfo] = useState({
     checkInDate: '',
     checkOutDate: '',
     numGuests: 1,
-    price: listing.price,
+    price: price,
     listingId,
     userId: currentUserId,
   })
 
   const [toggledDropDown, setToggledDropDown] = useState(false);
-  
-  const { price, numGuest } = listing;
   
   const currentDate = new Date().toLocaleDateString('en-ca');
 
@@ -83,6 +83,7 @@ const ReservationForm = ({ listingId, listing, createReservation, currentUserId,
 
   const getPrice = {
     listingSubtotal: reservationInfo.price * getNumDays(),
+    guestSubtotal: reservationInfo.numGuests * additionalFees,
     cleaningFee: (reservationInfo.price * getNumDays()) * 0.10,
     serviceFee: (reservationInfo.price * getNumDays()) * 0.20,
   }
@@ -177,7 +178,7 @@ const ReservationForm = ({ listingId, listing, createReservation, currentUserId,
 
             <div className="price-info">
               <p>${price} x {getNumDays()} {getNumDays() > 1 ? "nights" : "night"}</p> 
-              <p>${reservationInfo.price ? `${getPrice.listingSubtotal}` : null }</p>
+              <p>${reservationInfo.price ? `${getPrice.listingSubtotal + getPrice.guestSubtotal}` : null }</p>
             </div>
 
             <div className="price-info">
