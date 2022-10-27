@@ -158,8 +158,10 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, numReviews, fe
             openModal={openModal} 
           />
 
-          <ListingMap key={`${Math.random()}`} listing={selectedListing}/>
-
+          <ListingMap 
+            key={`${Math.random()}`} 
+            listing={selectedListing}
+          />
         </>
       ) : (
         <div style={{ textAlign: 'center', alignContent: 'center', padding: 40 }}>
