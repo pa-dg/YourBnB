@@ -10,7 +10,7 @@ import ReservationForm from '../reservation/reservation_form';
 import CircularProgress from '@mui/material/CircularProgress';
 import ReviewsIndex from './reviews_index';
 
-const ListingShow = ({ listingId, selectedListing, currentUserId, numReviews, fetchListing, createReservation, openModal }) => {
+const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, createReservation, openModal }) => {
   const [listing, setListing] = useState(selectedListing);
   // const [showCalendar, setShowCalendar] = useState(false);
   // const [isLoading, setIsLoading] = useState(false);
@@ -74,8 +74,8 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, numReviews, fe
 
             <div className="listing-show-subheading">
               <div className="subheading-left">
-                <span><HiStar size={styles.size} style={styles} /> 5.0 &middot;</span>
-                <span onClick={handleReviewsLinkClick}>{numReviews ? numReviews : 0} {numReviews > 1 ? 'reviews' : 'review'}</span>
+                <span><HiStar size={styles.size} style={styles} />{listing.avgRating} &middot;</span>
+                <span onClick={handleReviewsLinkClick}>{listing.numReviews > 1 ? `${listing.numReviews} reviews` : '0 review'}</span>
                 <span>&middot; </span>
                 <span>{listing.city}, {listing.state}, {listing.country}</span>
               </div>
@@ -147,7 +147,6 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, numReviews, fe
                 createReservation={createReservation} 
                 currentUserId={currentUserId} 
                 openModal={openModal} 
-                numReviews={numReviews}
               />
             </div>
           </div>
