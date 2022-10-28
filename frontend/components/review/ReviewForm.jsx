@@ -15,7 +15,6 @@ const displayNameCategory = category => {
 }
 
 const ReviewForm = ({ reviewInfo, formType, processForm }) => {
-  const { listingId } = reviewInfo; 
   const [review, setReview] = useState(reviewInfo);
   const [messageError, setMessageError] = useState(false);
   const [categoryError, setCategoryError] = useState(false);

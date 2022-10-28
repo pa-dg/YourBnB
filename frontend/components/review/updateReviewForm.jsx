@@ -8,7 +8,7 @@ const UpdateReviewForm = ({ reviewId, formType, processForm, fetchReview }) => {
    useEffect(() => {
     const fetchData = async () => {
       const response = await fetchReview(reviewId);
-      setReviewInfo(response.review[reviewId])
+      setReviewInfo(response.review)
     };
     fetchData();
   }, []);
