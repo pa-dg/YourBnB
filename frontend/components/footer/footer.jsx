@@ -4,13 +4,13 @@ const Footer = () => {
   return (
     <>
       <div className="footer-content">
-        <h2>About Me</h2>
+        <p>About Me</p>
           <ul>
             <li>
-                <a href="https://github.com/pa-dg" target="_blank" rel="noopener noreferrer">Github</a>
+              <a href="https://github.com/pa-dg" target="_blank" rel="noopener noreferrer">Github</a>
             </li>
             <li>
-                <a href="https://www.linkedin.com/in/patricia-deguzman/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/patricia-deguzman/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </li>
             <li>
               <a href="https://angel.co/" target="_blank" rel="noopener noreferrer">Angel List</a>
@@ -22,7 +22,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-content">
-        <h2>Technologies Used</h2>
+        <p>Technologies Used</p>
         <ul>
           <li>Javascript</li>
           <li>React</li>
@@ -33,11 +33,10 @@ const Footer = () => {
       </div>
 
       <div className="footer-content">
-        <h2>Made with <img src={window.thunderIcon} alt="thunder-icon" /></h2>
-        <h2>by Andrea de Guzman</h2>
+        <p>Made with <img src={window.thunderIcon} alt="thunder-icon" width={14} /></p>
+        <p>by Andrea de Guzman</p>
       </div>
     </>
-
   );
 };
 
