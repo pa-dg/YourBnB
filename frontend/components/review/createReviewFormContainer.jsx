@@ -1,7 +1,7 @@
 import React from 'react';
 import ReviewForm from './ReviewForm';
 import { connect } from 'react-redux';
-import { createReview, fetchReview } from '../../actions/review_actions';
+import { createReview } from '../../actions/review_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const listingId = parseInt(ownProps.match.params.listingId)

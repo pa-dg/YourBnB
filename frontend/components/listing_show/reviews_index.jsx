@@ -108,22 +108,22 @@ const mapStateToProps = (state) => {
 
   if (numReviews > 0) {
     reviews.forEach(review => {
-        avgRatings.cleanliness = avgRatings.cleanliness += review.cleanliness,
-        avgRatings.communication = avgRatings.communication += review.communication,
-        avgRatings.checkIn = avgRatings.checkIn += review.checkIn,
-        avgRatings.accuracy = avgRatings.accuracy += review.accuracy,
-        avgRatings.location = avgRatings.location += review.location,
-        avgRatings.value = avgRatings.value += review.value
-      })
+      avgRatings.cleanliness = avgRatings.cleanliness += review.cleanliness,
+      avgRatings.communication = avgRatings.communication += review.communication,
+      avgRatings.checkIn = avgRatings.checkIn += review.checkIn,
+      avgRatings.accuracy = avgRatings.accuracy += review.accuracy,
+      avgRatings.location = avgRatings.location += review.location,
+      avgRatings.value = avgRatings.value += review.value
+    })
   }
-
+  
   const categories = Object.keys(avgRatings);
 
   categories.forEach((category) => {
-    avgRatings[category] = parseInt((avgRatings[category] / numReviews).toFixed(1));
+    avgRatings[category] = (avgRatings[category] / numReviews);
   });
-
-  const avgStar = (Object.values(avgRatings).reduce((acc, rating) => acc + rating) / categories.length).toFixed(1)
+  
+  const avgStar = (Object.values(avgRatings).reduce((acc, rating) => acc + rating) / categories.length).toFixed(2)
   
   return {
     reviews,
