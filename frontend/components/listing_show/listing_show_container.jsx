@@ -17,7 +17,6 @@ const mapStateToProps = (state, ownProps) => {
     selectedListing,
     listings,
     currentUserId,
-    numReviews,
   };
 };
 

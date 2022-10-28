@@ -52,10 +52,8 @@ class Listing < ApplicationRecord
     through: :host,
     source: :photo_attachment
 
-
   def default
     self.price_currency ||= 'USD'
-    self.price_per_night ||= 'per night'
     self.additional_fees ||= '0'
   end
   
@@ -66,8 +64,22 @@ class Listing < ApplicationRecord
       .where("lng < ?", bounds[:northEast][:lng])
   end
 
+  def num_reviews
+    reviews.count
+  end
+  
   def avg_rating
-    reviews.average(:rating)
+
+    return "New" if num_reviews == 0
+
+    cleanliness = reviews.average(:cleanliness)
+    accuracy = reviews.average(:accuracy)
+    communication = reviews.average(:communication)
+    check_in = reviews.average(:check_in)
+    value = reviews.average(:value)
+    location = reviews.average(:location)
+
+    return avg = ((cleanliness + accuracy + communication + check_in + value + location) / 6).round(2)
   end
 
 end

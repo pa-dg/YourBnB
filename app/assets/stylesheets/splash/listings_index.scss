@@ -28,6 +28,7 @@
 
 .listing-info {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   font-family: $fm-Nunito;
   font-size: $fs-16;
@@ -35,36 +36,39 @@
   width: 285px;
   height: 100%;
 
-  .info-left {
-    max-width: 85%;
+  .info-heading {
+    width: 100%;
+    // max-width: 85%;
     display: flex;
-    flex-flow: column wrap;
     justify-content: space-between;
+    // flex-flow: column wrap;
 
-    p:first-child,
-    :last-child {
+    p:not(:last-child) {
       font-weight: 600;
       color: $default-color-black;
-
-      span {
-        font-weight: 300;
-        color: $default-color-black;
-      }
     }
 
-    p {
+    p:last-child {
       font-weight: 300;
-      color: $default-color-darkgray;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
     }
   }
 
-  .info-right {
-    display: inline-flex;
-    align-self: flex-start;
+  .info-content:not(:last-child) {
+    font-weight: 300;
+    color: $default-color-darkgray;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+  .info-content:last-child {
+    font-weight: 600;
+    color: $default-color-black;
+  }
+
+  span {
+    font-weight: 300;
   }
 }
 

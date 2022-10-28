@@ -3,11 +3,12 @@ import { withRouter, useHistory } from "react-router-dom";
 import { HiStar } from 'react-icons/hi';
 import ImageSlider from "./image_slider";
 
-const ListingIndexItem = ({ listing: { id, city, state, title, numBeds, price, propertyType, photoUrls } }) => {
+const ListingIndexItem = ({ listing: { id, city, state, title, numBeds, price, propertyType, photoUrls, numReviews, avgRating } }) => {
 
   const styles = {
-    size: 14,
+    size: 15,
     paddingRight: 2,
+    verticalAlign: 'top',
   }
   
   let history = useHistory();
@@ -23,17 +24,14 @@ const ListingIndexItem = ({ listing: { id, city, state, title, numBeds, price, p
       </div>
         
       <div className="listing-info" onClick={handleClick}>
-        <div className="info-left">
+        <div className="info-heading">
           <p>{propertyType} in {city}</p>
-          <p>{title}</p>
-          <p>{numBeds} {numBeds > 1 ? 'beds' : 'bed'}</p>
-          <p>${`${Math.round(price)}`} <span>night</span></p>
+          <p><HiStar size={styles.size} style={styles} />{avgRating} ({numReviews})</p>
         </div>
-
-        <div className="info-right">
-          <HiStar size={styles.size} style={styles} />
-          <span>5.0</span>
-        </div>
+        
+        <p className="info-content">{title}</p>
+        <p className="info-content">{numBeds} {numBeds > 1 ? 'beds' : 'bed'}</p>
+        <p className="info-content">${`${Math.round(price)}`} <span>night</span></p>
       </div>
     </div>
   );

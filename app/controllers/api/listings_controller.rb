@@ -19,6 +19,7 @@ class Api::ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
   end
 
+  # TO REMOVE: might not implement this functionality
   # def create
   #   @listing = Listing.create!(new_listing_params)
   #   if @listing.save

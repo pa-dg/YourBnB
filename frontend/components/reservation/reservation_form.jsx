@@ -4,9 +4,9 @@ import { HiStar, HiChevronDown, HiChevronUp } from 'react-icons/hi';
 import { withRouter } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
-const ReservationForm = ({ listingId, listing, createReservation, currentUserId, numReviews, openModal } ) => {
+const ReservationForm = ({ listingId, listing, createReservation, currentUserId,  openModal } ) => {
 
-  const { price, numGuest, additionalFees } = listing;
+  const { price, numGuest, additionalFees, numReviews, avgRating } = listing;
   
   const [reservationInfo, setReservationInfo] = useState({
     checkInDate: '',
@@ -109,9 +109,9 @@ const ReservationForm = ({ listingId, listing, createReservation, currentUserId,
           <span>night</span>
         </p>
         <p>
-          <span><HiStar size={styles.star.size} style={styles.star}/> 5.0 </span>
+          <span><HiStar size={styles.star.size} style={styles.star}/>{avgRating}</span>
           <span>&middot;</span>
-          <span className="reviews-link">{numReviews ? numReviews : 0} {numReviews > 0 ? 'reviews' : 'review'}</span>
+          <span className="reviews-link">{numReviews > 1 ? `${numReviews} reviews` : '0 review'}</span>
         </p>
       </div>
 
