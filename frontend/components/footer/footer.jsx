@@ -33,7 +33,10 @@ const Footer = () => {
       </div>
 
       <div className="footer-content">
-        <p>Made with <img src={window.thunderIcon} alt="thunder-icon" width={14} /></p>
+        <p>Made with  
+          <img src={window.heartIcon} alt="thunder-icon" width={14} />
+          <img src={window.thunderIcon} alt="thunder-icon" width={14} />
+        </p>
         <p>by Andrea de Guzman</p>
       </div>
     </>
