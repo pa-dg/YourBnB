@@ -18,17 +18,21 @@
 
   p {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
     color: $default-color-black;
     margin-bottom: 5px;
   }
 
   a,
-  ul,
   li {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px;
     color: $default-color-black;
     text-decoration: none;
+
+    a:hover {
+      text-decoration: underline;
+      color: $default-color-black;
+    }
   }
 }

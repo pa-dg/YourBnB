@@ -13,7 +13,7 @@ const Footer = () => {
               <a href="https://www.linkedin.com/in/patricia-deguzman/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </li>
             <li>
-              <a href="https://angel.co/" target="_blank" rel="noopener noreferrer">Angel List</a>
+              <a href="https://angel.co/u/patricia-andrea-de-guzman" target="_blank" rel="noopener noreferrer">Angel List</a>
             </li>
             <li>
               <a href="mailto:padgzmn@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
