@@ -5,7 +5,7 @@ import { openModal } from '../../actions/modal_actions';
 const Filter = ({ openModal }) => {
 
   return (
-    <div className="filter-form-container">
+    <div className="filter-container">
       <button id="filter-icons"><img src={window.lakeIcon} alt="lake-icon" />
         <span>Lakefront</span>
       </button>

@@ -1,6 +1,6 @@
 @import "../variables.scss";
 
-.filter-form-container {
+.filter-container {
   // border-bottom: 1px solid rgb(235, 235, 235);
   display: flex;
   align-items: center;
@@ -62,12 +62,14 @@
   }
 }
 
-// Filter Modal
+// Filter Form Modal
 
-.filter-form {
+.filter-form-container {
   @include center-content(column);
-  background: white;
-  width: 780px;
+  width: 40vw;
+  background-color: white;
+  border-radius: 16px;
+  overflow-y: auto;
   font-family: $fm-Nunito;
 }
 
@@ -81,7 +83,164 @@
 
   p {
     font-size: $fs-20;
-    font-weight: 500;
+    font-weight: 600;
     color: $default-color-black;
+  }
+}
+
+.filter-form {
+  width: 100%;
+
+  .filter-form-content:not(:last-child) {
+    @include center-content(column);
+
+    p {
+      font-size: $fs-20;
+      font-weight: 700;
+      color: $default-color-black;
+      padding: 20px;
+    }
+  }
+
+  .price-range-slider {
+    width: 25vw;
+    align-self: center;
+  }
+
+  .price-range-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+
+    .min-price-input,
+    .max-price-input {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 6px 10px 6px 10px;
+      border-radius: 8px;
+      width: 9vw;
+      border: 1px solid $default-color-gray;
+    }
+
+    span {
+      padding: 15px;
+      align-self: center;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 300;
+      color: $default-color-darkgray;
+    }
+
+    input {
+      font-family: $fm-Nunito;
+      font-size: 16px;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      margin: 6px 0 0 0;
+      width: 95%;
+
+      &:focus {
+        outline: none;
+        border: 2px solid $default-color-black;
+      }
+    }
+  }
+
+  // Slider overide styles
+  .noUi-connect {
+    background-color: $default-color-darkgray !important;
+    height: 100%;
+    width: 100%;
+  }
+
+  .noUi-target {
+    height: 8px;
+  }
+
+  .noUi-handle {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 32px !important;
+    height: 32px !important;
+    top: -13px !important;
+    border: 1px solid #b5b5b5;
+    box-shadow: none;
+
+    &:before {
+      height: 16px !important;
+      left: 12px !important;
+      top: 6px !important;
+      background: #b5b5b5;
+    }
+
+    &:after {
+      height: 16px !important;
+      left: 17px;
+      background: #b5b5b5;
+    }
+  }
+
+  .num-beds-input {
+    margin-bottom: 40px;
+
+    button {
+      cursor: pointer;
+      font-family: $fm-Nunito;
+      font-size: $fs-16;
+      font-weight: 400;
+      color: $default-color-black;
+      min-width: 59px;
+      padding: 10px 20px 10px 20px;
+      margin: 0 10px 0 10px;
+      border-radius: 24px;
+      border: 1px solid $default-color-gray;
+      background: white;
+
+      &:hover {
+        border: 1px solid $default-color-black;
+      }
+
+      &:focus {
+        border: 1px solid $default-color-black;
+        background: $default-color-black;
+        color: white;
+      }
+    }
+  }
+
+  .filter-form-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px 20px 40px;
+    border-top: 1px solid lightgray;
+
+    button:first-child {
+      cursor: pointer;
+      font-family: $fm-Nunito;
+      font-size: $fs-16;
+      font-weight: 600;
+      color: $default-color-black;
+      border: none;
+      background: none;
+      text-decoration: underline;
+      padding: 0;
+    }
+
+    button:last-child {
+      cursor: pointer;
+      font-family: $fm-Nunito;
+      font-size: $fs-16;
+      font-weight: 600;
+      color: white;
+      width: 15em;
+      padding: 10px 0 10px 0;
+      border-radius: 8px;
+      border: 1px solid $default-color-black;
+      background: $default-color-black;
+    }
   }
 }
