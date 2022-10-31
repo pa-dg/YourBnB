@@ -105,6 +105,7 @@
   .price-range-slider {
     width: 25vw;
     align-self: center;
+    padding: 20px;
   }
 
   .price-range-input {
@@ -124,6 +125,17 @@
       border: 1px solid $default-color-gray;
     }
 
+    .price-container {
+      display: flex;
+      margin: 6px 0 0 0;
+      width: 100%;
+
+      span {
+        font-family: $fm-Montserrat;
+        padding: 0;
+      }
+    }
+
     span {
       padding: 15px;
       align-self: center;
@@ -140,8 +152,8 @@
       font-size: 16px;
       border: 2px solid transparent;
       border-radius: 8px;
-      margin: 6px 0 0 0;
       width: 95%;
+      margin-left: 2px;
 
       &:focus {
         outline: none;
@@ -183,6 +195,7 @@
       background: #b5b5b5;
     }
   }
+  //
 
   .num-beds-input {
     margin-bottom: 40px;

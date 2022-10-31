@@ -57,18 +57,23 @@ const FilterForm = ({ listings, minPrice, maxPrice, updateFilter, clearFilter, c
           <div className="price-range-input">
             <div className="min-price-input">
               <label htmlFor="min-price">min price</label>
+              <div className="price-container">
+                <span>$</span>
                 <input type="number" 
                   value={filter.minPrice} 
                   onChange={update('minPrice')} 
                   min="0" 
                   max="600" 
                 />
+              </div>
             </div>
               
             <span> &#8212; </span>
 
             <div className="max-price-input">
               <label htmlFor="max-price">max price</label>
+              <div className="price-container">
+                <span>$</span>
                 <input 
                   type="number" 
                   value={filter.maxPrice} 
@@ -76,22 +81,21 @@ const FilterForm = ({ listings, minPrice, maxPrice, updateFilter, clearFilter, c
                   min="0" 
                   max="600" 
                 />
+              </div>
             </div>
           </div>
 
-          <div className="num-beds">
-            <p>Beds</p>
+          <p>Beds</p>
 
-            <div className="num-beds-input">
-              <button>Any</button>
-              <button>1</button>
-              <button>2</button>
-              <button>3</button>
-              <button>4</button>
-            </div>              
-          </div>
-
+          <div className="num-beds-input">
+            <button>Any</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+          </div>              
         </div>
+
         
         <footer className="filter-form-footer">
           <button className="filter-form-reset" onClick={() => clearFilter()}>Clear all</button>
