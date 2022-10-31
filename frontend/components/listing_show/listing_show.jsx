@@ -9,6 +9,7 @@ import ListingMap from '../map/ListingMap';
 import ReservationForm from '../reservation/reservation_form';
 import CircularProgress from '@mui/material/CircularProgress';
 import ReviewsIndex from './reviews_index';
+import { reviewsCount } from "../util/reviewsCount";
 
 const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, createReservation, openModal }) => {
   const [listing, setListing] = useState(selectedListing);
@@ -75,7 +76,7 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, 
             <div className="listing-show-subheading">
               <div className="subheading-left">
                 <span><HiStar size={styles.size} style={styles} />{listing.avgRating} &middot;</span>
-                <span onClick={handleReviewsLinkClick}>{listing.numReviews > 1 ? `${listing.numReviews} reviews` : '0 review'}</span>
+                <span onClick={handleReviewsLinkClick}>{reviewsCount(listing.numReviews)}</span>
                 <span>&middot; </span>
                 <span>{listing.city}, {listing.state}, {listing.country}</span>
               </div>
@@ -144,6 +145,7 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, 
                 key={`${Math.random()}`} 
                 listing={listing} 
                 listingId={listingId} 
+                numReviews={reviewsCount(listing.numReviews)}
                 createReservation={createReservation} 
                 currentUserId={currentUserId} 
                 openModal={openModal} 
