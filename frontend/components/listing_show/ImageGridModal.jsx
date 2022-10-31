@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 
-const ImageGrid = ({ photoUrls, closeModal }) => {
+const ImageGridModal = ({ photoUrls, closeModal }) => {
   
   return (
     <div className="imgs-modal-container">
@@ -24,4 +24,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(null, mapDispatchToProps)(ImageGrid);
+export default connect(null, mapDispatchToProps)(ImageGridModal);

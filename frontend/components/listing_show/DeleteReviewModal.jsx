@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { deleteReview } from '../../actions/review_actions';
 import { closeModal } from '../../actions/modal_actions';
 
-const DeleteReview = ({ reviewId, deleteReview, closeModal }) => {
+const DeleteReviewModal = ({ reviewId, deleteReview, closeModal }) => {
   const handleDeleteReview = (e) => {
     e.preventDefault();
     deleteReview(reviewId);
@@ -39,4 +39,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(DeleteReview);
+export default connect(null, mapDispatchToProps)(DeleteReviewModal);
