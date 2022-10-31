@@ -156,7 +156,7 @@
 // Review Modal
 .delete-review-modal-container {
   @include center-content(column);
-  max-width: 25vw;
+  width: 25vw;
   background-color: white;
   border-radius: 16px;
   overflow-y: auto;
