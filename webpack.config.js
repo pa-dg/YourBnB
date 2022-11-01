@@ -19,10 +19,14 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
   devtool: "source-map",
   resolve: {
-    extensions: [".js", ".jsx", "*"],
+    extensions: [".js", ".jsx", "*", ".css"],
   },
 };
