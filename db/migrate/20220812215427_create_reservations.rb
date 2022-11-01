@@ -6,8 +6,8 @@ class CreateReservations < ActiveRecord::Migration[5.2]
       t.date :check_in_date, null: false
       t.date :check_out_date, null: false
       t.integer :num_guests, null: false
-      # t.float :payment, null: false
       t.float :price, null: false
+      # t.float :payment, null: false
 
       t.timestamps
     end
