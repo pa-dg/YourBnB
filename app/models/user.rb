@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, allow_nil: true
   
    # Active Storage Associaiton (AWS S3)
-  has_one_attached :photo, dependent: :destroy
+  has_one_attached :profile_photo, dependent: :destroy
   
   has_many :listings,
     foreign_key: :host_id,

@@ -76,6 +76,9 @@ const DropDown = ({ openModal, currentUser, logout }) => {
         <div className="greeting">
           <p>Hi, {currentUser.firstName}! <span><FaRegSmile style={{color: '#ff385c'}}/></span></p>
         </div>
+        <Link to="/user/account" style={styles.link}>
+          <div className="nav-account">Account</div>
+        </Link>
         <Link to="/reservations" style={styles.link}>
           <div className="nav-trips">Trips</div>
         </Link>

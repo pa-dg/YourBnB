@@ -1,0 +1,49 @@
+@import "../variables.scss";
+
+.user-account-container {
+  display: flex;
+  justify-content: center;
+  border: 1px solid green;
+  min-height: 100vh;
+  padding: 40px 0 40px 0;
+}
+
+.user-photo {
+  border-radius: 12px;
+  border: 1px solid $default-color-gray;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  margin-right: 40px;
+  height: 100%;
+
+  .user-avatar {
+    align-self: center;
+    width: 100px;
+    height: auto;
+  }
+}
+
+.user-profile {
+  font-family: $fm-Nunito;
+  color: $default-color-black;
+
+  .user-name {
+    font-size: 26px;
+    font-weight: 700;
+    padding: 6px 0 15px 0;
+  }
+
+  .user-joined {
+    font-size: 16px;
+    font-weight: 400;
+    color: $default-color-gray;
+    padding-bottom: 15px;
+  }
+
+  .user-email {
+    font-size: 16px;
+    font-weight: 300;
+    color: $default-color-black;
+  }
+}

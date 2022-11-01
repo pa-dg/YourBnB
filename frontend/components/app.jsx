@@ -16,6 +16,7 @@ import ListingShowContainer from './listing_show/listing_show_container';
 import ReservationIndexContainer from './reservation/reservation_index_container';
 import CreateReviewFormContainer from './review/createReviewFormContainer';
 import UpdateReviewFormContainer from './review/updateReviewForm';
+import UserAccountContainer from './user/userAccountContainer';
 import ModalContainer from './modal/modal';
 // import 'react-dates/lib/css/_datepicker.css';
 // import 'react-date-range/dist/styles.css';
@@ -33,6 +34,7 @@ const App = () => {
       <Switch>
         {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
+        <ProtectedRoute exact path="/user/account" component={UserAccountContainer} />
         <ProtectedRoute exact path="/reservations" component={ReservationIndexContainer} />
         <Route exact path="/listing/:listingId/review/new" component={CreateReviewFormContainer} />
         <Route exact path="/listing/:listingId/review/:reviewId/edit" component={UpdateReviewFormContainer} />
