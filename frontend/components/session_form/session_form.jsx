@@ -58,7 +58,7 @@ const SessionForm = props => {
   const demoLogin = (e) => {
     e.preventDefault();
     let email = "demouser@yourbnb.com"
-    let password = "123456";
+    let password = "password";
     setUserInfo({
       firstName: "",
       lastName: "",
