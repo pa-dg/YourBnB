@@ -1,9 +1,9 @@
-import { RECEIVE_FILTER, CLEAR_FILTER } from "../actions/filter_action";
+import { RECEIVE_FILTER } from "../actions/filterActions";
 
 const defaultFilters = Object.freeze({
-  bounds: {},
   minPrice: 0,
-  maxPrice: 600,
+  maxPrice: 500,
+  numBeds: 5,
 });
 
 const filtersReducer = (state = defaultFilters, action) => {
@@ -12,8 +12,6 @@ const filtersReducer = (state = defaultFilters, action) => {
   switch (action.type) {
     case RECEIVE_FILTER:
       return Object.assign({}, state, { [action.filter]: action.value });
-    case CLEAR_FILTER:
-      return defaultFilters;
     default:
       return state;
   }
