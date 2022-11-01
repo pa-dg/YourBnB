@@ -1,26 +1,16 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
 import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.css";
-import { closeModal } from "../../actions/modal_actions";
 
-
-const FilterForm = ({ listings, minPrice, maxPrice, updateFilter, clearFilter, closeModal }) => {
-  const [filter, setFilter] = useState({
-    minPrice: minPrice || 0,
-    maxPrice: maxPrice || 0,
-  });
-  
-  const styles = {
-    backGround: 'lightGray',
+const FilterForm = ({ listings, minPrice, maxPrice, numBeds, updateFilter, closeModal }) => {
+  const defaultFilter = {
+    minPrice: minPrice,
+    maxPrice: maxPrice,
+    numBeds: numBeds,
   }
   
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    updateFilter('maxPrice', setFilter('maxPrice'))
-      .then(() => updateFilter)
-  };
-
+  const [filter, setFilter] = useState(defaultFilter);
+  
   const update = (field, data) => {
     if (field === 'priceRange') {
       return (data) => setFilter({
@@ -30,6 +20,28 @@ const FilterForm = ({ listings, minPrice, maxPrice, updateFilter, clearFilter, c
     }
     return (e) => setFilter({ [field]: e.currentTarget.value })
   };
+
+  const updateNumBeds = (value) => {
+    return (e) => {
+      e.preventDefault();
+      if (numBeds) {
+        setFilter({
+          ...filter, numBeds: value,
+        });
+      }
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateFilter('maxPrice', setFilter('maxPrice'))
+      .then(() => updateFilter)
+  };
+
+  const clearFilter = (e) => {
+    e.preventDefault();
+    setFilter(defaultFilter);
+  }
 
   return (
     <div className="filter-form-container">
@@ -43,13 +55,13 @@ const FilterForm = ({ listings, minPrice, maxPrice, updateFilter, clearFilter, c
       <form className="filter-form" onSubmit={handleSubmit}>
         <div className="filter-form-content">
           <p>Price Range</p>
-
+          
           <div className="price-range-slider">
-            <Nouislider id="price-range-slider" 
-              range={{ min: 0, max: 600 }} 
+            <Nouislider 
+              id="price-range-slider" 
+              range={{ min: 0, max: 500 }} 
               start={[filter.minPrice, filter.maxPrice]} 
               onSet={update('priceRange')} 
-              style={styles}
               connect 
             />
           </div>  
@@ -60,10 +72,10 @@ const FilterForm = ({ listings, minPrice, maxPrice, updateFilter, clearFilter, c
               <div className="price-container">
                 <span>$</span>
                 <input type="number" 
-                  value={filter.minPrice} 
-                  onChange={update('minPrice')} 
+                  value={filter.minPrice}
                   min="0" 
-                  max="600" 
+                  max="500" 
+                  onChange={update('minPrice')} 
                 />
               </div>
             </div>
@@ -77,50 +89,34 @@ const FilterForm = ({ listings, minPrice, maxPrice, updateFilter, clearFilter, c
                 <input 
                   type="number" 
                   value={filter.maxPrice} 
-                  onChange={update('maxPrice')} 
                   min="0" 
-                  max="600" 
+                  max="500" 
+                  onChange={update('maxPrice')} 
                 />
               </div>
             </div>
           </div>
 
           <p>Beds</p>
-
+      
           <div className="num-beds-input">
-            <button>Any</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-          </div>              
+            {/* TO BE REFACTORED, need clicked button to stay active until another button's clicked */}
+            <button className="num-bed" onClick={updateNumBeds(5)}>Any</button>
+            <button className="num-bed" onClick={updateNumBeds(1)}>1</button>
+            <button className="num-bed" onClick={updateNumBeds(2)}>2</button>
+            <button className="num-bed" onClick={updateNumBeds(3)}>3</button>
+            <button className="num-bed" onClick={updateNumBeds(4)}>4</button>
+          </div> 
         </div>
 
-        
         <footer className="filter-form-footer">
-          <button className="filter-form-reset" onClick={() => clearFilter()}>Clear all</button>
+          <button className="filter-form-reset" onClick={clearFilter}>Clear all</button>
           <button className="filter-form-apply">Apply</button>
-      </footer>
+        </footer>
 
       </form>
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    listings: Object.values(state.entities.listings),
-    minPrice: state.ui.filters.minPrice,
-    maxPrice: state.ui.filters.maxPrice
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    udpateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
-    clearFilter: () => dispatch(clearFilter(filter, value)),
-    closeModal: () => dispatch(closeModal()),
-  }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FilterForm);
+export default FilterForm;
