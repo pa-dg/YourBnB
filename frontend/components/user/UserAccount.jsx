@@ -34,7 +34,7 @@ const UserAccount = ({ user: { firstName, email, createdAt, profilePhotoUrl, lis
           }
 
           <div className="upload-button-container">
-            <label htmlFor="user-photo" id="upload-icon" style={{'zIndex': 999}}>
+            <label htmlFor="user-photo">
               <span>Update Photo:</span>
               <br />
               <input 
