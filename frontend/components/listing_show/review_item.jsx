@@ -5,7 +5,7 @@ import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
 import { useHistory, useLocation } from 'react-router-dom';
 
 const ReviewItem = ({ currentUserId, review, openModal }) => {
-  const { id, reviewerId, updatedAt, reviewerName, message } = review;
+  const { id, reviewerId, updatedAt, reviewerName, message, reviewerPhoto } = review;
   
   let month, year;
   if (updatedAt) {
@@ -44,11 +44,14 @@ const ReviewItem = ({ currentUserId, review, openModal }) => {
       <div className="review-item-heading">
         <div className="heading-left">
           <div className="review-image">
-            <Avatar
-              alt={reviewerName}
-              src={"https://a0.muscache.com/defaults/user_pic-225x225.png?im_w=240"}
-              sx={{ width: 40, height: 40 }}
-            />
+            { reviewerPhoto ? <img className="reviewer-photo" src={`${reviewerPhoto}`} alt=""/> 
+            : 
+              <Avatar
+                className="reviewer-photo"
+                alt={reviewerName}
+                src={"https://a0.muscache.com/defaults/user_pic-225x225.png?im_w=240"}
+              />
+            }
           </div>
           <div className="review-name-date">
             <h3 className="review-name">{reviewerName}</h3>

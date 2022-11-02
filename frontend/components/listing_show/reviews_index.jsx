@@ -96,6 +96,7 @@ const ReviewsIndex = ({ listingId, currentUserId, reviews, numReviews, avgRating
 const mapStateToProps = (state) => {
   const reviews = Object.values(state.entities.reviews).reverse();
   const numReviews = reviews.length;
+  const currentUserId = state.session.currentUserId;
 
   const avgRatings = {
     cleanliness: 0,
