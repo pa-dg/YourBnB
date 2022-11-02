@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import Avatar from '@mui/material/Avatar';
 import { dateParser } from "../util/dateParser";
-import UserListingsIndex from "./UserListingsIndex";
+import UserReviewsIndex from "./UserReviewsIndex";
 
-const UserAccount = ({ user: { firstName, email, createdAt, profilePhotoUrl, listings }, currentUserId, updateUserPhoto }) => {
+const UserAccount = ({ user: { firstName, email, createdAt, profilePhotoUrl, userReviews }, currentUserId, updateUserPhoto }) => {
   
   const accountCreationDate = dateParser(createdAt);
   const year = accountCreationDate.split(' ')[2];
   
   window.scrollTo(0,0)
 
-  console.log('listings', listings)
-  
   const handleFileUpload = (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -54,19 +52,18 @@ const UserAccount = ({ user: { firstName, email, createdAt, profilePhotoUrl, lis
         </div>
       </div>
       
-      <div className="user-listings">
-        <p>Here are your current listed properties:</p>
-          {listings.length > 0 ?
-            listings.map((listing, idx) => {
-              // console.log(listing)
-              <UserListingsIndex
+      <div className="user-reviews">
+        <h1>Reviews by you:</h1>
+          {userReviews.length > 0 ?
+            userReviews.map((review, idx) => (
+              <UserReviewsIndex
                 key={`list-${idx}`}
-                listing={listing}
+                review={review}
               />
-            }) 
+            )) 
             : 
-              <p>You currently don't have any listings</p>
-            }
+            <p>You currently don't have any reviews</p>
+          }
       </div>
 
     </div>

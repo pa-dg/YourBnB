@@ -3,14 +3,12 @@
 .user-account-container {
   @include center-content(column);
   justify-content: flex-start;
-  border: 1px solid green;
   min-height: 100vh;
   padding: 40px 0 40px 0;
 }
 
 .user-profile-container {
   display: flex;
-  border: 1px solid red;
 }
 
 .user-photo {
@@ -101,13 +99,55 @@
   }
 }
 
-.user-listings {
-  border: 1px solid orange;
+.user-reviews {
+  font-family: $fm-Nunito;
+  max-width: 40vw;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  flex-flow: column wrap;
+  margin-top: 40px;
 
-.user-listings-item-container {
-  border: 1px solid red;
+  h1 {
+    align-self: flex-start;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 20px 0 20px 0;
+  }
+
+  .user-reviews-item-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-radius: 8px;
+    border: 1px solid $default-color-gray;
+    padding: 10px;
+    margin: 20px 0 20px 0;
+
+    .user-review-message {
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+
+      p {
+        align-self: flex-start;
+        padding: 6px 10px 6px 10px;
+
+        &:first-child {
+          text-decoration: underline;
+        }
+
+        &:last-child {
+          font-weight: 300;
+          line-height: 1.25;
+        }
+      }
+    }
+
+    .user-review-date {
+      p {
+        padding: 6px 10px 6px 10px;
+        color: $default-color-darkgray;
+        font-weight: 300;
+      }
+    }
+  }
 }
