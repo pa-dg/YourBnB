@@ -17,7 +17,7 @@ const ReservationIndexItem = ({ reservation: { id, listingId, checkInDate, check
 
   let history = useHistory();
   
-  const handleBack = () => {
+  const handleClickListing = () => {
     return history.push(`/listing/${listingId}`); 
   }
   
@@ -31,7 +31,7 @@ const ReservationIndexItem = ({ reservation: { id, listingId, checkInDate, check
       <div className="reservation-index-item-container">
         {reservedListing && (
           <>
-            <div className="reservation-details" onClick={handleBack}>
+            <div className="reservation-details" onClick={handleClickListing}>
               <div className="reservation-info">
                   <h2>{reservedListing.city}</h2>
                   <h3>Entire {reservedListing.propertyType} hosted by {reservedListing.hostName}</h3>
