@@ -75,6 +75,9 @@
 }
 
 .user-profile {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
   font-family: $fm-Nunito;
   color: $default-color-black;
 
