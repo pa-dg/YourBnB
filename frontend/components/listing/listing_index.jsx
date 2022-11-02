@@ -6,6 +6,12 @@ const ListingIndex = ({ listings, fetchListings }) => {
 
   // const [allListings, setAllListings] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  // const [filteredListings, setFilteredListings] = useState(listings);
+  
+  // useEffect(() => {
+    // filter based on minPrice, maxPrice, etc..
+    // setFilteredListings
+  // }, [filters]) // from msp (ui slice of state)
   
   useEffect(() => {
     const fetchData = async () => {

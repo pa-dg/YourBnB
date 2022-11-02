@@ -17,7 +17,6 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, 
   // const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    // debugger
     if (!selectedListing) {
       // check if selectedListing is undefined from props
       // (user is directly going to listing show page)
