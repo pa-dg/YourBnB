@@ -19,35 +19,35 @@ demo = User.create!(
   first_name: 'Demo',
   last_name: 'User',
   email: 'demouser@yourbnb.com',
-  password: '123456'
+  password: 'password'
 )
 
 andrea = User.create!(
   first_name: 'Andrea',
   last_name: 'de Guzman',
-  email: 'padgzmn@gmail.com',
-  password: '123456'
+  email: 'andrea@yourbnb.com',
+  password: 'password'
 )
 
 andy = User.create!(
   first_name: 'Andy',
   last_name: 'Liu',
-  email: 'cloudy1126@gmail.com',
-  password: '123456'
+  email: 'cloudy@yourbnb.com',
+  password: 'password'
 )
 
 anthony = User.create!(
   first_name: 'Anthony',
   last_name: 'Chao',
-  email: 'anthonyschaowder@gmail.com',
-  password: '123456'
+  email: 'anthony@yourbnb.com',
+  password: 'password'
 )
 
 michael = User.create!(
   first_name: 'Michael',
   last_name: 'Cen',
-  email: 'michaelngcen@yahoo.com',
-  password: '123456'
+  email: 'michael@yourbnb.com',
+  password: 'password'
 )
 
 # Listings: location: New York City
@@ -88,7 +88,7 @@ l2 = Listing.create!(
   price_currency: "USD" ,
   property_type: "Condominium",
   price_per_night: "per night",
-  additional_fees: 0,
+  additional_fees: 70,
   num_guest: 3,
   num_beds: 2,
   num_baths: 2
@@ -109,7 +109,7 @@ l3 = Listing.create!(
   price_currency: "USD" ,
   property_type: "Studio",
   price_per_night: "per night",
-  additional_fees: 0,
+  additional_fees: 60,
   num_guest: 2,
   num_beds: 1,
   num_baths: 1
@@ -130,7 +130,7 @@ l4 = Listing.create!(
   price_currency: "USD" ,
   property_type: "Apartment",
   price_per_night: "per night",
-  additional_fees: 0,
+  additional_fees: 65,
   num_guest: 4,
   num_beds: 2,
   num_baths: 2
@@ -151,7 +151,7 @@ l5 = Listing.create!(
   price_currency: "USD" ,
   property_type: "Studio",
   price_per_night: "per night",
-  additional_fees: 0,
+  additional_fees: 50,
   num_guest: 2,
   num_beds: 1,
   num_baths: 1
@@ -172,7 +172,7 @@ l6 = Listing.create!(
   price_currency: "USD" ,
   property_type: "Apartment",
   price_per_night: "per night",
-  additional_fees: 0,
+  additional_fees: 70,
   num_guest: 4,
   num_beds: 2,
   num_baths: 2
@@ -193,7 +193,7 @@ l7 = Listing.create!(
   price_currency: "USD" ,
   property_type: "Apartment",
   price_per_night: "per night",
-  additional_fees: 0,
+  additional_fees: 50,
   num_guest: 3,
   num_beds: 2,
   num_baths: 2
@@ -235,7 +235,7 @@ l8 = Listing.create!(
   price_currency: "USD" ,
   property_type: "Studio",
   price_per_night: "per night",
-  additional_fees: 0,
+  additional_fees: 60,
   num_guest: 2,
   num_beds: 1,
   num_baths: 1
@@ -245,8 +245,8 @@ l9 = Listing.create!(
   host_id: andy.id,
   title: "Located in KoreaTown and walking distance near Madison Square Garden - Studio",
   description: "Great and amazing interior modern apartment near Empire State Building and Madison Square Garden area. The apartment is always well maintained and cleaned.",
-  lat: 40.746734, 
-  lng: 73.986132,  
+  lat: 40.74809162413431,
+  lng: -73.98539114585299,  
   street: "28 W 33rd St",   
   city: "New York",
   state: "NY",
@@ -256,7 +256,7 @@ l9 = Listing.create!(
   price_currency: "USD" ,
   property_type: "Studio",
   price_per_night: "per night",
-  additional_fees: 0,
+  additional_fees: 50,
   num_guest: 2,
   num_beds: 1,
   num_baths: 1
@@ -266,8 +266,8 @@ l10 = Listing.create!(
   host_id: michael.id,
   title: "Located in Midtown and in front of Bryant Park - Apartment",
   description: "Love being in the city? This listing is the perfect fit for you, located in front of Bryant Park and  near Empire State Building and Madison Square Garden area. The apartment is always well maintained and cleaned.",
-  lat: 40.746734, 
-  lng: 73.986132,  
+  lat: 40.756716453871285,
+  lng: -73.98657307231096,  
   street: "25 W 39th St", 
   city: "New York",
   state: "NY",
@@ -277,7 +277,7 @@ l10 = Listing.create!(
   price_currency: "USD" ,
   property_type: "Apartment",
   price_per_night: "per night",
-  additional_fees: 0,
+  additional_fees: 50,
   num_guest: 4,
   num_beds: 3,
   num_baths: 2
@@ -414,46 +414,47 @@ l10.photos.attach(io: l10_img05, filename: "l10_img05.jpg")
 
 
 
+#TO REMOVE: will not need this anymore
 # Reservations
-res1 = Reservation.create!(
-  user_id: andrea.id, 
-  listing_id: l3.id, 
-  check_in_date: Date.new(2022,8,27), 
-  check_out_date: Date.new(2022,9,2), 
-  num_guests: 2, 
-  # payment: 1890.00, 
-  price: 270.00
-)
+# res1 = Reservation.create!(
+#   user_id: andrea.id, 
+#   listing_id: l3.id, 
+#   check_in_date: Date.new(2022,8,27), 
+#   check_out_date: Date.new(2022,9,2), 
+#   num_guests: 2, 
+#   # payment: 1890.00, 
+#   price: 270.00
+# )
 
-res2 = Reservation.create!(
-  user_id: andy.id, 
-  listing_id: l5.id, 
-  check_in_date: Date.new(2022,8,29), 
-  check_out_date: Date.new(2022,9,5), 
-  num_guests: 2, 
-  # payment: 1890.00, 
-  price: 300.00
-)
+# res2 = Reservation.create!(
+#   user_id: andy.id, 
+#   listing_id: l5.id, 
+#   check_in_date: Date.new(2022,8,29), 
+#   check_out_date: Date.new(2022,9,5), 
+#   num_guests: 2, 
+#   # payment: 1890.00, 
+#   price: 300.00
+# )
 
-res3 = Reservation.create!(
-  user_id: demo.id, 
-  listing_id: l6.id, 
-  check_in_date: Date.new(2022,8,29), 
-  check_out_date: Date.new(2022,9,3), 
-  num_guests: 2, 
-  # payment: 1890.00, 
-  price: 345.00
-)
+# res3 = Reservation.create!(
+#   user_id: demo.id, 
+#   listing_id: l6.id, 
+#   check_in_date: Date.new(2022,8,29), 
+#   check_out_date: Date.new(2022,9,3), 
+#   num_guests: 2, 
+#   # payment: 1890.00, 
+#   price: 345.00
+# )
 
-res4 = Reservation.create!(
-  user_id: demo.id, 
-  listing_id: l5.id, 
-  check_in_date: Date.new(2022,9,5), 
-  check_out_date: Date.new(2022,9,10), 
-  num_guests: 2, 
-  # payment: 1890.00, 
-  price: 300.00
-)
+# res4 = Reservation.create!(
+#   user_id: demo.id, 
+#   listing_id: l5.id, 
+#   check_in_date: Date.new(2022,9,5), 
+#   check_out_date: Date.new(2022,9,10), 
+#   num_guests: 2, 
+#   # payment: 1890.00, 
+#   price: 300.00
+# )
 
 
 #Reviews

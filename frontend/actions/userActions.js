@@ -10,7 +10,6 @@ export const receiveUser = (user) => {
 };
 
 export const updateUserPhoto = (formData, userId) => (dispatch) => {
-  debugger;
   return userAPIUtil
     .updateUserPhoto(formData, userId)
     .then((user) => dispatch(receiveUser(user)));

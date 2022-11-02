@@ -1,5 +1,10 @@
-import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
+import {
+  RECEIVE_CURRENT_USER,
+  LOGOUT_CURRENT_USER,
+} from "../actions/session_actions";
 import { RECEIVE_USER } from "../actions/userActions";
+
+const _nullUser = Object.freeze({});
 
 const usersReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -10,8 +15,11 @@ const usersReducer = (state = {}, action) => {
         [action.currentUser.id]: action.currentUser,
       });
     case RECEIVE_USER:
-      debugger;
-      return Object.assign({}, state, action.user);
+      return Object.assign({}, state, {
+        [action.user.id]: action.user,
+      });
+    case LOGOUT_CURRENT_USER:
+      return _nullUser;
     default:
       return state;
   }

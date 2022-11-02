@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { updateUserPhoto } from '../../actions/userActions'
+import { updateUserPhoto } from '../../actions/userActions';
 import UserAccount from "./UserAccount";
 
 const mapStateToProps = state => {
@@ -7,7 +7,7 @@ const mapStateToProps = state => {
   
   return {
     currentUserId: userId,
-    user: state.entities.users[userId]
+    user: state.entities.users[userId],
   }
 }
 
