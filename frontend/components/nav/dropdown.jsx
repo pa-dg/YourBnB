@@ -9,12 +9,21 @@ import { FaUserCircle, FaRegSmile } from 'react-icons/fa';
 const DropDown = ({ openModal, currentUser, logout }) => {
   const [toggledDropDown, setToggledDropDown] = useState(false);
 
+  console.log('#', currentUser)
+  
   const styles = {
     dropdown: {
-      size: 26,
+      size: 23,
       paddingLeft: 3,
-      paddingRight: 3,
+      paddingRight: 5,
       color: '#717171',
+      alignSelf: 'center',
+    },
+    avatar: {
+      size: 30,
+      paddingRight: 6,
+      color: '#717171',
+      alignSelf: 'center',
     },
     link: {
       textDecoration: 'none',
@@ -53,7 +62,6 @@ const DropDown = ({ openModal, currentUser, logout }) => {
   //   }
   // }
 
-
   const loggedOutMenu = () => {
     return (  
       <div className="dropdown-content">
@@ -83,7 +91,7 @@ const DropDown = ({ openModal, currentUser, logout }) => {
           <div className="nav-trips">Trips</div>
         </Link>
         <div className="nav-wishlists">
-          Wishlists
+          Wishlists (coming soon!)
         </div>
         <div className="nav-logout-button" onClick={sessionLogout}>
           Logout
@@ -96,7 +104,10 @@ const DropDown = ({ openModal, currentUser, logout }) => {
     <>
       <button className="nav-dropdown-button" onClick={handleClick}>
           <HiOutlineMenu size={styles.dropdown.size} style={styles.dropdown} />
-          <FaUserCircle size={styles.dropdown.size} style={styles.dropdown} />
+          { currentUser && currentUser.profilePhotoUrl ? 
+            <img className="nav-avatar" src={`${currentUser.profilePhotoUrl}`} alt=""/> 
+          : <FaUserCircle size={styles.avatar.size} style={styles.avatar} />
+          }
       </button>
       <div className="dropdown-container">
         {
