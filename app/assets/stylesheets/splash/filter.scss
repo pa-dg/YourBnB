@@ -1,7 +1,24 @@
 @import "../variables.scss";
 
 .filter-container {
-  // border-bottom: 1px solid rgb(235, 235, 235);
+  @media screen and (max-width: 1600px) {
+    width: 93%;
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    top: 70px;
+  }
+  @media (min-width: 475px) and (max-width: 700px) {
+    // width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    top: 60px;
+  }
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,6 +31,22 @@
 }
 
 #filter-icons {
+  @media screen and (max-width: 1600px) {
+    width: 5%;
+    padding: 7px;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 475px) and (max-width: 1250px) {
+    width: 10%;
+    padding: 0px;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+  }
+
   display: flex;
   flex-direction: column;
   align-items: center;

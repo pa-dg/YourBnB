@@ -30,7 +30,15 @@ const Nav = () => {
       </div>
 
       <div className="search-bar-container">
-            <div>Start your Search</div>
+            <div className="search-input">
+              <label htmlFor="search-input">
+                <input 
+                  type="text" 
+                  placeholder=' Start Searching (New York..)'
+                />
+              </label>
+              
+            </div>
             <div className="search-button">
               <i className="fas fa-search fa-1x"></i>
             </div>

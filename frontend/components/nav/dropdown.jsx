@@ -9,8 +9,6 @@ import { FaUserCircle, FaRegSmile } from 'react-icons/fa';
 const DropDown = ({ openModal, currentUser, logout }) => {
   const [toggledDropDown, setToggledDropDown] = useState(false);
 
-  console.log('#', currentUser)
-  
   const styles = {
     dropdown: {
       size: 23,

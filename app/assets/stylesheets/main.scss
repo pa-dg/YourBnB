@@ -2,16 +2,12 @@
 
 html,
 body {
-  width: 100vw;
-  color: #484848;
-  // display: flex;
-  // align-content: center;
-  // justify-content: center;
   box-sizing: border-box;
 }
 
-#root {
-  position: relative;
-  font-family: "Montserrat", sans-serif;
-  width: 100%;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100%;
 }

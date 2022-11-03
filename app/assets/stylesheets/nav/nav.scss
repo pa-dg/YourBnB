@@ -14,11 +14,17 @@
 }
 
 .nav-header {
+  @media (min-width: 475px) and (max-width: 1600px) {
+    width: 90%;
+    height: 90%;
+  }
   width: 1600px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: $fm-Nunito;
+  margin: 0 30px 0 30px;
+  padding: 5px 10px 5px 10px;
 }
 
 .splash-page-link-container {
@@ -46,20 +52,44 @@
   display: flex;
   align-content: center;
   justify-content: space-between;
+  text-align: start;
   width: 500px;
-  height: 48px;
   height: 100%;
   margin: 12px;
-  padding: 10px;
+  padding: 3px 8px 3px 8px;
   cursor: pointer;
   border: 1px solid #dddddd;
   border-radius: 40px;
   overflow: hidden;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 4px 2px rgba(0, 0, 0, 0.05);
   transition: transform 250ms ease, opacity 100ms ease, visibility 0ms 50ms;
 
   &:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.search-input {
+  @media screen and (min-width: 475px) {
+    width: 95%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  input {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: $fm-Nunito;
+    color: lightgray;
+    width: 95%;
+    margin-left: 4px;
+    border: none;
+    padding: 8px 0 8px 0;
+
+    &:focus {
+      outline: none;
+      color: $default-color-black;
+    }
   }
 }
 

@@ -24,7 +24,7 @@ import ModalContainer from './modal/modal';
 
 const App = () => {
   return (
-    <>
+    <div className='app-container'>
       <ModalContainer />
       <header className='nav-header-container'>
         <Nav />
@@ -46,7 +46,7 @@ const App = () => {
       <footer className='footer-container'>
         <Footer />
       </footer>
-    </>
+    </div>
   );
 }
 

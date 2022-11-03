@@ -4,11 +4,14 @@
   @include center-content(column);
   justify-content: flex-start;
   min-height: 100vh;
-  padding: 40px 0 40px 0;
+  padding: 40px;
+  text-align: start;
 }
 
 .user-profile-container {
   display: flex;
+  max-width: 50vw;
+  justify-content: center;
 }
 
 .user-photo {
@@ -101,7 +104,7 @@
 
 .user-reviews {
   font-family: $fm-Nunito;
-  max-width: 40vw;
+  max-width: 50vw;
   display: flex;
   flex-flow: column wrap;
   margin-top: 40px;

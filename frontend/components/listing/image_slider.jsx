@@ -55,9 +55,10 @@ const ImageSlider = ({ handleClick, photoUrls }) => {
         photoUrls.map((photoUrl, index) =>
           <div key={photoUrl} className="listing-img-container" onClick={handleClick}>
             <img className={location.pathname === `/reservations` ? "reservation-img" : "slider-img"}
-            key={index} 
-            src={photoUrl} 
-            alt="listing-image" />
+              key={index} 
+              src={photoUrl} 
+              alt="listing-image"
+            />
           </div>
         )
       )}
