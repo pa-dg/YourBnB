@@ -6,7 +6,8 @@
     padding: 10px;
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
+    align-items: flex-start;
+    // align-items: center;
     justify-content: space-between;
     top: 70px;
   }
@@ -68,6 +69,7 @@
 }
 
 .filter-modal-button {
+  align-self: center;
   font-size: $fs-14;
   color: $default-color-black;
   cursor: pointer;
