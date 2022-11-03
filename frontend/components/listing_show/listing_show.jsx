@@ -7,9 +7,9 @@ import { MdOutlineLocalLaundryService } from 'react-icons/md';
 import { RiAlarmWarningLine, RiCarLine } from 'react-icons/ri';
 import ListingMap from '../map/ListingMap';
 import ReservationForm from '../reservation/reservation_form';
-import CircularProgress from '@mui/material/CircularProgress';
 import ReviewsIndex from './reviews_index';
 import { reviewsCount } from "../util/reviewsCount";
+import LoadingContainer from "../util/LoadingContainer";
 
 const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, createReservation, openModal }) => {
   const [listing, setListing] = useState(selectedListing);
@@ -41,7 +41,7 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, 
   //   }
   // }, []);
 
-  // window.scrollTo(0,0)
+  window.scrollTo(0,0)
   
   const styles = {
     size: 15,
@@ -165,7 +165,7 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, 
         </>
       ) : (
         <div style={{ textAlign: 'center', alignContent: 'center', padding: 40 }}>
-          <CircularProgress />
+          <LoadingContainer />
         </div>
       )}
 

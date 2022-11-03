@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ListingIndexItem from './listing_index_item';
-import CircularProgress from '@mui/material/CircularProgress';
+import LoadingContainer from "../util/LoadingContainer";
 
 const ListingIndex = ({ listings, fetchListings }) => {
 
@@ -31,7 +31,7 @@ const ListingIndex = ({ listings, fetchListings }) => {
 
   return (
     <div className="listing-index-container">
-      {isLoading ? <CircularProgress color="secondary" />
+      {isLoading ? <LoadingContainer />
         :  <> {listings.map((listing, index) => (
             <ListingIndexItem 
               key={index} 
