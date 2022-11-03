@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Avatar from '@mui/material/Avatar';
 import { dateParser } from "../util/dateParser";
 import UserReviewsIndex from "./UserReviewsIndex";
+import { FcCancel } from 'react-icons/fc';
 
 const UserAccount = ({ user: { firstName, email, createdAt, profilePhotoUrl, userReviews }, currentUserId, updateUserPhoto }) => {
   
@@ -35,13 +36,27 @@ const UserAccount = ({ user: { firstName, email, createdAt, profilePhotoUrl, use
             <label htmlFor="user-photo">
               <span>Update Photo:</span>
               <br />
-              <input 
-                id="photo-upload"
-                type="file" 
-                title=" "
-                onChange={handleFileUpload}
-              />
             </label>
+              { firstName !== "Demo" ? (
+                <input 
+                  id="photo-upload"
+                  type="file" 
+                  title=" "
+                  onChange={handleFileUpload}
+                />
+              ) : (
+                <>
+                  <input 
+                  id="disable-photo-upload"
+                  type="file" 
+                  disabled
+                  />
+                  <p className="disable-upload-text">
+                    <FcCancel size={14} />
+                    Upload Photo is disabled for Demo
+                  </p>
+                </>
+              )}
           </div>
         </div>
 
