@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.css";
 
-const FilterForm = ({ listings, minPrice, maxPrice, numBeds, updateFilter, closeModal }) => {
+const FilterForm = ({ minPrice, maxPrice, numBeds, updateFilter, closeModal, clearFilter }) => {
   const defaultFilter = {
     minPrice: minPrice,
     maxPrice: maxPrice,
@@ -10,6 +10,7 @@ const FilterForm = ({ listings, minPrice, maxPrice, numBeds, updateFilter, close
   }
   
   const [filter, setFilter] = useState(defaultFilter);
+  const [isLoading, setIsLoading] = useState(false);
   
   const update = (field, data) => {
     if (field === 'priceRange') {
@@ -18,7 +19,7 @@ const FilterForm = ({ listings, minPrice, maxPrice, numBeds, updateFilter, close
         maxPrice: parseInt(data[1])
       });
     }
-    return (e) => setFilter({ [field]: e.currentTarget.value })
+    return (e) => setFilter({ ...filter, [field]: e.currentTarget.value })
   };
 
   const updateNumBeds = (value) => {
@@ -34,15 +35,22 @@ const FilterForm = ({ listings, minPrice, maxPrice, numBeds, updateFilter, close
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateFilter('maxPrice', setFilter('maxPrice'))
-      .then(() => updateFilter)
+    updateFilter(filter)
+    setIsLoading(true)
+    setTimeout(() => closeModal(), 1000);
   };
 
-  const clearFilter = (e) => {
+  const handleClearFilter = (e) => {
     e.preventDefault();
-    setFilter(defaultFilter);
+    e.stopPropagation();
+    clearFilter()
+    setFilter({
+      minPrice: 0,
+      maxPrice: 500,
+      numBeds: 5
+    });
   }
-
+  
   return (
     <div className="filter-form-container">
       <header className="filter-form-header">
@@ -110,8 +118,8 @@ const FilterForm = ({ listings, minPrice, maxPrice, numBeds, updateFilter, close
         </div>
 
         <footer className="filter-form-footer">
-          <button className="filter-form-reset" onClick={clearFilter}>Clear all</button>
-          <button className="filter-form-apply">Apply</button>
+          <button className="filter-reset-button" onClick={handleClearFilter}>Clear all</button>
+          <button className={isLoading ? "disable-apply-button" : "filter-apply-button"}>Apply</button>
         </footer>
 
       </form>

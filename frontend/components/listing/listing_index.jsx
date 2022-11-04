@@ -3,22 +3,12 @@ import ListingIndexItem from './listing_index_item';
 import LoadingContainer from "../util/LoadingContainer";
 
 const ListingIndex = ({ listings, fetchListings }) => {
-
-  // const [allListings, setAllListings] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // const [filteredListings, setFilteredListings] = useState(listings);
-  
-  // useEffect(() => {
-    // filter based on minPrice, maxPrice, etc..
-    // setFilteredListings
-  // }, [filters]) // from msp (ui slice of state)
   
   useEffect(() => {
     const fetchData = async () => {
-      // setIsLoading(true);
-      const response = await fetchListings();
-      // setAllListings(Object.values(response.listings));
-      setIsLoading(false);
+      await fetchListings();
+      setIsLoading(!isLoading);
     };
     fetchData();
   }, []);
@@ -29,15 +19,17 @@ const ListingIndex = ({ listings, fetchListings }) => {
     behavior: 'smooth'
   });
 
+
   return (
     <div className="listing-index-container">
       {isLoading ? <LoadingContainer />
-        :  <> {listings.map((listing, index) => (
-            <ListingIndexItem 
-              key={index} 
-              listing={listing} 
-            />
-          ))}
+        : <> 
+            {listings.map((listing, index) => (
+              <ListingIndexItem 
+                key={index} 
+                listing={listing} 
+              />
+            ))}
           </>
       }                
     </div>

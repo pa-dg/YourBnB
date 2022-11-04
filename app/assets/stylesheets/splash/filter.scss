@@ -266,7 +266,7 @@
     padding: 20px 40px 20px 40px;
     border-top: 1px solid lightgray;
 
-    button:first-child {
+    .filter-reset-button {
       cursor: pointer;
       font-family: $fm-Nunito;
       font-size: $fs-16;
@@ -278,7 +278,7 @@
       padding: 0;
     }
 
-    button:last-child {
+    .filter-apply-button {
       cursor: pointer;
       font-family: $fm-Nunito;
       font-size: $fs-16;
@@ -289,6 +289,18 @@
       border-radius: 8px;
       border: 1px solid $default-color-black;
       background: $default-color-black;
+    }
+
+    .disable-apply-button {
+      font-family: $fm-Nunito;
+      font-size: $fs-16;
+      font-weight: 600;
+      color: $default-color-darkgray;
+      width: 15em;
+      padding: 10px 0 10px 0;
+      border-radius: 8px;
+      border: 1px solid $default-color-ltgray;
+      background: $default-color-ltgray;
     }
   }
 }

@@ -3,9 +3,16 @@ import { connect } from "react-redux";
 import { fetchListings } from "../../actions/listing_actions";
 import ListingIndex from './listing_index';
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ entities: { listings }, ui: { filters } }) => {
+  const filteredListings = Object.values(listings).filter(
+    (listing) => 
+      listing.price >= filters.minPrice 
+      && listing.price <= filters.maxPrice 
+      && listing.numBeds <= filters.numBeds
+  )
+  
   return {
-    listings: Object.values(state.entities.listings),
+    listings: filteredListings,
   };
 };
 

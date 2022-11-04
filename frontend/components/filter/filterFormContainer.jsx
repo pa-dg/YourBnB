@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateFilter as updateFilterAction } from "../../actions/filterActions";
-import { closeModal as exitModal } from "../../actions/modal_actions";
+// import { updateFilter as updateFilterAction } from "../../actions/filterActions";
+import { updateFilter, clearFilter } from '../../actions/filterActions';
+import { closeModal } from "../../actions/modal_actions";
 import FilterForm from './FilterForm';
 
 const mapStateToProps = (state) => {
   return {
-    listings: Object.values(state.entities.listings),
     minPrice: state.ui.filters.minPrice,
     maxPrice: state.ui.filters.maxPrice,
     numBeds: state.ui.filters.numBeds,
@@ -15,8 +15,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateFilter: (filter, value) => dispatch(updateFilterAction(filter, value)),
-    closeModal: () => dispatch(exitModal()),
+    // updateFilter: (filter, value) => dispatch(updateFilterAction(filter, value)),
+    updateFilter: (filter) => dispatch(updateFilter(filter)),
+    closeModal: () => dispatch(closeModal()),
+    clearFilter: () => dispatch(clearFilter()),
   }
 };
 
