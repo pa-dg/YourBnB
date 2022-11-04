@@ -14,7 +14,6 @@ import LoadingContainer from "../util/LoadingContainer";
 const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, createReservation, openModal }) => {
   const [listing, setListing] = useState(selectedListing);
   // const [showCalendar, setShowCalendar] = useState(false);
-  // const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!selectedListing) {
@@ -31,15 +30,6 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, 
       setListing(selectedListing);
     }
   }, []);
-
-  // TO DO: remove
-  // useEffect(() => {
-  //   const intervalId = setTimeout(() => setIsLoading(true), 2000);
-
-  //   return () => {
-  //     clearTimeout(intervalId);
-  //   }
-  // }, []);
 
   window.scrollTo(0,0)
   
@@ -163,12 +153,9 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, 
             listing={selectedListing}
           />
         </>
-      ) : (
-        <div style={{ textAlign: 'center', alignContent: 'center', padding: 40 }}>
-          <LoadingContainer />
-        </div>
-      )}
-
+      ) : 
+        <LoadingContainer />
+      }
     </div>
   );
 }

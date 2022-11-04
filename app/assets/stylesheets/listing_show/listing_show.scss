@@ -1,15 +1,17 @@
 @import "../variables.scss";
 
 .listing-show-container {
+  @media screen and (max-width: 1230px) {
+    width: 80%;
+  }
+
   font-family: $fm-Nunito;
   color: $default-color-black;
   display: flex;
   flex-direction: column;
-  max-width: 100%;
-  width: 1100px;
-  padding: 0 80px;
-  margin: auto;
-  min-height: 100%;
+  max-width: 1100px;
+  min-height: 100vh;
+  border: 1px solid mediumspringgreen;
 }
 
 .listing-show-heading {
@@ -57,21 +59,13 @@
   gap: 10px;
   height: 560px;
   cursor: pointer;
-
-  @media screen and (max-width: 700px) {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow: scroll;
-    overscroll-behavior: auto;
-    aspect-ratio: 1/0.5;
-    white-space: nowrap;
-    width: 100vw;
-    border-radius: 0 0 0 0;
-    position: relative;
-  }
 }
 
 .img-main {
+  @media screen and (max-width: 1230px) {
+    border-radius: 0;
+  }
+
   @include img();
   width: 50%;
   border-top-left-radius: 16px;
@@ -84,17 +78,38 @@
 }
 
 .other-img-container {
+  @media screen and (max-width: 1230px) {
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    flex-direction: column;
+    justify-content: flex-start;
+    overscroll-behavior: auto;
+    aspect-ratio: 1/0.5;
+    white-space: nowrap;
+    position: relative;
+  }
+
   @include img();
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   gap: 10px;
   width: 50%;
 
   .img-others {
+    @media screen and (min-width: 1231px) {
+      width: 48%;
+    }
+
+    @media screen and (max-width: 1230px) {
+      width: 100%;
+    }
+
     @include img();
     display: flex;
     flex-wrap: wrap;
-    width: 265px;
+    width: 262px;
     height: 275px;
 
     &:hover {
@@ -103,10 +118,17 @@
     }
   }
   .img-others:nth-child(2) {
+    @media screen and (max-width: 1230px) {
+      border-radius: 0;
+    }
+
     border-top-right-radius: 16px;
   }
 
   .img-others:nth-child(4) {
+    @media screen and (max-width: 1230px) {
+      border-radius: 0;
+    }
     border-bottom-right-radius: 16px;
   }
 }
@@ -115,6 +137,7 @@
 
 .imgs-modal-container {
   width: 55vw;
+  max-width: 800px;
   height: 85vh;
   background-color: white;
   border-radius: 16px;
@@ -131,6 +154,11 @@
     margin: 50px 0 50px 0;
 
     .all-imgs {
+      @media screen and (max-width: 1230px) {
+        width: 70%;
+        height: 70%;
+      }
+
       @include img();
       width: 600px;
       height: 600px;
@@ -139,7 +167,7 @@
 }
 
 .listing-show-info-and-reservation-container {
-  width: 100%;
+  // width: 100%;
   margin: 48px 0 48px 0;
   display: flex;
 }
@@ -202,18 +230,17 @@
   }
 
   ul {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 200px;
     margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
 
     li {
       display: flex;
       align-items: center;
-      width: auto;
+      width: 49%;
       font-weight: 300;
       margin-bottom: 30px;
+      border: 1px solid transparent;
     }
   }
 }
@@ -223,7 +250,6 @@
 }
 
 .listing-show-reviews-container {
-  border: 1px solid blue;
   width: 100%;
   height: 300px;
   padding: 48px 0 48px 0;

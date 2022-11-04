@@ -1,16 +1,31 @@
 @import "../variables.scss";
 
 .reservation-form-container {
+  @media screen and (max-width: 730px) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 729px) {
+    width: 75%;
+  }
+
+  @media screen and (max-width: 525px) {
+    width: 65%;
+  }
+
   font-family: $fm-Nunito;
   position: sticky;
   top: 120px;
   border: 1px solid rgb(221, 221, 221);
   border-radius: 12px;
   padding: 24px;
-  width: 300px;
+  max-width: 300px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
   z-index: 11;
   background: white;
+  display: flex;
+  flex-flow: column wrap;
+  border: 1px solid teal;
 
   label {
     color: $default-color-black;
@@ -32,6 +47,8 @@
 .reservation-form-header {
   display: flex;
   justify-content: space-between;
+  flex-flow: row wrap;
+  width: 100%;
   font-size: $fs-14;
 
   p {
@@ -55,35 +72,60 @@
   }
 }
 
+.reservation-form {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+}
+
 .reservation-form-input-container {
   border: 1px solid $default-color-gray;
   border-radius: 12px;
   margin: 25px 0 15px 0;
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
 }
 
 // ---
 
 .date-picker-container {
-  // display: flex;
-  // justify-content: center;
-  // width: 100% !important;
-  // border: 1px solid greenyellow;
+  @media screen and (max-width: 730px) {
+    flex-flow: row wrap;
+  }
   display: flex;
   justify-content: space-between;
 }
 
 .date-input {
+  @media screen and (max-width: 730px) {
+    border-bottom: 1px solid $default-color-gray;
+  }
+  @media screen and (max-width: 525px) {
+    width: 72%;
+  }
+
   display: flex;
   flex-direction: column;
   gap: 5px;
   padding: 7px 12px;
+  width: 100%;
 
   &:last-of-type {
+    @media screen and (max-width: 730px) {
+      border: none;
+    }
+    @media screen and (max-width: 525px) {
+      width: 72%;
+    }
     border-left: 1px solid $default-color-gray;
   }
 }
 
 .guest-input-container {
+  @media screen and (max-width: 525px) {
+    width: 81%;
+  }
   position: relative;
   display: flex;
   flex-direction: column;
