@@ -21,18 +21,26 @@ const ListingIndex = ({ listings, fetchListings }) => {
 
 
   return (
-    <div className="listing-index-container">
+    <>
       {isLoading ? <LoadingContainer />
-        : <> 
-            {listings.map((listing, index) => (
-              <ListingIndexItem 
-                key={index} 
-                listing={listing} 
-              />
-            ))}
+        : (
+          <>
+            <div className="listings-count">
+                {listings.length} Yourbnb stays
+            </div>
+
+            <div className="listing-index-container"> 
+              {listings.map((listing, index) => (
+                <ListingIndexItem 
+                  key={index} 
+                  listing={listing} 
+                />
+              ))}
+            </div>
           </>
+        )
       }                
-    </div>
+    </>
     
   );
 };

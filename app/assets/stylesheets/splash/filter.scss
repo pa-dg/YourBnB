@@ -54,10 +54,10 @@
   font-size: $fs-12;
   font-family: $fm-Nunito;
   font-weight: $fw-500;
-  cursor: pointer;
   background-color: transparent;
   border: none;
   color: $default-color-ltgray;
+  // cursor: pointer;
 
   img {
     @include icon-size($filter-icon-size);

@@ -3,15 +3,14 @@ import ReservationIndexItem from "./reservation_index_item";
 import { MdOutlineArrowBackIos, MdOutlineWavingHand } from 'react-icons/md';
 import { HiOutlineSparkles } from 'react-icons/hi';
 import { Link } from "react-router-dom";
-import LoadingContainer from "../util/LoadingContainer";
+
 
 const ReservationIndex = ({ reservations, fetchReservations, fetchListing, deleteReservation }) => {
   // const [trips, setTrips] = useState([]);
   
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetchReservations();
-      // setTrips(Object.values(response.reservations));
+      await fetchReservations();
     }
     fetchData();
   }, []);
@@ -20,7 +19,7 @@ const ReservationIndex = ({ reservations, fetchReservations, fetchListing, delet
 
   return (
     <>
-    { reservations ? (
+    
       <div className="reservation-index-container">
         <div className="back-button">
           <MdOutlineArrowBackIos size={25} id="back-button" onClick={() => history.back()}/>
@@ -57,9 +56,7 @@ const ReservationIndex = ({ reservations, fetchReservations, fetchListing, delet
           </div>
         }
       </div>
-      )
-      : <LoadingContainer />
-    }
+      
     </>
   );  
 };

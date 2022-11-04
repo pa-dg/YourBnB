@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { dateParser } from '../util/dateParser';
 import ImageSlider from '../listing/image_slider';
+import LoadingContainer from "../util/LoadingContainer";
 
 const ReservationIndexItem = ({ reservation: { id, listingId, checkInDate, checkOutDate }, fetchListing, deleteReservation }) => {
 
@@ -28,6 +29,8 @@ const ReservationIndexItem = ({ reservation: { id, listingId, checkInDate, check
 
   return (
     <>
+    { reservedListing ? (
+      <>
       <div className="reservation-index-item-container">
         {reservedListing && (
           <>
@@ -59,6 +62,10 @@ const ReservationIndexItem = ({ reservation: { id, listingId, checkInDate, check
       </div> 
 
       <button className="cancel-res-button" onClick={handleCancel}>Cancel Reservation</button>
+      </>
+      )
+      : <LoadingContainer />
+    }
     </>
   );
 };

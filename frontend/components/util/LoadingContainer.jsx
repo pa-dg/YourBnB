@@ -3,10 +3,10 @@ import CircularProgress from '@mui/material/CircularProgress';
 // import loaderGif from '../../../app/assets/images/loader/loader.jpg';
 
 const LoadingContainer = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    setTimeout(() => setIsLoading(true), 3000);
+    setTimeout(() => setIsLoading(false), 5000);
   }, []);
 
   const styles = {
