@@ -38,7 +38,7 @@
     letter-spacing: -1px;
     font-family: $fm-Montserrat;
     font-size: 20px;
-    font-weight: $fw-600;
+    font-weight: 600;
   }
 
   &:hover {
@@ -113,6 +113,7 @@
 
     .social-link {
       color: $airbnb-color;
+      position: relative;
 
       &:hover {
         color: rgb(68, 202, 155);
@@ -160,7 +161,7 @@
       max-height: 200px;
       right: 0px;
       top: 30px;
-      font-size: $fs-14;
+      font-size: 14px;
       color: $default-color-black;
 
       .greeting {
@@ -175,7 +176,7 @@
       .nav-login-signup {
         cursor: pointer;
         padding: 10px 0px 10px 10px;
-        font-weight: $fw-700;
+        font-weight: 700;
 
         a {
           text-decoration: none !important;

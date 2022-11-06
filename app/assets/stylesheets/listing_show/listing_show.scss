@@ -22,13 +22,13 @@
 
 .listing-show-title {
   width: 100%;
-  font-size: $fs-22;
+  font-size: 22px;
   font-weight: 600;
   margin-bottom: 18px;
 }
 
 .listing-show-subheading {
-  font-size: $fs-16;
+  font-size: 16px;
   display: flex;
   justify-content: space-between;
 
@@ -181,13 +181,13 @@
   border-bottom: 1px solid $default-color-ltgray;
 
   p:first-child {
-    font-size: $fs-20;
+    font-size: 20px;
     font-weight: 600;
     margin-bottom: 12px;
   }
 
   p:last-child {
-    font-size: $fs-16;
+    font-size: 16px;
     font-weight: 300;
     margin-bottom: 30px;
 
@@ -225,7 +225,7 @@
 
   span {
     font-weight: 600;
-    font-size: $fs-20;
+    font-size: 20px;
   }
 
   ul {
@@ -264,7 +264,7 @@
 }
 
 .map-header {
-  font-size: $fs-22;
+  font-size: 22px;
   font-weight: 700;
   padding-bottom: 40px;
 }

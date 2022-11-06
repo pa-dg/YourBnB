@@ -20,7 +20,7 @@
   width: 100%;
 
   p {
-    font-size: $fs-20;
+    font-size: 20px;
     font-weight: 500;
     color: $default-color-black;
   }
@@ -33,7 +33,7 @@
   width: 500px;
 
   p {
-    font-size: $fs-20;
+    font-size: 20px;
     font-weight: 600;
   }
 
@@ -42,7 +42,7 @@
   }
 
   input {
-    font-size: $fs-14;
+    font-size: 14px;
     color: $default-color-black;
     width: 396px;
     padding: 12px;
@@ -71,7 +71,7 @@
   height: 48px;
   padding: 10px;
   font-family: $fm-Nunito;
-  font-size: $fs-16;
+  font-size: 16px;
   font-weight: 500;
   color: white;
   margin-bottom: 16px;
@@ -86,7 +86,7 @@
   height: 48px;
   padding: 10px;
   font-family: $fm-Nunito;
-  font-size: $fs-16;
+  font-size: 16px;
   font-weight: 500;
   color: white;
 
@@ -103,7 +103,7 @@
 .session-form-footer {
   @include center-content(row);
   padding: 30px;
-  font-size: $fs-16;
+  font-size: 16px;
   font-weight: 300;
   color: $default-color-black;
 

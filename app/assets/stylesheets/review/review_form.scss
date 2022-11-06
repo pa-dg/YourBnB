@@ -18,7 +18,7 @@
     border-bottom: 1px solid $default-color-ltgray;
 
     h1 {
-      font-size: $fs-24;
+      font-size: 24px;
       font-weight: 600;
       color: $default-color-black;
     }
@@ -33,11 +33,11 @@
 
       #star {
         color: $airbnb-color;
-        font-size: $fs-30;
+        font-size: 30px;
       }
 
       p {
-        font-size: $fs-18;
+        font-size: 18px;
         font-weight: 700;
         color: $default-color-black;
         margin-bottom: 12px;
@@ -52,13 +52,13 @@
       margin: 40px 0 40px 0;
 
       label {
-        font-size: $fs-18;
+        font-size: 18px;
         font-weight: 600;
         color: $default-color-black;
       }
 
       p:not(:last-child) {
-        font-size: $fs-16;
+        font-size: 16px;
         font-weight: 400;
         color: $default-color-darkgray;
         margin: 20px 0 20px 0;
@@ -70,7 +70,7 @@
 
       textarea {
         font-family: $fm-Nunito;
-        font-size: $fs-16;
+        font-size: 16px;
         font-weight: 300;
         color: $default-color-darkgray;
         width: 100%;
@@ -96,7 +96,7 @@
 
     .submit-button {
       font-family: $fm-Nunito;
-      font-size: $fs-14;
+      font-size: 14px;
       font-weight: 400;
       color: $default-color-darkgray;
       width: 125px;
@@ -117,7 +117,7 @@
 
   .review-error {
     color: red;
-    font-size: $fs-18;
+    font-size: 18px;
     font-weight: 500;
     margin: 20px 0 20px 0;
   }

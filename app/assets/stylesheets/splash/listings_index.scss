@@ -1,8 +1,8 @@
 @import "../variables.scss";
 
 .listings-count {
-  @media screen and (max-width: 1600px) {
-    width: 1170px;
+  @media screen and (max-width: 2000px) {
+    width: 91%;
   }
   @media (min-width: 475px) and (max-width: 1250px) {
     width: 90%;
@@ -14,13 +14,13 @@
   font-size: 22px;
   font-weight: 600;
   color: $default-color-darkgray;
-  margin: 20px 50px 20px 50px;
+  margin: 20px 0 20px 0;
   max-width: 1600px;
   width: 100%;
 }
 
 .listing-index-container {
-  @media screen and (max-width: 1600px) {
+  @media screen and (max-width: 1530px) {
     width: 1170px;
     display: flex;
     flex-flow: row wrap;
@@ -89,7 +89,7 @@
   flex-direction: column;
   justify-content: space-between;
   font-family: $fm-Nunito;
-  font-size: $fs-16;
+  font-size: 16px;
   padding-top: 10px;
   width: 285px;
   height: 100%;

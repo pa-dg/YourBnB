@@ -28,7 +28,7 @@
 
   label {
     color: $default-color-black;
-    font-size: $fs-12;
+    font-size: 12px;
     font-weight: 700;
   }
 
@@ -48,7 +48,7 @@
   justify-content: space-between;
   flex-flow: row wrap;
   width: 100%;
-  font-size: $fs-14;
+  font-size: 14px;
 
   p {
     display: flex;
@@ -56,7 +56,7 @@
   }
 
   .price {
-    font-size: $fs-20;
+    font-size: 20px;
     font-weight: 700;
   }
 
@@ -142,7 +142,7 @@
 
     p {
       font-family: $fm-Nunito;
-      font-size: $fs-14;
+      font-size: 14px;
       font-weight: 300;
       color: $default-color-black;
       align-self: center;
@@ -167,7 +167,7 @@
     top: 30px;
 
     .guest-text {
-      font-size: $fs-16;
+      font-size: 16px;
       font-weight: 500;
       color: $default-color-black;
       align-self: center;
@@ -179,7 +179,7 @@
       span {
         color: $default-color-black;
         margin: 0 5px 0 5px;
-        font-size: $fs-14;
+        font-size: 14px;
       }
 
       .num-guest-button {
@@ -190,7 +190,7 @@
         background-color: transparent;
         height: 32px;
         width: 32px;
-        font-size: $fs-16;
+        font-size: 16px;
 
         &:hover {
           cursor: pointer;
@@ -236,7 +236,7 @@
     color: white;
     line-height: 20px;
     font-family: $fm-Nunito;
-    font-size: $fs-16;
+    font-size: 16px;
     font-weight: 600;
   }
 }
@@ -257,7 +257,7 @@
     color: rgb(14, 13, 13);
     line-height: 20px;
     font-family: $fm-Nunito;
-    font-size: $fs-16;
+    font-size: 16px;
     font-weight: 700;
   }
 }
@@ -269,7 +269,7 @@
   .price-info {
     display: flex;
     justify-content: space-between;
-    font-size: $fs-16;
+    font-size: 16px;
     font-weight: 300;
     color: $default-color-black;
     padding-top: 16px;
@@ -290,7 +290,7 @@
   .price-info-total {
     display: flex;
     justify-content: space-between;
-    font-size: $fs-16;
+    font-size: 16px;
     font-weight: 500;
     color: $default-color-black;
     padding: 30px 0 10px 0;
@@ -300,7 +300,7 @@
 
 p.reservation-footer {
   color: gray;
-  font-size: $fs-14;
+  font-size: 14px;
   font-weight: 300;
   text-align: center;
   padding-top: 16px;

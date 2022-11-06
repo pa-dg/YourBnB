@@ -51,9 +51,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: $fs-12;
+  font-size: 12px;
   font-family: $fm-Nunito;
-  font-weight: $fw-500;
+  font-weight: 500;
   background-color: transparent;
   border: none;
   color: $default-color-ltgray;
@@ -70,7 +70,7 @@
 
 .filter-modal-button {
   align-self: center;
-  font-size: $fs-14;
+  font-size: 14px;
   color: $default-color-black;
   cursor: pointer;
   display: flex;
@@ -93,7 +93,7 @@
   }
 
   span {
-    font-size: $default-font-size-md;
+    font-size: 14px;
   }
 }
 
@@ -117,7 +117,7 @@
   width: 100%;
 
   p {
-    font-size: $fs-20;
+    font-size: 20px;
     font-weight: 600;
     color: $default-color-black;
   }
@@ -130,7 +130,7 @@
     @include center-content(column);
 
     p {
-      font-size: $fs-20;
+      font-size: 20px;
       font-weight: 700;
       color: $default-color-black;
       padding: 20px;
@@ -238,7 +238,7 @@
     .num-bed {
       cursor: pointer;
       font-family: $fm-Nunito;
-      font-size: $fs-16;
+      font-size: 16px;
       font-weight: 400;
       color: $default-color-black;
       min-width: 59px;
@@ -269,7 +269,7 @@
     .filter-reset-button {
       cursor: pointer;
       font-family: $fm-Nunito;
-      font-size: $fs-16;
+      font-size: 16px;
       font-weight: 600;
       color: $default-color-black;
       border: none;
@@ -281,7 +281,7 @@
     .filter-apply-button {
       cursor: pointer;
       font-family: $fm-Nunito;
-      font-size: $fs-16;
+      font-size: 16px;
       font-weight: 600;
       color: white;
       width: 15em;
@@ -293,7 +293,7 @@
 
     .disable-apply-button {
       font-family: $fm-Nunito;
-      font-size: $fs-16;
+      font-size: 16px;
       font-weight: 600;
       color: $default-color-darkgray;
       width: 15em;

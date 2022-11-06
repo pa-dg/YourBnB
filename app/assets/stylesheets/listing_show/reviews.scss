@@ -11,7 +11,7 @@
 
   .no-reviews {
     margin-bottom: 20px;
-    font-size: $fs-24;
+    font-size: 24px;
     font-weight: 600;
 
     p {
@@ -24,7 +24,7 @@
     margin-bottom: 20px;
     display: flex;
     align-items: center;
-    font-size: $fs-20;
+    font-size: 20px;
     font-weight: 600;
 
     #star {
@@ -136,7 +136,7 @@
     .review-date {
       color: $default-color-darkgray;
       font-weight: 300;
-      font-size: $fs-14;
+      font-size: 14px;
     }
   }
 }
@@ -154,7 +154,7 @@
 }
 
 .review-message {
-  font-size: $fs-16;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.5;
   text-overflow: ellipsis;
@@ -170,7 +170,7 @@
   font-family: $fm-Montserrat;
 
   span {
-    font-size: $fs-20;
+    font-size: 20px;
     font-weight: 500;
     color: $default-color-black;
     display: flex;
@@ -195,7 +195,7 @@
       margin: 10px;
       border: 1px solid $default-color-mint;
       border-radius: 10px;
-      font-size: $fs-16;
+      font-size: 16px;
       color: $default-color-mint;
       background: $default-color-ltrgray;
 
