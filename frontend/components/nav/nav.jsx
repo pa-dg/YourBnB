@@ -46,18 +46,22 @@ const Nav = () => {
 
       <div className="right-nav">
         <div className="social-link-container">
-          <a className="social-link" href="https://github.com/pa-dg" target="_blank" rel="noopener noreferrer">
+          <a className="social-link" href="https://github.com/pa-dg" target="_blank" rel="noopener noreferrer" title="Github">
             <FaGithub size={styles.socials.size} style={styles.socials} />
           </a>
-          <a className="social-link" href="https://www.linkedin.com/in/patricia-deguzman/" target="_blank" rel="noopener noreferrer">
+
+          <a className="social-link" href="https://www.linkedin.com/in/patricia-deguzman/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
             <FaLinkedin size={styles.socials.size} style={styles.socials} />
           </a>
-          <a className="social-link" href="https://angel.co/u/patricia-andrea-de-guzman" target="_blank" rel="noopener noreferrer">
+
+          <a className="social-link" href="https://angel.co/u/patricia-andrea-de-guzman" target="_blank" rel="noopener noreferrer" title="AngelList">
             <FaAngellist size={styles.socials.size} style={styles.socials} />
           </a>
-          <a className="social-link" href="mailto:padgzmn@gmail.com" target="_blank" rel="noopener noreferrer">
+
+          <a className="social-link" href="mailto:padgzmn@gmail.com" target="_blank" rel="noopener noreferrer" title="Portfolio">
             <FaFolderOpen size={styles.socials.size} />
           </a>
+
         </div>
           <DropDownContainer/>
       </div>
