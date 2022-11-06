@@ -38,7 +38,12 @@ const mapStateToProps = ({ entities: {listings, reviews}, session }, ownProps) =
     avgRatings[category] = (avgRatings[category] / numReviews);
   });
 
-  const avgStarRating = (Object.values(avgRatings).reduce((acc, rating) => acc + rating) / categories.length).toFixed(2)
+  let avgStarRating;
+    if (numReviews !== 0) {
+      avgStarRating = (Object.values(avgRatings).reduce((acc, rating) => acc + rating) / categories.length).toFixed(2);
+    } else {
+      avgStarRating = "0.0";
+    }
 
   return {
     listingId,
