@@ -6,7 +6,9 @@ const LoadingContainer = () => {
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 5000);
+    const intervalID = setTimeout(() => setIsLoading(false), 5000);
+
+    return () => clearTimeout(intervalID);
   }, []);
 
   const styles = {
