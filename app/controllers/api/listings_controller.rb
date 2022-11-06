@@ -2,10 +2,11 @@ class Api::ListingsController < ApplicationController
   def index
     listings = bounds ? Listing.in_bounds(bounds) : Listing.all
 
-    #condition for the filter/search bar
+    #Query based on filter inputs (minPrice - maxPrice) or (numBeds)
     if params[:minPrice] && params[:maxPrice] 
-      price_range = (params[:minPrice]..params[:maxPrice])
       listings = listings.where(price: price_range)
+    elsif params[:minPrice] && params[:maxPrice] && params[:numBeds]
+      listings = listings.where(price: price_range, num_beds: beds_range)
     elsif bounds && guest
       listings = listings.where('guest >= (?)', guest)
     else 
@@ -29,6 +30,15 @@ class Api::ListingsController < ApplicationController
 
   private
 
+  # need to implement 'Any' which will filter ALL numBeds
+  def beds_range
+    params[:numBeds]
+  end
+  
+  def price_range
+    (params[:minPrice]..params[:maxPrice])
+  end
+  
   def bounds
     params[:bounds]
   end
@@ -37,8 +47,11 @@ class Api::ListingsController < ApplicationController
     params[:guest]
   end
   
-  def new_listing_params
-    params.require(:listing).permit(:title, :description, :lat, :lng, :street, :city, :state, :country, :zip_code, :price, :additional_fees, :property_type, :num_beds, :num_baths, photos: [])
-  end
+  # TO REMOVE: might not implement this functionality
+  # def listing_params
+  #   snake_case_params!(params[:listing])
 
+  #   params.require(:listing).permit(::title, :description, :lat, :lng, :street, :city, :state, :country, :zip_code, :price, :additional_fees, :property_type, :num_beds, :num_baths, photos: [])
+  # end
+  
 end
