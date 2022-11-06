@@ -15,7 +15,7 @@ const mapCategoryToDisplayName = (category) => {
   }
 };
 
-const ReviewsIndex = ({ listingId, currentUserId, reviews, numReviews, avgRatings, avgStar, fetchReviews, openModal }) => {
+const ReviewsIndex = ({ listingId, currentUserId, reviews, numReviews, avgRatings, avgStarRating, fetchReviews, openModal }) => {
   useEffect(() => {
     fetchReviews(listingId);
   }, []);
@@ -40,7 +40,7 @@ const ReviewsIndex = ({ listingId, currentUserId, reviews, numReviews, avgRating
             <header className="reviews-index-header">
               <div className="reviews-stars-num-reviews">
                 <span id="star"><HiStar size={25} /></span>
-                <span>{avgStar} · {numReviews} {numReviews === 1 ? 'review' : 'reviews'}</span>
+                <span>{avgStarRating} · {numReviews} {numReviews === 1 ? 'review' : 'reviews'}</span>
               </div>
 
               <div className="review-new" onClick={createReviewForm}>

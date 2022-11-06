@@ -11,7 +11,7 @@ import ReviewsIndex from './reviews_index';
 import { reviewsCount } from "../util/reviewsCount";
 import LoadingContainer from "../util/LoadingContainer";
 
-const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, createReservation, openModal }) => {
+const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, createReservation, openModal, numReviews, avgStarRating }) => {
   const [listing, setListing] = useState(selectedListing);
   // const [showCalendar, setShowCalendar] = useState(false);
 
@@ -46,13 +46,6 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, 
     });
   }
 
-  const handleReviewsLinkClick = (e) => {
-    e.preventDefault();
-    openModal({
-      type: 'reviewsIndex',
-    })
-  }
-
   return (
     <div className="listing-show-container">
       {listing ? (
@@ -64,8 +57,8 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, 
 
             <div className="listing-show-subheading">
               <div className="subheading-left">
-                <span><HiStar size={styles.size} style={styles} />{listing.avgRating} &middot;</span>
-                <span onClick={handleReviewsLinkClick}>{reviewsCount(listing.numReviews)}</span>
+                <span><HiStar size={styles.size} style={styles} />{avgStarRating} &middot;</span>
+                <span>{reviewsCount(numReviews)}</span>
                 <span>&middot; </span>
                 <span>{listing.city}, {listing.state}, {listing.country}</span>
               </div>
@@ -134,7 +127,8 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, 
                 key={`${Math.random()}`} 
                 listing={listing} 
                 listingId={listingId} 
-                numReviews={reviewsCount(listing.numReviews)}
+                numReviews={reviewsCount(numReviews)}
+                avgStarRating={avgStarRating}
                 createReservation={createReservation} 
                 currentUserId={currentUserId} 
                 openModal={openModal} 
@@ -146,6 +140,8 @@ const ListingShow = ({ listingId, selectedListing, currentUserId, fetchListing, 
             listingId={listingId} 
             currentUserId={currentUserId} 
             openModal={openModal} 
+            numReviews={numReviews}
+            avgStarRating={avgStarRating}
           />
 
           <ListingMap 

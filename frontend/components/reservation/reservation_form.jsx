@@ -4,9 +4,9 @@ import { HiStar, HiChevronDown, HiChevronUp } from 'react-icons/hi';
 import { withRouter } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
-const ReservationForm = ({ listingId, listing, createReservation, currentUserId,  openModal } ) => {
+const ReservationForm = ({ listingId, listing, numReviews, avgStarRating, createReservation, currentUserId,  openModal } ) => {
 
-  const { price, numGuest, additionalFees, numReviews, avgRating } = listing;
+  const { price, numGuest, additionalFees } = listing;
   
   const [reservationInfo, setReservationInfo] = useState({
     checkInDate: '',
@@ -16,7 +16,7 @@ const ReservationForm = ({ listingId, listing, createReservation, currentUserId,
     listingId,
     userId: currentUserId,
   })
-
+  
   const [toggledDropDown, setToggledDropDown] = useState(false);
   
   const currentDate = new Date().toLocaleDateString('en-ca');
@@ -109,9 +109,9 @@ const ReservationForm = ({ listingId, listing, createReservation, currentUserId,
           <span>night</span>
         </p>
         <p>
-          <span><HiStar size={styles.star.size} style={styles.star}/>{avgRating}</span>
+          <span><HiStar size={styles.star.size} style={styles.star}/>{avgStarRating}</span>
           <span>&middot;</span>
-          <span className="reviews-link">{numReviews > 1 ? `${numReviews} reviews` : '0 review'}</span>
+          <span className="reviews-link">{numReviews}</span>
         </p>
       </div>
 
@@ -131,7 +131,7 @@ const ReservationForm = ({ listingId, listing, createReservation, currentUserId,
                 <label htmlFor="checkout-date">CHECKOUT</label>
                   <input 
                     type="date" 
-                    min={reservationInfo.checkInDate}
+                    min={`${reservationInfo.checkInDate}`}
                     value={reservationInfo.checkOutDate} 
                     onChange={update('checkOutDate')} />
               </div>
