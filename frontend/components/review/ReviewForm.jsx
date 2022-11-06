@@ -19,7 +19,7 @@ const ReviewForm = ({ reviewInfo, formType, processForm }) => {
   const [messageError, setMessageError] = useState(false);
   const [categoryError, setCategoryError] = useState(false);
   const history = useHistory();
-  
+
   useEffect(() => {
     if (isReviewDefined(reviewInfo)) {
       setReview(reviewInfo);
