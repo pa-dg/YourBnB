@@ -50,6 +50,13 @@ michael = User.create!(
   password: 'password'
 )
 
+goju = User.create!(
+  first_name: 'Goju',
+  last_name: 'Satoru',
+  email: 'goju@yourbnb.com',
+  password: 'password'
+)
+
 # Listings: location: New York City
 
 l1 = Listing.create!(
@@ -266,6 +273,22 @@ l10 = Listing.create!(
 # AWS S3 Photos
 demo_photo = URI.open('https://yourbnb-seeds.s3.amazonaws.com/profile-photo/demo.jpeg')
 demo.profile_photo.attach(io: demo_photo, filename: "demo.jpeg")
+
+andrea_photo = URI.open('https://yourbnb-seeds.s3.amazonaws.com/profile-photo/andrea.jpeg')
+andrea.profile_photo.attach(io: andrea_photo, filename: "andrea.jpeg")
+
+andy_photo = URI.open('https://yourbnb-seeds.s3.amazonaws.com/profile-photo/andy.jpeg')
+andy.profile_photo.attach(io: andy_photo, filename: "andy.jpeg")
+
+anthony_photo = URI.open('https://yourbnb-seeds.s3.amazonaws.com/profile-photo/anthony.jpeg')
+anthony.profile_photo.attach(io: anthony_photo, filename: "anthony.jpeg")
+
+michael_photo = URI.open('https://yourbnb-seeds.s3.amazonaws.com/profile-photo/michael.jpeg')
+michael.profile_photo.attach(io: michael_photo, filename: "michael.jpeg")
+
+goju_photo = URI.open('https://yourbnb-seeds.s3.amazonaws.com/profile-photo/goju.jpeg')
+goju.profile_photo.attach(io: goju_photo, filename: "goju.jpeg")
+
 
 l1_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_001.png')
 l1_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_002.png')
