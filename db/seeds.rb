@@ -280,11 +280,11 @@ andrea.profile_photo.attach(io: andrea_photo, filename: "andrea.jpeg")
 andy_photo = URI.open('https://yourbnb-seeds.s3.amazonaws.com/profile-photo/andy.jpeg')
 andy.profile_photo.attach(io: andy_photo, filename: "andy.jpeg")
 
-anthony_photo = URI.open('https://yourbnb-seeds.s3.amazonaws.com/profile-photo/anthony.jpeg')
-anthony.profile_photo.attach(io: anthony_photo, filename: "anthony.jpeg")
+anthony_photo = URI.open('https://yourbnb-seeds.s3.amazonaws.com/profile-photo/anthony.jpg')
+anthony.profile_photo.attach(io: anthony_photo, filename: "anthony.jpg")
 
-michael_photo = URI.open('https://yourbnb-seeds.s3.amazonaws.com/profile-photo/michael.jpeg')
-michael.profile_photo.attach(io: michael_photo, filename: "michael.jpeg")
+michael_photo = URI.open('https://yourbnb-seeds.s3.amazonaws.com/profile-photo/michael.jpg')
+michael.profile_photo.attach(io: michael_photo, filename: "michael.jpg")
 
 goju_photo = URI.open('https://yourbnb-seeds.s3.amazonaws.com/profile-photo/goju.jpeg')
 goju.profile_photo.attach(io: goju_photo, filename: "goju.jpeg")
@@ -488,7 +488,7 @@ rev2 = Review.create!(
 )
 
 rev3 = Review.create!(
-  reviewer_id: michael.id,
+  reviewer_id: andrea.id,
   listing_id: l5.id,
   message: "The apartment was very clean. We enjoyed our stay.",
   cleanliness: 5,
@@ -522,3 +522,230 @@ rev5 = Review.create!(
   value: 4,
   location: 5,
 )
+
+rev6 = Review.create!(
+  reviewer_id: andrea.id,
+  listing_id: l6.id,
+  message: "Location is great! Very easy check in, we were able to drop off our luggage before check in, which was great. Room perfect for 2 people, very clean, and comfy!",
+  cleanliness: 5,
+  accuracy: 4,
+  communication: 4,
+  check_in: 5,
+  value: 4,
+  location: 5,
+)
+
+rev7 = Review.create!(
+  reviewer_id: andrea.id,
+  listing_id: l8.id,
+  message: "Perfect for a busy tourist! Great central location, close to subway access, great restaurants and coffee shops nearby. Quite at night, comfortable bed, and provided ample supplies (towels, shampoo, lotion, etc.).
+  Highly recommend.",
+  cleanliness: 5,
+  accuracy: 5,
+  communication: 5,
+  check_in: 5,
+  value: 4,
+  location: 5,
+)
+
+rev8 = Review.create!(
+  reviewer_id: andrea.id,
+  listing_id: l1.id,
+  message: "Very cozy bedroom! Location is great if you want to travel around the Manhattan!",
+  cleanliness: 4,
+  accuracy: 4,
+  communication: 4,
+  check_in: 4,
+  value: 3,
+  location: 5,
+)
+
+rev9 = Review.create!(
+  reviewer_id: andy.id,
+  listing_id: l10.id,
+  message: "We had a great stay here! The bed was very comfortable. Michael was very accommodating as well. This apartment is a great location within reasonable walking distance of Times Square and many of the Broadway theatres!",
+  cleanliness: 4,
+  accuracy: 4,
+  communication: 5,
+  check_in: 5,
+  value: 3,
+  location: 5,
+)
+
+rev10 = Review.create!(
+  reviewer_id: andy.id,
+  listing_id: l7.id,
+  message: "Great room and great location! It was perfect for our short visit and we enjoyed relaxing on the comfy bed at the end of a long day in the city. The room is the perfect size for two people. Very clean and great water pressure in the shower. Would definitely stay here again!",
+  cleanliness: 4,
+  accuracy: 4,
+  communication: 5,
+  check_in: 5,
+  value: 5,
+  location: 5,
+)
+
+rev11 = Review.create!(
+  reviewer_id: anthony.id,
+  listing_id: l2.id,
+  message: "Perfect for a busy tourist! Great central location, close to subway access, great restaurants and coffee shops nearby. Quite at night, comfortable bed, and provided ample supplies (towels, shampoo, lotion, etc.).
+  Highly recommend.",
+  cleanliness: 4,
+  accuracy: 4,
+  communication: 4,
+  check_in: 4,
+  value: 4,
+  location: 5,
+)
+
+rev12 = Review.create!(
+  reviewer_id: anthony.id,
+  listing_id: l3.id,
+  message: "Our Sonder stay was nice, clean and as advertised. Location was a bit far from our planned activities but good location otherwise. Views of Battery park and the water from our room (and the rooftop)! Loved the stocked kitchen essentials. (Dishes, cookware, cleaning supplies etc.)",
+  cleanliness: 5,
+  accuracy: 5,
+  communication: 5,
+  check_in: 4,
+  value: 4,
+  location: 4,
+)
+
+rev13 = Review.create!(
+  reviewer_id: anthony.id,
+  listing_id: l4.id,
+  message: "This was a fantastic trip. You can really settle in for an authentic upper west experience from days gone by. I loved the building, and the friendly neighborhood. I would definitely come again.",
+  cleanliness: 4,
+  accuracy: 4,
+  communication: 4,
+  check_in: 4,
+  value: 5,
+  location: 5,
+)
+
+rev14 = Review.create!(
+  reviewer_id: anthony.id,
+  listing_id: l10.id,
+  message: "We enjoyed our stay at the apartment very much. Great location! Perfect communication with the host, Michael, who was so kind to issue a rebate for the night we missed due to a flight cancelling. If we come back to NYC for a short period of time we will definitely stay there again.",
+  cleanliness: 3,
+  accuracy: 4,
+  communication: 4,
+  check_in: 5,
+  value: 3,
+  location: 5,
+)
+
+rev15 = Review.create!(
+  reviewer_id: michael.id,
+  listing_id: l7.id,
+  message: "Studio was great for a night out in the city. Its very close to Madison Square Garden where we were seeing a show. It was a short walk back to our room. It was clean and the AC worked well. Check in/out was a breeze",
+  cleanliness: 5,
+  accuracy: 5,
+  communication: 5,
+  check_in: 5,
+  value: 5,
+  location: 5,
+)
+
+rev16 = Review.create!(
+  reviewer_id: michael.id,
+  listing_id: l2.id,
+  message: "This was without a doubt the best stay Ive had in New York. Gil is the perfect host! He immediately responded to my request and any time I had a question he was there to help. The East Village location is perfect incredible 24 hour bodega/deli right on the corner. I got coffee there every morning and sandwiches for picnics. There is a really great park just around the block and to Citi Bike stands on the same street. I cant wait to come back! This will always be my first choice!",
+  cleanliness: 5,
+  accuracy: 5,
+  communication: 5,
+  check_in: 5,
+  value: 5,
+  location: 5,
+)
+
+rev17 = Review.create!(
+  reviewer_id: michael.id,
+  listing_id: l4.id,
+  message: "Amazing location! The neighborhood is generally pretty quiet and Im walking distance to great coffee shops and restaurants. We were right next to the park and a couple of minutes away from the subway so we are able to to explore all of NYC. The apartment itself was clean and well stocked. Michael thought of every detail and was very warm and welcoming. We hope to come back!",
+  cleanliness: 4,
+  accuracy: 5,
+  communication: 5,
+  check_in: 4,
+  value: 4,
+  location: 5,
+)
+
+rev18 = Review.create!(
+  reviewer_id: michael.id,
+  listing_id: l10.id,
+  message: "My stay was great! Its in a great location by Bryant Park and 5th ave. Quick walk to the subway & location was very calm. He was very quick to respond in our communication & flexible in adding dates to our stay. I always look at the bathrooms in an airbnb for cleanliness & enough space and can say it was perfect. Overall, great room for the weekend!",
+  cleanliness: 5,
+  accuracy: 4,
+  communication: 5,
+  check_in: 4,
+  value: 3,
+  location: 5,
+)
+
+rev19 = Review.create!(
+  reviewer_id: goju.id,
+  listing_id: l1.id,
+  message: "We stayed at this listing and Andrea was the best host for a week and it was perfect. Its a great base to explore the city, and so lovely to be surrounded by some great restaurants + cafes in West Village! Andrea was very good at communicating and gave us lots of super recommendations. The place itself is lovely, so comfortable and gets some gorgeous light. Thank you for a perfect stay!",
+  cleanliness: 5,
+  accuracy: 5,
+  communication: 5,
+  check_in: 4,
+  value: 4,
+  location: 5,
+)
+
+rev20 = Review.create!(
+  reviewer_id: goju.id,
+  listing_id: l7.id,
+  message: "Great spot and location. As advertised. Wonderful communication! We appreciated that Michael also offered us a late check-out time that worked best with our schedule. Would recommend.",
+  cleanliness: 4,
+  accuracy: 4,
+  communication: 5,
+  check_in: 5,
+  value: 4,
+  location: 4,
+)
+
+rev21 = Review.create!(
+  reviewer_id: goju.id,
+  listing_id: l6.id,
+  message: "The room is exactly as pictured. Its located right in the middle of Manhattan and it made our trip to New York even better because of the experience of living in the city! Communication was really not needed- we just walked into the reception and checked in. Our tub didnt drain water the first day but we requested maintenance and that was fixed very quickly. Quite an amazing experience, very highly recommend!",
+  cleanliness: 4,
+  accuracy: 4,
+  communication: 4,
+  check_in: 5,
+  value: 3,
+  location: 4,
+)
+
+rev22 = Review.create!(
+  reviewer_id: goju.id,
+  listing_id: l3.id,
+  message: "Convenient location for downtown areas. Also lovely to walk around Battery Park area in evening. Once the internet worked, it was great fast and brilliant for working. Anthony communicate very well and loved the building. Would recommend this!",
+  cleanliness: 4,
+  accuracy: 4,
+  communication: 4,
+  check_in: 4,
+  value: 4,
+  location: 4,
+)
+
+rev23 = Review.create!(
+  reviewer_id: goju.id,
+  listing_id: l8.id,
+  message: "The room was clean and well-equipped, and the check in/check out process was smooth. Great experience overall!",
+  cleanliness: 4,
+  accuracy: 5,
+  communication: 4,
+  check_in: 5,
+  value: 4,
+  location: 4,
+)
+
+
+
+
+
+
+
+
+
