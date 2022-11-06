@@ -19,7 +19,7 @@ demo = User.create!(
   first_name: 'Demo',
   last_name: 'User',
   email: 'demouser@yourbnb.com',
-  password: 'password'
+  password: 'password',
 )
 
 andrea = User.create!(
@@ -75,8 +75,8 @@ l1 = Listing.create!(
 
 l2 = Listing.create!(
   host_id: andy.id,
-  title: "Untitled at Freeman - Tower Balcony Studio 1401",
-  description: "Charming Studio with a balcony located in the heart of Lower East Side of Manhattan.",
+  title: "Untitled at Freeman - Tower Balcony Apartment 1401",
+  description: "Charming Apartment with a balcony located in the heart of Lower East Side of Manhattan.",
   lat: 40.727517781962,
   lng: -73.98836964777286,
   street: "270 E 6th St",
@@ -89,7 +89,7 @@ l2 = Listing.create!(
   property_type: "Condominium",
   price_per_night: "per night",
   additional_fees: 70,
-  num_guest: 3,
+  num_guest: 4,
   num_beds: 2,
   num_baths: 2
 )
@@ -199,27 +199,6 @@ l7 = Listing.create!(
   num_baths: 2
 )
 
-# l7 = Listing.create!(
-#   host_id: anthony.id,
-#   title: "In the heart of KoreaTown and walking distance near Madison Square Garden - Apartment",
-#   description: "Great and amazing interior modern apartment near Empire State Building and Madison Square Garden area. The apartment is always well maintained and cleaned.",
-#   lat: 40.74726749079826, 
-#   lng: -73.98515809845861,  
-#   street: "319 5th Ave",   
-#   city: "New York",
-#   state: "NY",
-#   country: "United States",
-#   zip_code: 10016,
-#   price: 189.00,
-#   price_currency: "USD" ,
-#   property_type: "Apartment",
-#   price_per_night: "per night",
-#   additional_fees: 0,
-#   num_guest: 2,
-#   num_beds: 1,
-#   num_baths: 1
-# )
-
 l8 = Listing.create!(
   host_id: andrea.id,
   title: "Located in KoreaTown and walking distance near Madison Square Garden - Studio",
@@ -278,13 +257,16 @@ l10 = Listing.create!(
   property_type: "Apartment",
   price_per_night: "per night",
   additional_fees: 50,
-  num_guest: 4,
-  num_beds: 3,
+  num_guest: 6,
+  num_beds: 4,
   num_baths: 2
 )
 
 
 # AWS S3 Photos
+demo_photo = URI.open('https://yourbnb-seeds.s3.amazonaws.com/profile-photo/demo.jpeg')
+demo.profile_photo.attach(io: demo_photo, filename: "demo.jpeg")
+
 l1_img01 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_001.png')
 l1_img02 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_002.png')
 l1_img03 = URI.open('https://yourbnb-seeds.s3.amazonaws.com/listing01/l1_img_003.jpg')
