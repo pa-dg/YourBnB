@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-// import { updateFilter as updateFilterAction } from "../../actions/filterActions";
 import { updateFilter, clearFilter } from '../../actions/filterActions';
 import { closeModal } from "../../actions/modal_actions";
 import FilterForm from './FilterForm';
@@ -15,7 +14,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // updateFilter: (filter, value) => dispatch(updateFilterAction(filter, value)),
     updateFilter: (filter) => dispatch(updateFilter(filter)),
     closeModal: () => dispatch(closeModal()),
     clearFilter: () => dispatch(clearFilter()),

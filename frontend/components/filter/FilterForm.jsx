@@ -37,7 +37,9 @@ const FilterForm = ({ minPrice, maxPrice, numBeds, updateFilter, closeModal, cle
     e.preventDefault();
     updateFilter(filter)
     setIsLoading(true)
-    setTimeout(() => closeModal(), 1000);
+    const intervalID = setTimeout(() => closeModal(), 1000);
+
+    return () => clearTimeout(intervalID);
   };
 
   const handleClearFilter = (e) => {
@@ -109,7 +111,7 @@ const FilterForm = ({ minPrice, maxPrice, numBeds, updateFilter, closeModal, cle
       
           <div className="num-beds-input">
             {/* TO BE REFACTORED, need clicked button to stay active until another button's clicked */}
-            <button className="num-bed" onClick={updateNumBeds(5)}>Any</button>
+            <button className="num-bed" onClick={updateNumBeds(4)}>Any</button>
             <button className="num-bed" onClick={updateNumBeds(1)}>1</button>
             <button className="num-bed" onClick={updateNumBeds(2)}>2</button>
             <button className="num-bed" onClick={updateNumBeds(3)}>3</button>
