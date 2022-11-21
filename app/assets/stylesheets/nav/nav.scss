@@ -49,8 +49,6 @@
 
 .search-bar-container {
   @include center-content(row);
-  display: flex;
-  align-content: center;
   justify-content: space-between;
   text-align: start;
   width: 500px;
@@ -77,14 +75,15 @@
   }
 
   input {
+    color: purple;
     font-size: 16px;
     font-weight: 300;
     font-family: $fm-Nunito;
-    color: lightgray;
     width: 95%;
-    margin-left: 4px;
+    margin-left: 6px;
     border: none;
     padding: 8px 0 8px 0;
+    text-transform: capitalize;
 
     &:focus {
       outline: none;
@@ -97,11 +96,11 @@
   @include center-content(column);
   width: 32px;
   height: 32px;
-  margin: 0;
-  padding: 0;
   border-radius: 50%;
   background-color: #ff385c;
   color: white;
+  border: none;
+  cursor: pointer;
 }
 
 .right-nav {
