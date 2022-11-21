@@ -56,7 +56,7 @@ Check out the Live Site! --> [YourBnB](https://yourbnb.herokuapp.com/#/)
 
 ### Filter Listings
 
-- Users can filter listings by price and/or by up to number of beds.
+- Users can filter listings by price and/or by up to number of beds. Additionally, users are able to search by city on the search bar.
 
 ![](https://github.com/pa-dg/airbnb_clone/blob/master/app/assets/images/gifs/filters.gif)
 
