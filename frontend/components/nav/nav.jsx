@@ -42,12 +42,12 @@ const Nav = () => {
             <FaLinkedin size={styles.socials.size} style={styles.socials} />
           </a>
 
-          <a className="social-link" href="https://angel.co/u/patricia-andrea-de-guzman" target="_blank" rel="noopener noreferrer" title="AngelList">
-            <FaAngellist size={styles.socials.size} style={styles.socials} />
+          <a className="social-link" href="https://www.padg.dev/" target="_blank" rel="noopener noreferrer" title="Portfolio">
+            <FaFolderOpen size={styles.socials.size} style={styles.socials} />
           </a>
 
-          <a className="social-link" href="mailto:padgzmn@gmail.com" target="_blank" rel="noopener noreferrer" title="Portfolio">
-            <FaFolderOpen size={styles.socials.size} />
+          <a className="social-link" href="https://angel.co/u/patricia-andrea-de-guzman" target="_blank" rel="noopener noreferrer" title="AngelList">
+            <FaAngellist size={styles.socials.size} />
           </a>
 
         </div>
