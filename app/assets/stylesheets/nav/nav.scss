@@ -75,7 +75,7 @@
   }
 
   input {
-    color: purple;
+    color: $default-color-gray;
     font-size: 16px;
     font-weight: 300;
     font-family: $fm-Nunito;
@@ -89,6 +89,10 @@
       outline: none;
       color: $default-color-black;
     }
+  }
+
+  ::placeholder {
+    color: $default-color-gray;
   }
 }
 
