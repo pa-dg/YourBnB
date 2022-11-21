@@ -9,6 +9,7 @@ const mapStateToProps = ({ entities: { listings }, ui: { filters } }) => {
       listing.price >= filters.minPrice 
       && listing.price <= filters.maxPrice 
       && listing.numBeds <= filters.numBeds
+      && listing.city.toLowerCase() === filters.city.toLowerCase()
   )
   
   return {

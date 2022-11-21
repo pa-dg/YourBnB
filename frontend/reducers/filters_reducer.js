@@ -1,6 +1,7 @@
 import { RECEIVE_FILTER, CLEAR_FILTER } from "../actions/filterActions";
 
 const defaultFilters = Object.freeze({
+  city: "New York",
   minPrice: 0,
   maxPrice: 500,
   numBeds: 4,

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import DropDownContainer from './dropdown';
 import { FaAirbnb, FaGithub, FaLinkedin, FaAngellist, FaFolderOpen } from 'react-icons/fa';
+import SearchFormContainer from '../search/searchFormContainer';
 
 const Nav = () => {
   const styles = {
@@ -29,20 +30,7 @@ const Nav = () => {
         </Link>
       </div>
 
-      <div className="search-bar-container">
-            <div className="search-input">
-              <label htmlFor="search-input">
-                <input 
-                  type="text" 
-                  placeholder=' Start Searching (New York..)'
-                />
-              </label>
-              
-            </div>
-            <div className="search-button">
-              <i className="fas fa-search fa-1x"></i>
-            </div>
-      </div>
+      <SearchFormContainer />
 
       <div className="right-nav">
         <div className="social-link-container">
